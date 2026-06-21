@@ -9,8 +9,9 @@
     "data:build": "node scripts/build-web-data.mjs",
     "dev": "npm run data:build && vinext dev",
     "build": "npm run data:build && vinext build",
+    "pages:build": "npm run data:build && vite build --config vite.pages.config.ts && node scripts/prepare-pages.mjs",
     "start": "vinext start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern dist-pages --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {

@@ -2,6 +2,7 @@ node_modules/
 web/node_modules/
 dist/
 web/dist/
+web/dist-pages/
 web/.next/
 web/public/api/
 web/public/sitemap.xml

@@ -102,6 +102,29 @@ function readStoredNumber(key: string, fallback: number, min = 0, max = Number.P
   return Number.isFinite(value) && value >= min && value <= max ? value : fallback;
 }
 
+function appBasePath() {
+  if (typeof window === "undefined") return "/";
+  const base = document.querySelector("base")?.getAttribute("href") ?? "/";
+  return new URL(base, window.location.origin).pathname;
+}
+
+function appUrl(path: string) {
+  const base = appBasePath();
+  return `${base.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
+}
+
+function apiUrl(path: string) {
+  return appUrl(path);
+}
+
+function routeInitialId() {
+  if (typeof window === "undefined") return undefined;
+  const routePrefix = appUrl("tu/");
+  if (!window.location.pathname.startsWith(routePrefix)) return undefined;
+  const encodedId = window.location.pathname.slice(routePrefix.length).split("/")[0];
+  return encodedId ? decodeURIComponent(encodedId) : undefined;
+}
+
 function scoreEntry(entry: SearchEntry, query: string, normalized: string) {
   const word = entry.word.toLowerCase();
   if (word === query.toLowerCase() || entry.noTone === normalized) return 200;
@@ -113,6 +136,7 @@ function scoreEntry(entry: SearchEntry, query: string, normalized: string) {
 }
 
 export default function DictionaryApp({ initialId }: DictionaryAppProps) {
+  const [routeId] = useState(() => initialId ?? routeInitialId());
   const [index, setIndex] = useState<SearchEntry[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
   const [hanIndex, setHanIndex] = useState<HanEntry[]>([]);
@@ -128,9 +152,9 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
 
   useEffect(() => {
     Promise.all([
-      fetch("/api/search-index.json").then((response) => response.json()),
-      fetch("/api/stats.json").then((response) => response.json()),
-      fetch("/api/han-index.json").then((response) => response.json()),
+      fetch(apiUrl("api/search-index.json")).then((response) => response.json()),
+      fetch(apiUrl("api/stats.json")).then((response) => response.json()),
+      fetch(apiUrl("api/han-index.json")).then((response) => response.json()),
     ]).then(([searchRows, statsData, hanRows]) => {
       setIndex(searchRows);
       setStats(statsData);
@@ -156,23 +180,25 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
         typeof entryOrId === "string" ? index.find((row) => row.id === entryOrId) : entryOrId;
       if (!entry) return;
       setLoadingDetail(true);
-      const rows: WordEntry[] = await fetch(`/api/words/${entry.bucket}.json`).then((response) => response.json());
+      const rows: WordEntry[] = await fetch(apiUrl(`api/words/${entry.bucket}.json`)).then((response) =>
+        response.json()
+      );
       const detail = rows.find((row) => row.id === entry.id) ?? null;
       setSelected(detail);
       setSelectedHan(null);
       setHistory((current) => [entry.id, ...current.filter((id) => id !== entry.id)].slice(0, 10));
-      if (pushUrl) window.history.replaceState(null, "", `/tu/${encodeURIComponent(entry.id)}`);
+      if (pushUrl) window.history.replaceState(null, "", appUrl(`tu/${encodeURIComponent(entry.id)}`));
       setLoadingDetail(false);
     },
     [index]
   );
 
   useEffect(() => {
-    if (initialId && index.length > 0 && !selected) {
-      const timer = window.setTimeout(() => void loadWord(initialId, false), 0);
+    if (routeId && index.length > 0 && !selected) {
+      const timer = window.setTimeout(() => void loadWord(routeId, false), 0);
       return () => window.clearTimeout(timer);
     }
-  }, [initialId, index, selected, loadWord]);
+  }, [routeId, index, selected, loadWord]);
 
   const results = useMemo(() => {
     const q = query.trim();
@@ -222,7 +248,7 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
 
   const copyLink = async () => {
     if (!selected) return;
-    await navigator.clipboard.writeText(`${window.location.origin}/tu/${selected.id}`);
+    await navigator.clipboard.writeText(new URL(appUrl(`tu/${selected.id}`), window.location.origin).toString());
   };
 
   const speak = () => {
