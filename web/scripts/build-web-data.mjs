@@ -96,7 +96,34 @@ async function buildWords() {
   }
 
   searchIndex.sort((a, b) => a.n.localeCompare(b.n, "vi") || a.w.localeCompare(b.w, "vi"));
-  await writeJson(path.join(apiDir, "search-index.json"), searchIndex);
+  const searchShards = new Map();
+  for (const entry of searchIndex) {
+    const keys = new Set(
+      entry.t
+        .split("|")
+        .filter(Boolean)
+        .map((token) => token[0])
+    );
+    if (entry.b === "other" || keys.size === 0) keys.add("other");
+    for (const key of keys) {
+      const rows = searchShards.get(key) ?? [];
+      rows.push(entry);
+      searchShards.set(key, rows);
+    }
+  }
+
+  const searchDir = path.join(apiDir, "search");
+  await mkdir(searchDir, { recursive: true });
+  const shardCounts = {};
+  for (const [key, rows] of [...searchShards.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+    shardCounts[key] = rows.length;
+    await writeJson(path.join(searchDir, `${key}.json`), rows);
+  }
+  await writeJson(path.join(searchDir, "manifest.json"), {
+    version: 2,
+    totalRows: searchIndex.length,
+    shardCounts,
+  });
   return { searchIndex, letterCounts, sourceCounts };
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useDeferredValue, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
 // Compact wire keys keep the 89k-row static search payload small.
 type SearchEntry = {
@@ -118,6 +118,10 @@ function apiUrl(path: string) {
   return appUrl(path);
 }
 
+function searchShardKey(value: string) {
+  return noTone(value).match(/[a-z]/)?.[0] ?? "other";
+}
+
 function routeInitialId() {
   if (typeof window === "undefined") return undefined;
   const routePrefix = appUrl("tu/");
@@ -182,7 +186,10 @@ function topSearchResults(
 
 export default function DictionaryApp({ initialId }: DictionaryAppProps) {
   const [routeId] = useState(() => initialId ?? routeInitialId());
-  const [index, setIndex] = useState<SearchEntry[]>([]);
+  const [loadedSearchShard, setLoadedSearchShard] = useState<{ key: string; rows: SearchEntry[] } | null>(null);
+  const searchShardCache = useRef(new Map<string, Promise<SearchEntry[]>>());
+  const [knownEntries, setKnownEntries] = useState(() => new Map<string, SearchEntry>());
+  const routeLoadStarted = useRef(false);
   const [stats, setStats] = useState<Stats | null>(null);
   const [hanIndex, setHanIndex] = useState<HanEntry[]>([]);
   const [query, setQuery] = useState("");
@@ -196,17 +203,64 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
   const [fontScale, setFontScale] = useState(() => readStoredNumber("tdtv:fontScale", 1, 0.9, 1.25));
   const [letter, setLetter] = useState<string | null>(null);
 
+  const loadSearchShard = useCallback((key: string) => {
+    const cached = searchShardCache.current.get(key);
+    if (cached) return cached;
+
+    const request = fetch(apiUrl(`api/search/${key}.json`))
+      .then((response) => {
+        if (!response.ok) throw new Error(`Không thể tải chỉ mục ${key}`);
+        return response.json() as Promise<SearchEntry[]>;
+      })
+      .then((rows) => {
+        setKnownEntries((current) => {
+          const next = new Map(current);
+          for (const entry of rows) next.set(entry.i, entry);
+          return next;
+        });
+        return rows;
+      });
+    searchShardCache.current.set(key, request);
+    void request.catch(() => searchShardCache.current.delete(key));
+    return request;
+  }, []);
+
   useEffect(() => {
     Promise.all([
-      fetch(apiUrl("api/search-index.json")).then((response) => response.json()),
       fetch(apiUrl("api/stats.json")).then((response) => response.json()),
       fetch(apiUrl("api/han-index.json")).then((response) => response.json()),
-    ]).then(([searchRows, statsData, hanRows]) => {
-      setIndex(searchRows);
+    ]).then(([statsData, hanRows]) => {
       setStats(statsData);
       setHanIndex(hanRows);
     });
   }, []);
+
+  const activeShardKey = useMemo(() => {
+    const q = deferredQuery.trim();
+    return q ? searchShardKey(q) : letter;
+  }, [deferredQuery, letter]);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (!activeShardKey) return;
+
+    void loadSearchShard(activeShardKey)
+      .then((rows) => {
+        if (!cancelled) setLoadedSearchShard({ key: activeShardKey, rows });
+      })
+      .catch(() => {
+        if (!cancelled) setLoadedSearchShard({ key: activeShardKey, rows: [] });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [activeShardKey, loadSearchShard]);
+
+  const searchRows = useMemo(
+    () => (loadedSearchShard?.key === activeShardKey ? loadedSearchShard.rows : []),
+    [activeShardKey, loadedSearchShard]
+  );
+  const searchLoading = Boolean(activeShardKey && loadedSearchShard?.key !== activeShardKey);
 
   useEffect(() => {
     localStorage.setItem("tdtv:favorites", JSON.stringify(favorites));
@@ -220,10 +274,23 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
     localStorage.setItem("tdtv:fontScale", String(fontScale));
   }, [fontScale]);
 
+  const resolveSearchEntry = useCallback(
+    async (id: string) => {
+      const cached = knownEntries.get(id);
+      if (cached) return cached;
+
+      const key = searchShardKey(id);
+      const primaryRows = await loadSearchShard(key);
+      const primaryMatch = primaryRows.find((entry) => entry.i === id);
+      if (primaryMatch || key === "other") return primaryMatch;
+      return (await loadSearchShard("other")).find((entry) => entry.i === id);
+    },
+    [knownEntries, loadSearchShard]
+  );
+
   const loadWord = useCallback(
     async (entryOrId: SearchEntry | string, pushUrl = true) => {
-      const entry =
-        typeof entryOrId === "string" ? index.find((row) => row.i === entryOrId) : entryOrId;
+      const entry = typeof entryOrId === "string" ? await resolveSearchEntry(entryOrId) : entryOrId;
       if (!entry) return;
       setLoadingDetail(true);
       const rows: WordEntry[] = await fetch(apiUrl(`api/words/${entry.b}.json`)).then((response) =>
@@ -236,21 +303,22 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
       if (pushUrl) window.history.replaceState(null, "", appUrl(`tu/${encodeURIComponent(entry.i)}`));
       setLoadingDetail(false);
     },
-    [index]
+    [resolveSearchEntry]
   );
 
   useEffect(() => {
-    if (routeId && index.length > 0 && !selected) {
+    if (routeId && !routeLoadStarted.current) {
+      routeLoadStarted.current = true;
       const timer = window.setTimeout(() => void loadWord(routeId, false), 0);
       return () => window.clearTimeout(timer);
     }
-  }, [routeId, index, selected, loadWord]);
+  }, [routeId, loadWord]);
 
   const results = useMemo(() => {
     const q = deferredQuery.trim();
     const normalized = noTone(q);
-    return topSearchResults(index, q, normalized, filter, letter);
-  }, [index, deferredQuery, filter, letter]);
+    return topSearchResults(searchRows, q, normalized, filter, letter);
+  }, [searchRows, deferredQuery, filter, letter]);
 
   const hanResults = useMemo(() => {
     const q = deferredQuery.trim();
@@ -268,10 +336,25 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
       .slice(0, 80);
   }, [hanIndex, deferredQuery]);
 
-  const randomWord = () => {
-    if (index.length === 0) return;
-    const entry = index[Math.floor(Math.random() * index.length)];
-    if (entry) void loadWord(entry);
+  const randomWord = async () => {
+    const letterCounts = stats?.letterCounts;
+    if (!letterCounts) return;
+
+    const buckets = Object.entries(letterCounts);
+    const total = buckets.reduce((sum, [, count]) => sum + count, 0);
+    let target = Math.floor(Math.random() * total);
+    let bucket = "other";
+    for (const [key, count] of buckets) {
+      if (target < count) {
+        bucket = key;
+        break;
+      }
+      target -= count;
+    }
+
+    const candidates = (await loadSearchShard(bucket)).filter((entry) => entry.b === bucket);
+    const entry = candidates[Math.floor(Math.random() * candidates.length)];
+    if (entry) await loadWord(entry);
   };
 
   const toggleFavorite = () => {
@@ -293,14 +376,22 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
     window.speechSynthesis.speak(utterance);
   };
 
-  const favoriteEntries = favorites
-    .map((id) => index.find((entry) => entry.i === id))
-    .filter((entry): entry is SearchEntry => Boolean(entry))
-    .slice(0, 6);
-  const historyEntries = history
-    .map((id) => index.find((entry) => entry.i === id))
-    .filter((entry): entry is SearchEntry => Boolean(entry))
-    .slice(0, 6);
+  const favoriteEntries = useMemo(
+    () =>
+      favorites
+        .map((id) => knownEntries.get(id))
+        .filter((entry): entry is SearchEntry => Boolean(entry))
+        .slice(0, 6),
+    [favorites, knownEntries]
+  );
+  const historyEntries = useMemo(
+    () =>
+      history
+        .map((id) => knownEntries.get(id))
+        .filter((entry): entry is SearchEntry => Boolean(entry))
+        .slice(0, 6),
+    [history, knownEntries]
+  );
 
   return (
     <main className="min-h-screen bg-[#f7f8f6] text-[#18211f]">
@@ -410,23 +501,31 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
               <div className="flex items-center justify-between border-b border-[#e3e8e3] px-3 py-2">
                 <h2 className="text-sm font-semibold text-[#273a35]">Kết quả</h2>
                 <span className="text-xs text-[#64726d]" aria-live="polite">
-                  {query !== deferredQuery ? "Đang tìm..." : `${results.length} kết quả`}
+                  {query !== deferredQuery || searchLoading
+                    ? "Đang tìm..."
+                    : !deferredQuery.trim() && !letter
+                      ? "Nhập từ để tra"
+                      : `${results.length} kết quả`}
                 </span>
               </div>
               <div className="max-h-[460px] overflow-auto">
-                {results.map((entry) => (
-                  <button
-                    key={entry.i}
-                    type="button"
-                    onClick={() => loadWord(entry)}
-                    className={`block w-full border-b border-[#eef1ee] px-3 py-3 text-left hover:bg-[#f5faf7] ${
-                      selected?.id === entry.i ? "bg-[#edf4f0]" : ""
-                    }`}
-                  >
-                    <span className="block text-base font-semibold text-[#18211f]">{entry.w}</span>
-                    <span className="mt-1 line-clamp-2 block text-sm leading-6 text-[#5a6662]">{entry.d}</span>
-                  </button>
-                ))}
+                {!deferredQuery.trim() && !letter ? (
+                  <p className="px-3 py-5 text-sm leading-6 text-[#69746f]">Nhập một mục từ để bắt đầu tra cứu.</p>
+                ) : (
+                  results.map((entry) => (
+                    <button
+                      key={entry.i}
+                      type="button"
+                      onClick={() => loadWord(entry)}
+                      className={`block w-full border-b border-[#eef1ee] px-3 py-3 text-left hover:bg-[#f5faf7] ${
+                        selected?.id === entry.i ? "bg-[#edf4f0]" : ""
+                      }`}
+                    >
+                      <span className="block text-base font-semibold text-[#18211f]">{entry.w}</span>
+                      <span className="mt-1 line-clamp-2 block text-sm leading-6 text-[#5a6662]">{entry.d}</span>
+                    </button>
+                  ))
+                )}
               </div>
             </section>
           </aside>
