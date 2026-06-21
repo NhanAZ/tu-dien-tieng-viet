@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/stratified-sample-index.schema.json",
+  "title": "StratifiedSampleIndex",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "method", "sampleLimitPerBucket", "clusters", "dimensions", "populationCounts", "sampleCounts", "note"],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "method": { "const": "deterministic-lowest-sha256-rank" },
+    "sampleLimitPerBucket": { "type": "integer", "minimum": 1 },
+    "clusters": { "type": "integer", "minimum": 0 },
+    "dimensions": {
+      "type": "array",
+      "const": ["by-status", "by-source", "by-confidence-tier", "by-length"]
+    },
+    "populationCounts": { "$ref": "#/$defs/dimensions" },
+    "sampleCounts": { "$ref": "#/$defs/dimensions" },
+    "note": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "countMap": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["byStatus", "bySource", "byConfidenceTier", "byLength"],
+      "properties": {
+        "byStatus": { "$ref": "#/$defs/countMap" },
+        "bySource": { "$ref": "#/$defs/countMap" },
+        "byConfidenceTier": { "$ref": "#/$defs/countMap" },
+        "byLength": { "$ref": "#/$defs/countMap" }
+      }
+    }
+  }
+}

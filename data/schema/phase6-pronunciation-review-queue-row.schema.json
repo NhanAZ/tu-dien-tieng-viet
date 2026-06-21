@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-pronunciation-review-queue-row.schema.json",
+  "title": "Phase6PronunciationReviewQueueRow",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "conflict_id",
+    "headword_normalized",
+    "words",
+    "reason_tags",
+    "entry_scope_reasons",
+    "review_route",
+    "review_status",
+    "route_rationale",
+    "internal_groups",
+    "recommended_action"
+  ],
+  "properties": {
+    "conflict_id": { "type": "string", "pattern": "^pronunciation-conflict-" },
+    "headword_normalized": { "type": "string", "minLength": 1 },
+    "words": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "reason_tags": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "entry_scope_reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "normalized_form_collision",
+          "cross_pos_scope",
+          "source_entry_id_reused_across_raw_records",
+          "same_form_same_pos_distinct_source_records"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "review_route": { "type": "string", "enum": ["parser_fix", "human_review"] },
+    "review_status": { "const": "unreviewed" },
+    "route_rationale": { "type": "string", "minLength": 1 },
+    "internal_groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/internalGroup" }
+    },
+    "recommended_action": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "stringSet": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "rawRecordScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_record_hash",
+        "source_entry_words",
+        "source_entry_parts_of_speech",
+        "fact_count",
+        "display_normalized_ipa_values",
+        "source_entry_id_samples"
+      ],
+      "properties": {
+        "raw_record_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "source_entry_words": { "$ref": "#/$defs/stringSet" },
+        "source_entry_parts_of_speech": { "$ref": "#/$defs/stringSet" },
+        "fact_count": { "type": "integer", "minimum": 1 },
+        "display_normalized_ipa_values": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "source_entry_id_samples": { "type": "array", "maxItems": 20, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "internalGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "dialect",
+        "transcription_system",
+        "fact_count",
+        "raw_record_count",
+        "raw_records_with_multiple_display_values",
+        "display_normalized_ipa_values",
+        "source_entry_words",
+        "source_entry_parts_of_speech",
+        "raw_record_scopes",
+        "source_entry_id_samples",
+        "sample_fact_ids"
+      ],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "dialect": { "type": ["string", "null"] },
+        "transcription_system": { "type": "string", "minLength": 1 },
+        "fact_count": { "type": "integer", "minimum": 1 },
+        "raw_record_count": { "type": "integer", "minimum": 1 },
+        "raw_records_with_multiple_display_values": { "type": "integer", "minimum": 0 },
+        "display_normalized_ipa_values": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "source_entry_words": { "$ref": "#/$defs/stringSet" },
+        "source_entry_parts_of_speech": { "$ref": "#/$defs/stringSet" },
+        "raw_record_scopes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/rawRecordScope" } },
+        "source_entry_id_samples": { "type": "array", "maxItems": 20, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "sample_fact_ids": { "type": "array", "minItems": 1, "maxItems": 20, "items": { "type": "string", "pattern": "^pronunciation-" }, "uniqueItems": true }
+      }
+    }
+  }
+}

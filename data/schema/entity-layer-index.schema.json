@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/entity-layer-index.schema.json",
+  "title": "EntityLayerIndex",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "candidates",
+    "clusterCandidates",
+    "memberCandidates",
+    "definitions",
+    "clusterLayerDefinitions",
+    "memberLevelDefinitions",
+    "entityTypeCounts",
+    "sourceLayer",
+    "note"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "MACHINE_EXTRACTED" },
+    "candidates": { "type": "integer", "minimum": 0 },
+    "clusterCandidates": { "type": "integer", "minimum": 0 },
+    "memberCandidates": { "type": "integer", "minimum": 0 },
+    "definitions": { "type": "integer", "minimum": 0 },
+    "clusterLayerDefinitions": { "type": "integer", "minimum": 0 },
+    "memberLevelDefinitions": { "type": "integer", "minimum": 0 },
+    "entityTypeCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proper_name",
+        "place_name",
+        "domain_or_encyclopedic",
+        "punctuation_headword",
+        "mixed_entity_or_encyclopedic"
+      ],
+      "properties": {
+        "proper_name": { "type": "integer", "minimum": 0 },
+        "place_name": { "type": "integer", "minimum": 0 },
+        "domain_or_encyclopedic": { "type": "integer", "minimum": 0 },
+        "punctuation_headword": { "type": "integer", "minimum": 0 },
+        "mixed_entity_or_encyclopedic": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "sourceLayer": { "const": "data/processed/senses" },
+    "note": { "type": "string", "minLength": 1 }
+  }
+}

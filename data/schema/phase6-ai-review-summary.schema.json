@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-ai-review-summary.schema.json",
+  "title": "Phase6AiReviewSummary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "academicStatus",
+    "reviewVersion",
+    "reviewerType",
+    "method",
+    "sourcePacket",
+    "sourcePacketTasks",
+    "totalDecisions",
+    "taskCounts",
+    "decisionCounts",
+    "confidenceCounts",
+    "priorityCounts",
+    "requiresHumanConfirmation",
+    "promotionAllowed",
+    "files",
+    "caveats"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "PHASE6_AI_REVIEW_DRAFT" },
+    "academicStatus": { "const": "AI_ASSISTED_REVIEW_NOT_HUMAN_REVIEWED" },
+    "reviewVersion": { "const": "phase6-ai-review-v1" },
+    "reviewerType": { "const": "ai" },
+    "method": { "const": "conservative_source_attributed_triage" },
+    "sourcePacket": { "const": "data/processed/phase6/human-review-packet.jsonl" },
+    "sourcePacketTasks": { "type": "integer", "minimum": 0 },
+    "totalDecisions": { "type": "integer", "minimum": 0 },
+    "taskCounts": { "$ref": "#/$defs/taskCounts" },
+    "decisionCounts": { "$ref": "#/$defs/countMap" },
+    "confidenceCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["high", "medium", "low"],
+      "properties": {
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "priorityCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["high", "medium", "low"],
+      "properties": {
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "requiresHumanConfirmation": { "type": "integer", "minimum": 0 },
+    "promotionAllowed": { "const": 0 },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decisions", "sample"],
+      "properties": {
+        "decisions": { "const": "data/processed/phase6/ai-review/ai-review-decisions.jsonl" },
+        "sample": { "const": "data/processed/phase6/ai-review/ai-review-decisions.sample.jsonl" }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "countMap": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "taskCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pronunciation_conflict_review", "dialect_label_review"],
+      "properties": {
+        "pronunciation_conflict_review": { "type": "integer", "minimum": 0 },
+        "dialect_label_review": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

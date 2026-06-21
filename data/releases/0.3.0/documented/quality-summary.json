@@ -1,0 +1,193 @@
+{
+  "generatedAt": "2026-06-19T21:55:05.666Z",
+  "release": {
+    "buildId": "cade45fdf9b19c5b",
+    "datasetVersion": "0.3.0",
+    "profile": "documented",
+    "selectedSources": 13
+  },
+  "storageBytes": {
+    "raw": 98285850,
+    "normalized": 335728892,
+    "processed": 376856812
+  },
+  "layers": {
+    "dictionaryHeadwords": 89569,
+    "definitions": 279667,
+    "lexemeOnly": 26581,
+    "hanVietCharacters": 11936,
+    "nomEntries": 2390,
+    "semanticSynsets": 3627,
+    "orthographicVariantGroups": 70,
+    "evidenceExamples": 173094
+  },
+  "dictionaryCoverage": {
+    "withVietnameseDefinition": 82446,
+    "withEnglishDefinition": 29377,
+    "withIpa": 48348,
+    "withPartOfSpeech": 58501,
+    "withEtymology": 24727,
+    "withLabels": 70389,
+    "multiSource": 45916,
+    "byEntrySource": {
+      "catusf_vietviet": 29183,
+      "dai_nam_quoc_am_tu_vi": 42958,
+      "kaikki_enwiktionary_vi": 29377,
+      "kaikki_viwiktionary": 39936,
+      "underthesea_uvd": 31102,
+      "vntk_dictionary": 31108
+    },
+    "definitionsByLanguage": {
+      "en": 57460,
+      "vi": 222207
+    },
+    "definitionsBySource": {
+      "catusf_vietviet": 36111,
+      "dai_nam_quoc_am_tu_vi": 48151,
+      "kaikki_enwiktionary_vi": 57460,
+      "kaikki_viwiktionary": 54577,
+      "underthesea_uvd": 41681,
+      "vntk_dictionary": 41687
+    }
+  },
+  "hanVietCoverage": {
+    "radicalCoverage": 214,
+    "radicalCoveragePercent": 100,
+    "withReading": 11057,
+    "withMeaning": 11936,
+    "enrichedByUnihan": 11936,
+    "standaloneUnihan": 0,
+    "supplementaryPlaneCharacters": 1425,
+    "byEntrySource": {
+      "catusf_thieu_chuu_stardict": 9898,
+      "kaikki_enwiktionary_vi": 3426,
+      "kaikki_viwiktionary": 794,
+      "unicode_unihan": 11936
+    }
+  },
+  "nomCoverage": {
+    "withDefinition": 2385,
+    "withFrequency": 1406,
+    "supplementaryPlaneEntries": 656
+  },
+  "hardChecks": {
+    "indexCountsMatch": true,
+    "emptyDefinitionHeadwords": 0,
+    "nonLatinDictionaryHeadwords": 0,
+    "incorrectNoToneFields": 0,
+    "duplicateIds": 0,
+    "exactDefinitionDuplicates": 0,
+    "residualDaiNamIdPlaceholders": 0,
+    "invalidVariantGroups": 0,
+    "rawFilesWithoutSha256": 0,
+    "failedSourceSamples": 0,
+    "sourceRemovalTestPassed": true,
+    "idStabilityTestPassed": true
+  },
+  "sourceSamples": [
+    {
+      "source": "vntk_dictionary",
+      "availableRecords": 41687,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "kaikki_viwiktionary",
+      "availableRecords": 63161,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "unicode_unihan",
+      "availableRecords": 10223,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "kaikki_enwiktionary_vi",
+      "availableRecords": 89199,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "underthesea_dictionary",
+      "availableRecords": 26024,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "underthesea_uvd",
+      "availableRecords": 41681,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "duyet_vietnamese_wordlist",
+      "availableRecords": 25346,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "hunspell_vi",
+      "availableRecords": 942,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "omw_wiktionary_vi",
+      "availableRecords": 4941,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "dai_nam_quoc_am_tu_vi",
+      "availableRecords": 48151,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "catusf_thieu_chuu_stardict",
+      "availableRecords": 9898,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "chunom_standard",
+      "availableRecords": 2390,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    },
+    {
+      "source": "catusf_vietviet",
+      "availableRecords": 36111,
+      "sampleSize": 100,
+      "passed": 100,
+      "failed": 0,
+      "status": "pass"
+    }
+  ]
+}

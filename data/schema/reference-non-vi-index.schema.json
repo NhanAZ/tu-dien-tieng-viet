@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/reference-non-vi-index.schema.json",
+  "title": "ReferenceNonViIndex",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "entries",
+    "definitions",
+    "languageCounts",
+    "sourceCounts",
+    "sourceLayer",
+    "consumerGuidance",
+    "note"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "REFERENCE_ONLY" },
+    "entries": { "type": "integer", "minimum": 0 },
+    "definitions": { "type": "integer", "minimum": 0 },
+    "languageCounts": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "sourceCounts": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "sourceLayer": { "const": "data/processed/senses" },
+    "consumerGuidance": { "type": "string", "minLength": 1 },
+    "note": { "type": "string", "minLength": 1 }
+  }
+}

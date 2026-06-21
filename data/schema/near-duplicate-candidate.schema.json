@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/near-duplicate-candidate.schema.json",
+  "title": "NearDuplicateCandidateCollection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["totalPairs", "sampledPairs", "pairs"],
+  "properties": {
+    "totalPairs": { "type": "integer", "minimum": 0 },
+    "sampledPairs": { "type": "integer", "minimum": 0 },
+    "pairs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pair" }
+    }
+  },
+  "$defs": {
+    "pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "word",
+        "score",
+        "left_sense_id",
+        "right_sense_id",
+        "left_source",
+        "right_source",
+        "left_meaning",
+        "right_meaning",
+        "recommended_action"
+      ],
+      "properties": {
+        "word": { "type": "string", "minLength": 1 },
+        "score": { "type": "number", "minimum": 0.82, "maximum": 1 },
+        "left_sense_id": { "type": "string", "pattern": "^sense-" },
+        "right_sense_id": { "type": "string", "pattern": "^sense-" },
+        "left_source": { "type": "string", "minLength": 1 },
+        "right_source": { "type": "string", "minLength": 1 },
+        "left_meaning": { "type": "string", "minLength": 1 },
+        "right_meaning": { "type": "string", "minLength": 1 },
+        "recommended_action": {
+          "type": "string",
+          "enum": ["machine_cluster_candidate", "review_only"]
+        }
+      }
+    }
+  }
+}

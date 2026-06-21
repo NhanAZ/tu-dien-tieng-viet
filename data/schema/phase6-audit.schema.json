@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-audit.schema.json",
+  "title": "AcademicPhase6Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "status", "headwords", "pronunciation", "etymology", "origin", "variants", "blockers", "nextActions"],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "NOT_READY_FOR_PHASE6_RELEASE" },
+    "headwords": { "type": "integer", "minimum": 0 },
+    "pronunciation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headwordsWithIpa", "coveragePercent", "normalizedSourceCounts", "directFactProvenanceSupportedBySchema", "directFactProvenanceRows", "conflictHeadwords", "conflictBucketCounts", "conflictMetadataGaps", "conflictSamples", "aiReview"],
+      "properties": {
+        "headwordsWithIpa": { "type": "integer", "minimum": 0 },
+        "coveragePercent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "normalizedSourceCounts": { "$ref": "#/$defs/countMap" },
+        "directFactProvenanceSupportedBySchema": { "const": false },
+        "directFactProvenanceRows": { "const": 0 },
+        "factLayer": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["facts", "headwords", "projectionCompatibleHeadwords", "projectedScalarHeadwords"],
+          "properties": {
+            "facts": { "type": "integer", "minimum": 0 },
+            "headwords": { "type": "integer", "minimum": 0 },
+            "projectionCompatibleHeadwords": { "type": "integer", "minimum": 0 },
+            "projectedScalarHeadwords": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "conflictHeadwords": { "type": "integer", "minimum": 0 },
+        "conflictBucketCounts": { "$ref": "#/$defs/bucketCounts" },
+        "conflictMetadataGaps": { "$ref": "#/$defs/metadataGaps" },
+        "conflictSamples": {
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["headword", "ipaValues"],
+            "properties": {
+              "headword": { "type": "string", "minLength": 1 },
+              "ipaValues": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+            }
+          }
+        },
+        "aiReview": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": [
+            "totalDecisions",
+            "taskCounts",
+            "decisionCounts",
+            "confidenceCounts",
+            "priorityCounts",
+            "requiresHumanConfirmation",
+            "promotionAllowed"
+          ],
+          "properties": {
+            "totalDecisions": { "type": "integer", "minimum": 0 },
+            "taskCounts": { "$ref": "#/$defs/countMap" },
+            "decisionCounts": { "$ref": "#/$defs/countMap" },
+            "confidenceCounts": { "$ref": "#/$defs/countMap" },
+            "priorityCounts": { "$ref": "#/$defs/countMap" },
+            "requiresHumanConfirmation": { "type": "integer", "minimum": 0 },
+            "promotionAllowed": { "const": 0 }
+          }
+        }
+      }
+    },
+    "etymology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headwordsWithEtymology", "coveragePercent", "facts", "sourceCounts", "languageCounts", "invalidProvenance"],
+      "properties": {
+        "headwordsWithEtymology": { "type": "integer", "minimum": 0 },
+        "coveragePercent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "facts": { "type": "integer", "minimum": 0 },
+        "sourceCounts": { "$ref": "#/$defs/countMap" },
+        "languageCounts": { "$ref": "#/$defs/countMap" },
+        "invalidProvenance": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["counts", "nonUnknownHeadwords", "directFactProvenanceSupportedBySchema", "factLayer"],
+      "properties": {
+        "counts": { "$ref": "#/$defs/countMap" },
+        "nonUnknownHeadwords": { "type": "integer", "minimum": 0 },
+        "directFactProvenanceSupportedBySchema": { "const": false },
+        "factLayer": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["facts", "headwords", "projectionCompatibleHeadwords", "projectedScalarHeadwords"],
+          "properties": {
+            "facts": { "type": "integer", "minimum": 0 },
+            "headwords": { "type": "integer", "minimum": 0 },
+            "projectionCompatibleHeadwords": { "type": "integer", "minimum": 0 },
+            "projectedScalarHeadwords": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "variants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["groups", "forms", "relationCounts", "provenanceTraces", "invalidProvenance"],
+      "properties": {
+        "groups": { "type": "integer", "minimum": 0 },
+        "forms": { "type": "integer", "minimum": 0 },
+        "relationCounts": { "$ref": "#/$defs/countMap" },
+        "provenanceTraces": { "type": "integer", "minimum": 0 },
+        "invalidProvenance": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "blockers": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "nextActions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+  },
+  "$defs": {
+    "countMap": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "bucketCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formatting_only", "dialect_source_variant", "source_attested_variant", "unresolved"],
+      "properties": {
+        "formatting_only": { "type": "integer", "minimum": 0 },
+        "dialect_source_variant": { "type": "integer", "minimum": 0 },
+        "source_attested_variant": { "type": "integer", "minimum": 0 },
+        "unresolved": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "metadataGaps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["factsWithoutDialect", "conflictFactsWithoutDialect", "conflictHeadwordsWithoutDialect", "transcriptionSystemCounts"],
+      "properties": {
+        "factsWithoutDialect": { "type": "integer", "minimum": 0 },
+        "conflictFactsWithoutDialect": { "type": "integer", "minimum": 0 },
+        "conflictHeadwordsWithoutDialect": { "type": "integer", "minimum": 0 },
+        "transcriptionSystemCounts": { "$ref": "#/$defs/countMap" }
+      }
+    }
+  }
+}

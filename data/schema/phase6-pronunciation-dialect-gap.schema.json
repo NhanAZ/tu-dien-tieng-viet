@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-pronunciation-dialect-gap.schema.json",
+  "title": "Phase6PronunciationDialectGap",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pronunciation_id",
+    "headword_normalized",
+    "word",
+    "source",
+    "source_entry_id",
+    "raw_record_hash",
+    "source_tags",
+    "source_note",
+    "gap_reason",
+    "review_route",
+    "review_status"
+  ],
+  "properties": {
+    "pronunciation_id": { "type": "string", "pattern": "^pronunciation-" },
+    "headword_normalized": { "type": "string", "minLength": 1 },
+    "word": { "type": "string", "minLength": 1 },
+    "source": { "type": "string", "minLength": 1 },
+    "source_entry_id": { "type": ["string", "null"] },
+    "raw_record_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "source_tags": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "source_note": { "type": ["string", "null"] },
+    "gap_reason": {
+      "type": "string",
+      "enum": [
+        "no_explicit_source_label",
+        "non_geographic_note_qualifier",
+        "recognized_geographic_label_with_qualifier",
+        "unrecognized_explicit_note",
+        "unrecognized_explicit_tag"
+      ]
+    },
+    "review_route": {
+      "type": "string",
+      "enum": [
+        "source_metadata_unavailable",
+        "not_a_dialect_label",
+        "manual_label_parsing_review",
+        "manual_label_review"
+      ]
+    },
+    "review_status": { "const": "unreviewed" }
+  }
+}

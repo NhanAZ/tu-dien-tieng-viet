@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/near-duplicate-triage.schema.json",
+  "title": "NearDuplicateTriage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "status", "inputPairs", "storedPairs", "counts", "scoreBuckets", "policy", "samples", "note"],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "TRIAGED_NOT_MERGED" },
+    "inputPairs": { "type": "integer", "minimum": 0 },
+    "storedPairs": { "type": "integer", "minimum": 0 },
+    "counts": { "$ref": "#/$defs/triageCounts" },
+    "scoreBuckets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["1.00", "0.98-0.9999", "0.94-0.9799", "0.90-0.9399", "0.82-0.8999"],
+      "properties": {
+        "1.00": { "type": "integer", "minimum": 0 },
+        "0.98-0.9999": { "type": "integer", "minimum": 0 },
+        "0.94-0.9799": { "type": "integer", "minimum": 0 },
+        "0.90-0.9399": { "type": "integer", "minimum": 0 },
+        "0.82-0.8999": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["auto_safe_candidate", "machine_cluster_candidate", "blocked_review_only"],
+      "properties": {
+        "auto_safe_candidate": { "type": "string", "minLength": 1 },
+        "machine_cluster_candidate": { "type": "string", "minLength": 1 },
+        "blocked_review_only": { "type": "string", "minLength": 1 }
+      }
+    },
+    "samples": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["auto_safe_candidate", "machine_cluster_candidate", "blocked_review_only"],
+      "properties": {
+        "auto_safe_candidate": { "$ref": "#/$defs/pairs" },
+        "machine_cluster_candidate": { "$ref": "#/$defs/pairs" },
+        "blocked_review_only": { "$ref": "#/$defs/pairs" }
+      }
+    },
+    "note": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "triageCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["auto_safe_candidate", "machine_cluster_candidate", "blocked_review_only"],
+      "properties": {
+        "auto_safe_candidate": { "type": "integer", "minimum": 0 },
+        "machine_cluster_candidate": { "type": "integer", "minimum": 0 },
+        "blocked_review_only": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "pairs": {
+      "type": "array",
+      "maxItems": 100,
+      "items": { "$ref": "#/$defs/pair" }
+    },
+    "pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["word", "score", "left_sense_id", "right_sense_id", "left_source", "right_source", "left_meaning", "right_meaning", "recommended_action", "triage_group", "triage_reasons"],
+      "properties": {
+        "word": { "type": "string", "minLength": 1 },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "left_sense_id": { "type": "string", "pattern": "^sense-" },
+        "right_sense_id": { "type": "string", "pattern": "^sense-" },
+        "left_source": { "type": "string", "minLength": 1 },
+        "right_source": { "type": "string", "minLength": 1 },
+        "left_meaning": { "type": "string" },
+        "right_meaning": { "type": "string" },
+        "recommended_action": { "type": "string", "enum": ["machine_cluster_candidate", "review_only"] },
+        "triage_group": { "type": "string", "enum": ["auto_safe_candidate", "machine_cluster_candidate", "blocked_review_only"] },
+        "triage_reasons": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    }
+  }
+}

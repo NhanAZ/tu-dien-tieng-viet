@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/silver-sense-benchmark.schema.json",
+  "title": "SilverSenseBenchmarkRow",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "benchmark_id", "id", "category", "word", "score", "left", "right", "label",
+    "label_origin", "labeling_rule", "label_confidence", "threshold_eligible", "caveat"
+  ],
+  "properties": {
+    "benchmark_id": { "type": "string", "pattern": "^silver-" },
+    "id": { "type": "string", "pattern": "^(gold-todo|silver-source)-" },
+    "category": {
+      "type": "string",
+      "enum": ["exact_cross_source_duplicate", "near_duplicate", "distant_same_headword"]
+    },
+    "word": { "type": "string", "minLength": 1 },
+    "score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "left": { "$ref": "#/$defs/side" },
+    "right": { "$ref": "#/$defs/side" },
+    "label": {
+      "type": "string",
+      "enum": ["same_sense", "near_paraphrase", "different_sense", "unclear"]
+    },
+    "label_origin": { "const": "silver-rule-v1" },
+    "labeling_rule": { "type": "string", "minLength": 1 },
+    "label_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "threshold_eligible": { "type": "boolean" },
+    "caveat": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "side": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "index", "meaning", "sense_id"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "index": { "type": "integer", "minimum": 0 },
+        "meaning": { "type": "string", "minLength": 1 },
+        "sense_id": { "type": "string", "pattern": "^sense-" }
+      }
+    }
+  }
+}

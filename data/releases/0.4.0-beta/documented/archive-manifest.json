@@ -1,0 +1,379 @@
+{
+  "archive": "tu-dien-tieng-viet-0.4.0-beta-documented.tar.gz",
+  "bytes": 124185454,
+  "sha256": "21f95fc8347d183a7a51591ecddd894eed6a566b5c4b09c1ced3a70d0a41f42d",
+  "includes": [
+    "data/processed",
+    "data/schema",
+    "SOURCES.md",
+    "reports/current"
+  ],
+  "senseLayerFiles": [
+    {
+      "file": "data/processed/senses/STATUS.md",
+      "bytes": 532,
+      "sha256": "40dd3d710f18f81837b4546c132a75c2ed04a20d1f333370d94af373dc0de3e5"
+    },
+    {
+      "file": "data/processed/senses/canonical-sense-clusters.jsonl.gz",
+      "bytes": 38429383,
+      "sha256": "d6c19e4fdd36c3d829091ea6c48be29110811a34b77f9a1269e821254e331f26"
+    },
+    {
+      "file": "data/processed/senses/canonical-sense-clusters.sample.jsonl",
+      "bytes": 7667568,
+      "sha256": "689c1535a457493b87f0abbdb7fab58b321bbec9219430c0e26b6edee6998e0b"
+    },
+    {
+      "file": "data/processed/senses/confidence-report.json",
+      "bytes": 3662,
+      "sha256": "a657f44d381313ceae49ace763695e8045237def2b51c899f501e70433964cbe"
+    },
+    {
+      "file": "data/processed/senses/index.json",
+      "bytes": 1125,
+      "sha256": "6677a567446883ea436495e335990c7bc6466e100a19635e10cc9cbbb0cde882"
+    },
+    {
+      "file": "data/processed/senses/near-duplicate-candidates.json",
+      "bytes": 5620856,
+      "sha256": "2e7f69876311c7cf0765366d4259d0b017def1a0a916c5604dab0326077ae7d9"
+    },
+    {
+      "file": "data/processed/senses/near-duplicate-triage.json",
+      "bytes": 208234,
+      "sha256": "b2ec66e48743c9d22eea91c183c2ced39e43f68cd5796a58196c27ff56f4c777"
+    },
+    {
+      "file": "data/processed/senses/review-breakdown.json",
+      "bytes": 61318,
+      "sha256": "286e72bea15044e5fc17b25931aec92a2b7cc29b6c953136de6f99921958c92b"
+    },
+    {
+      "file": "data/processed/senses/review-remainder.sample.jsonl",
+      "bytes": 3290578,
+      "sha256": "3c7a083888d9b81176eb74329c6ed3ceeba976ac5cc798d1ea73cb20b5c87eb7"
+    },
+    {
+      "file": "data/processed/senses/samples/by-confidence-tier/entity.jsonl",
+      "bytes": 36570,
+      "sha256": "eb9c0e556ebf91172dc856f21b20424345cfa7d6aac8d53c1ccd91a95e85e3f3"
+    },
+    {
+      "file": "data/processed/senses/samples/by-confidence-tier/high.jsonl",
+      "bytes": 26958,
+      "sha256": "158dc4b579abde4111f00eee2447f052fd260828a7fc30c516d801fe6d22e7d4"
+    },
+    {
+      "file": "data/processed/senses/samples/by-confidence-tier/low.jsonl",
+      "bytes": 27088,
+      "sha256": "9c8b86bebfd022ed0fc555024ee57c166fa305edb2979fefd98e8eb6eb77a6e0"
+    },
+    {
+      "file": "data/processed/senses/samples/by-confidence-tier/medium.jsonl",
+      "bytes": 26170,
+      "sha256": "7d2d145e944ff264cbf888a5e1a12401ca4dc0cd1f879c0662f95a012f64f4a7"
+    },
+    {
+      "file": "data/processed/senses/samples/by-confidence-tier/reference.jsonl",
+      "bytes": 24782,
+      "sha256": "6eb4e84c17f367c31a8c2a3c65adbaacdb6195849ff89904cf937bc4c1742072"
+    },
+    {
+      "file": "data/processed/senses/samples/by-length/long-120-299.jsonl",
+      "bytes": 36889,
+      "sha256": "6f34a939dbce842d6abfc0089ccf6d9a24848e1f68f3767491e16ce0dd6aa68e"
+    },
+    {
+      "file": "data/processed/senses/samples/by-length/medium-40-119.jsonl",
+      "bytes": 27073,
+      "sha256": "cb62a115481019ddd48825531e8d438ee22c0fe77d875c97a7daac5b1f0a70f4"
+    },
+    {
+      "file": "data/processed/senses/samples/by-length/short-under-40.jsonl",
+      "bytes": 24838,
+      "sha256": "5056d46a4a08986495d551102cf23e095ab4f4afc4cafd59392d8c04bc7931a4"
+    },
+    {
+      "file": "data/processed/senses/samples/by-length/very-long-300-plus.jsonl",
+      "bytes": 59218,
+      "sha256": "228536e01fcbc0ab20124ed4791257409fc24c38bbee8817a37a546ddd460279"
+    },
+    {
+      "file": "data/processed/senses/samples/by-source/catusf_vietviet.jsonl",
+      "bytes": 33914,
+      "sha256": "8df7f4892160b4101048cd1dc6fab4fab8c6b79381db7e25568b83a673fa8832"
+    },
+    {
+      "file": "data/processed/senses/samples/by-source/dai_nam_quoc_am_tu_vi.jsonl",
+      "bytes": 24817,
+      "sha256": "8391c638936bfa86d45c6da07ffda26a3feb7c230d81da928d9d7d156242ee3e"
+    },
+    {
+      "file": "data/processed/senses/samples/by-source/kaikki_enwiktionary_vi.jsonl",
+      "bytes": 24571,
+      "sha256": "c8350df6705f25ed214421e6ca22c3ff9f57d9ee68c5ea61ac6f5d0a28b6caca"
+    },
+    {
+      "file": "data/processed/senses/samples/by-source/kaikki_viwiktionary.jsonl",
+      "bytes": 25913,
+      "sha256": "5b6afdc66990e113aaea05c3397c5bcc3ad767c4fd477196ed0d72bd924bd182"
+    },
+    {
+      "file": "data/processed/senses/samples/by-source/underthesea_uvd.jsonl",
+      "bytes": 26557,
+      "sha256": "f06816d70e1ab05ac42a289a688ef284d89506294cc65a38ea6d2390da4028ce"
+    },
+    {
+      "file": "data/processed/senses/samples/by-source/vntk_dictionary.jsonl",
+      "bytes": 3739,
+      "sha256": "8f41a2dbbfc1509bf3425362d75bd50f475e48b05a82e14af99836d777f922a8"
+    },
+    {
+      "file": "data/processed/senses/samples/by-status/auto_accepted.jsonl",
+      "bytes": 26939,
+      "sha256": "ec9f1fd3dc65236ac148d84d167af98fdb222be561a3e95f27e44562f8815b87"
+    },
+    {
+      "file": "data/processed/senses/samples/by-status/entity_or_encyclopedic.jsonl",
+      "bytes": 37080,
+      "sha256": "0483f47a094f8c2d26e82b00dfa0e019073c6f882e5d5a6190de8d147c3c00c5"
+    },
+    {
+      "file": "data/processed/senses/samples/by-status/machine_clustered.jsonl",
+      "bytes": 27860,
+      "sha256": "a3490d88703404854e7af59b2c3d1d8dc0d7d6781f71801a43c4f8ec7d8f6ad4"
+    },
+    {
+      "file": "data/processed/senses/samples/by-status/machine_retained.jsonl",
+      "bytes": 24685,
+      "sha256": "a536507344df7b4e04aae37b8de0daa04c80ba5bc8837be3075de617ade144e7"
+    },
+    {
+      "file": "data/processed/senses/samples/by-status/needs_review.jsonl",
+      "bytes": 27020,
+      "sha256": "46d67ecf329a8b7cd2503dc90ea9c608924450695838fd92a5958ca4c3d2278b"
+    },
+    {
+      "file": "data/processed/senses/samples/by-status/reference_non_vi.jsonl",
+      "bytes": 24755,
+      "sha256": "37c09851a4e093c9c08faf6062a71b70dab1f7491807e64f2cb1ca1e7428f910"
+    },
+    {
+      "file": "data/processed/senses/samples/index.json",
+      "bytes": 1832,
+      "sha256": "07aa13b60d3e0b5c89cf2da60050cd22282c0a2ecef56c46a3346aa2bed3004c"
+    },
+    {
+      "file": "data/processed/senses/silver-benchmark-report.json",
+      "bytes": 2893,
+      "sha256": "199fbc11673c23814bab88695ac886335a08440983de5826d6e4b78a565c0f7e"
+    },
+    {
+      "file": "data/processed/senses/validation-summary.json",
+      "bytes": 1079,
+      "sha256": "28c7bb1889ee04266f42f7a8e87331ada7a7caed38b08067dba6ca446aadb449"
+    }
+  ],
+  "entityLayerFiles": [
+    {
+      "file": "data/processed/entities/entity-candidates.jsonl",
+      "bytes": 26896291,
+      "sha256": "78a72a1e1794b5c48cbb3e115eec02533ecbcc14c19a3a4215ccded46c68f3fd"
+    },
+    {
+      "file": "data/processed/entities/entity-candidates.sample.jsonl",
+      "bytes": 8330306,
+      "sha256": "11298026b531ff595ecd79af69ec2d0eec792ac70cb1112f391d94c2563aa7e9"
+    },
+    {
+      "file": "data/processed/entities/index.json",
+      "bytes": 675,
+      "sha256": "f75b2b81022e3c809c31ed9349a5744af1ef5aeb79ff8eadfad8b563e119cdc3"
+    }
+  ],
+  "referenceNonViLayerFiles": [
+    {
+      "file": "data/processed/reference-non-vi/index.json",
+      "bytes": 537,
+      "sha256": "2892ff4e15beea62911926c861d816af97ddb4bc8fadb75a5ec6465d5d063073"
+    },
+    {
+      "file": "data/processed/reference-non-vi/reference-definitions.jsonl.gz",
+      "bytes": 5944297,
+      "sha256": "4dc0fd8dcf41495529383fd7825762c975a16c9de7131a647d04b3ac4e938271"
+    },
+    {
+      "file": "data/processed/reference-non-vi/reference-definitions.sample.jsonl",
+      "bytes": 5617789,
+      "sha256": "8a46db89d9bc160d6cd96048626109d4f42ee7e0532851dbcfbddd0258c212de"
+    }
+  ],
+  "phase6LayerFiles": [
+    {
+      "file": "data/processed/phase6/ai-proxy-review/ai-proxy-review-packet.jsonl",
+      "bytes": 987530,
+      "sha256": "165f954803dc36e3f7400e5de5585dcacfbb8375bd8aac03496e35f4d7a06697"
+    },
+    {
+      "file": "data/processed/phase6/ai-proxy-review/ai-proxy-review-packet.sample.jsonl",
+      "bytes": 837230,
+      "sha256": "b3814cf2e59ec33cb2b1ed2a996ad0da71d2eed8d4c1280574a4728b6cebd732"
+    },
+    {
+      "file": "data/processed/phase6/ai-proxy-review/ai-proxy-review-summary.json",
+      "bytes": 1007,
+      "sha256": "caab9a600888618aed0635524345f1da51c1c44ee0712a89beac2c4bdeeb199d"
+    },
+    {
+      "file": "data/processed/phase6/ai-review/ai-review-decisions.csv",
+      "bytes": 286351,
+      "sha256": "8a38857005ea3f427b7f20d9ba86672971e3b5d556a9d75a9de3ed654259e572"
+    },
+    {
+      "file": "data/processed/phase6/ai-review/ai-review-decisions.jsonl",
+      "bytes": 888605,
+      "sha256": "5e93e5d1fa5d7d718835009627df7bfa789837624a8fea55dd5410cbded98038"
+    },
+    {
+      "file": "data/processed/phase6/ai-review/ai-review-decisions.sample.jsonl",
+      "bytes": 753370,
+      "sha256": "68ffe389432a51e208c7621497e8df4487deabb4d9bdbc7dffe0c3ea75c671d4"
+    },
+    {
+      "file": "data/processed/phase6/ai-review/ai-review-decisions.xlsx",
+      "bytes": 64981,
+      "sha256": "c0ff79a009e55eb453b1a51ac5c2610b22703e4dec7314dd035b109e1699528d"
+    },
+    {
+      "file": "data/processed/phase6/ai-review/ai-review-summary.json",
+      "bytes": 1346,
+      "sha256": "585ac0fffe47433cfef21f85928058488cc7263395dc927584b90f2c688a07bc"
+    },
+    {
+      "file": "data/processed/phase6/ai-vs-reviewed-report.json",
+      "bytes": 552,
+      "sha256": "fe63b08bf93dcd6dc6f442ec623bc08142d5fe19f5d4d7462968bd57bd7d4693"
+    },
+    {
+      "file": "data/processed/phase6/human-review-packet.json",
+      "bytes": 1389,
+      "sha256": "30bd80e2e6e0426951fea87c23173192857302628e51958f3a13d94602bb1bff"
+    },
+    {
+      "file": "data/processed/phase6/human-review-packet.jsonl",
+      "bytes": 2580078,
+      "sha256": "fe571c261ea90d3596584295ef1d9b75f2b8ca29fd8f40e44566c16144a7ac7c"
+    },
+    {
+      "file": "data/processed/phase6/human-review-packet.sample.jsonl",
+      "bytes": 2243483,
+      "sha256": "aa6b6625a0aa40082cac6342250af8cf27244c055e03e7dcf2ee21a6d1422933"
+    },
+    {
+      "file": "data/processed/phase6/human-reviewed/reviewed-decisions.jsonl",
+      "bytes": 750224,
+      "sha256": "201a4c9c8e98c3f98136c1a32a80183e82b9e4842c637707c4d37e88dbf5dad8"
+    },
+    {
+      "file": "data/processed/phase6/human-reviewed/reviewed-decisions.sample.jsonl",
+      "bytes": 636114,
+      "sha256": "4a9be2b4c3dc4e6916436b360d0770c827a2358d56a5dddd75beb3708e910b18"
+    },
+    {
+      "file": "data/processed/phase6/human-reviewed/reviewed-summary.json",
+      "bytes": 745,
+      "sha256": "935f7bae12219570110abbae54a560aec0a644f0e10fbb31fd78231453fa05d3"
+    },
+    {
+      "file": "data/processed/phase6/index.json",
+      "bytes": 7741,
+      "sha256": "1c63089659f5b441a9aab0c30bd1b608a109d008377bcf82c24c651a5c6182a5"
+    },
+    {
+      "file": "data/processed/phase6/origin-facts.jsonl",
+      "bytes": 8081598,
+      "sha256": "e2dc2a85937ecd281ffccfc27316c4572bca53a64711722d40ffea3ec67da310"
+    },
+    {
+      "file": "data/processed/phase6/origin-facts.sample.jsonl",
+      "bytes": 246022,
+      "sha256": "150a3dc5054ba2403b7f9990d6ea2939faf9301894140d95efe300cee7b5ea6d"
+    },
+    {
+      "file": "data/processed/phase6/projection-policy.json",
+      "bytes": 1312,
+      "sha256": "d4a8863e54acd10e4aafb30c0598e49f9257336dd346a0792f964c8eaa5eaca6"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-conflicts.json",
+      "bytes": 1787,
+      "sha256": "09ae78771f3d3d0b65d2668c3ca957545f822b01b94f5de0659131dc7e792893"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-conflicts.jsonl",
+      "bytes": 144619197,
+      "sha256": "02bfeef185b622d9b5e2618cc35b640bf55f01ddf951df5f7538144f3adffcc3"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-conflicts.sample.jsonl",
+      "bytes": 1470168,
+      "sha256": "e8aaa2285a39ce8840eb95dfec5293daf03484ee63553b8bb1ba4aa30d25269a"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-dialect-coverage.json",
+      "bytes": 1924,
+      "sha256": "84f5fb522d7e1ce5bb0e60414f9555be76de0d915ba45f6f79f1fbc3e0873673"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-dialect-gaps.json",
+      "bytes": 1354,
+      "sha256": "5271fa8be322efbf8efaee925b54639551592dafacc8d2c9e8b55363b79a2006"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-dialect-gaps.jsonl",
+      "bytes": 955568,
+      "sha256": "e303fd47c606bf200f43e9d83d9eb854de74889523dc7f3aaca692d0570129c6"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-dialect-gaps.sample.jsonl",
+      "bytes": 226584,
+      "sha256": "e6a87378576131700e928dd7a41105ef7ef985935452789b6162a12fc81d9f3f"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-entry-scope-triage.json",
+      "bytes": 854,
+      "sha256": "f725dd04bf3fd14d7573364163bf1612b5c81182d4dc91d872148bd443ef6c34"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-facts.jsonl",
+      "bytes": 221796295,
+      "sha256": "3dad6db3116ebf4361df9e1a8911aee69946cd0af8b26d230171f72e2ef7fb9b"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-facts.sample.jsonl",
+      "bytes": 332016,
+      "sha256": "d72b7e7e6ad8e7896e716d31e006b538b597f429a2c78c826d6c6c756315463d"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-source-entry-policy.json",
+      "bytes": 3083,
+      "sha256": "e78a3e2c5ebbd5a6f1e4d8c8af45bde3f170b38ac223a83b62cf2689615ac498"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-unresolved-analysis.json",
+      "bytes": 1234,
+      "sha256": "29adaf940371bd0d7d90a05715500a0b0a6a34382b51d598e4fbc9ca55e2587b"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-unresolved-analysis.jsonl",
+      "bytes": 1951691,
+      "sha256": "7406bb20d1c64f96efb227c7f936b6150623de853ddf6c632f8ea8f8e19fc8f3"
+    },
+    {
+      "file": "data/processed/phase6/pronunciation-unresolved-analysis.sample.jsonl",
+      "bytes": 1706648,
+      "sha256": "4c73030318937337c1d564808821b13b760947a71bb0e4f83ef7ae9c443a3859"
+    }
+  ]
+}

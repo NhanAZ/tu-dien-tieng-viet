@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/nom-entry.schema.json",
+  "title": "NomEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "quoc_ngu", "characters", "variants", "definition", "definition_language", "frequency", "provenance"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "quoc_ngu": { "type": "string", "minLength": 1 },
+    "characters": { "type": "string", "minLength": 1 },
+    "variants": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "definition": { "type": ["string", "null"] },
+    "definition_language": { "type": ["string", "null"], "enum": ["vi", "en", "other", null] },
+    "frequency": { "type": ["integer", "null"], "minimum": 0 },
+    "provenance": { "$ref": "word-entry.schema.json#/$defs/sourceTrace" }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/word-entry.schema.json",
+  "title": "VietnameseWordEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "word",
+    "headword_normalized",
+    "headword_no_tone",
+    "syllable_count",
+    "language",
+    "pronunciation_ipa",
+    "part_of_speech",
+    "origin",
+    "han_viet_ref",
+    "han_nom_forms",
+    "definitions",
+    "etymologies",
+    "synonyms",
+    "antonyms",
+    "related_words",
+    "compound_words",
+    "sources"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "word": { "type": "string", "minLength": 1 },
+    "headword_normalized": { "type": "string", "minLength": 1 },
+    "headword_no_tone": { "type": "string", "minLength": 1 },
+    "syllable_count": { "type": "integer", "minimum": 1 },
+    "language": { "const": "vi" },
+    "pronunciation_ipa": { "type": ["string", "null"] },
+    "part_of_speech": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "origin": {
+      "type": "string",
+      "enum": ["thuần Việt", "Hán Việt", "vay mượn khác", "không rõ"]
+    },
+    "han_viet_ref": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "han_nom_forms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "definitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["meaning", "examples", "source", "language", "provenance", "labels"],
+        "properties": {
+          "meaning": { "type": "string", "minLength": 1 },
+          "examples": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source": { "type": "string", "minLength": 1 },
+          "language": { "type": "string", "enum": ["vi", "en", "fr", "la", "other"] },
+          "provenance": { "$ref": "#/$defs/sourceTrace" }
+          ,"labels": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "etymologies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "language", "source", "provenance"],
+        "properties": {
+          "text": { "type": "string", "minLength": 1 },
+          "language": { "type": "string", "enum": ["vi", "en", "other"] },
+          "source": { "type": "string", "minLength": 1 },
+          "provenance": { "$ref": "#/$defs/sourceTrace" }
+        }
+      }
+    },
+    "synonyms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "antonyms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "related_words": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "compound_words": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "sourceTrace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "source_entry_id", "source_revision", "raw_record_hash", "confidence", "review_status"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "source_entry_id": { "type": ["string", "null"] },
+        "source_revision": { "type": ["string", "null"] },
+        "raw_record_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "review_status": { "type": "string", "enum": ["unreviewed", "machine-checked", "human-reviewed"] }
+      }
+    }
+  }
+}

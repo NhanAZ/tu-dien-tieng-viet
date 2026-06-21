@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/silver-benchmark-report.schema.json",
+  "title": "SilverBenchmarkReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt", "status", "labelModel", "inputRows", "benchmarkRows",
+    "thresholdEligibleRows", "sampleComposition", "labels", "rules", "categoryLabels", "thresholds",
+    "decision", "decisionReasons", "artifacts"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "SILVER_BENCHMARK_NOT_GOLD" },
+    "labelModel": { "const": "silver-rule-v1" },
+    "inputRows": { "type": "integer", "minimum": 0 },
+    "benchmarkRows": { "type": "integer", "minimum": 0 },
+    "thresholdEligibleRows": { "type": "integer", "minimum": 0 },
+    "sampleComposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exactPositiveControls", "nearCandidates", "nearByScoreBucket", "sampling"],
+      "properties": {
+        "exactPositiveControls": { "type": "integer", "minimum": 0 },
+        "nearCandidates": { "type": "integer", "minimum": 0 },
+        "nearByScoreBucket": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "sampling": { "const": "deterministic-lowest-sha256-rank-within-score-bucket" }
+      }
+    },
+    "labels": { "$ref": "#/$defs/labelCounts" },
+    "rules": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "categoryLabels": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/labelCounts" }
+    },
+    "thresholds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/threshold" }
+    },
+    "decision": { "const": "NO_AUTO_MERGE" },
+    "decisionReasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["benchmark", "sourceQueue", "nearCandidates"],
+      "properties": {
+        "benchmark": { "const": "data/audit/academic/silver-sense-benchmark.jsonl" },
+        "sourceQueue": { "const": "data/audit/academic/gold-sense-pairs.sense-todo.jsonl" },
+        "nearCandidates": { "const": "data/processed/senses/near-duplicate-candidates.json" }
+      }
+    }
+  },
+  "$defs": {
+    "labelCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["same_sense", "near_paraphrase", "different_sense", "unclear"],
+      "properties": {
+        "same_sense": { "type": "integer", "minimum": 0 },
+        "near_paraphrase": { "type": "integer", "minimum": 0 },
+        "different_sense": { "type": "integer", "minimum": 0 },
+        "unclear": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "metric": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "threshold": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "threshold", "truePositive", "falsePositive", "trueNegative", "falseNegative",
+        "precision", "recall", "f1"
+      ],
+      "properties": {
+        "threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+        "truePositive": { "type": "integer", "minimum": 0 },
+        "falsePositive": { "type": "integer", "minimum": 0 },
+        "trueNegative": { "type": "integer", "minimum": 0 },
+        "falseNegative": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/metric" },
+        "recall": { "$ref": "#/$defs/metric" },
+        "f1": { "$ref": "#/$defs/metric" }
+      }
+    }
+  }
+}

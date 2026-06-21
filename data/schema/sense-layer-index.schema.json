@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/sense-layer-index.schema.json",
+  "title": "SenseLayerIndex",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "headwords",
+    "definitions",
+    "clusters",
+    "statusCounts",
+    "definitionStatusCounts",
+    "exactDuplicateDefinitionsResolved",
+    "reviewRemainderDefinitions",
+    "reviewRemainderPercent",
+    "nearDuplicatePairs",
+    "nearDuplicatePairsSampled",
+    "entityOrEncyclopedicDefinitions",
+    "entityOrEncyclopedicClusters",
+    "entityReviewDefinitions",
+    "memberLevelEntityReviewDefinitions",
+    "note"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "MACHINE_FIRST_DRAFT" },
+    "headwords": { "type": "integer", "minimum": 0 },
+    "definitions": { "type": "integer", "minimum": 0 },
+    "clusters": { "type": "integer", "minimum": 0 },
+    "statusCounts": { "$ref": "#/$defs/statusCounts" },
+    "definitionStatusCounts": { "$ref": "#/$defs/statusCounts" },
+    "exactDuplicateDefinitionsResolved": { "type": "integer", "minimum": 0 },
+    "reviewRemainderDefinitions": { "type": "integer", "minimum": 0 },
+    "reviewRemainderPercent": { "type": "number", "minimum": 0, "maximum": 100 },
+    "nearDuplicatePairs": { "type": "integer", "minimum": 0 },
+    "nearDuplicatePairsSampled": { "type": "integer", "minimum": 0 },
+    "entityOrEncyclopedicDefinitions": { "type": "integer", "minimum": 0 },
+    "entityOrEncyclopedicClusters": { "type": "integer", "minimum": 0 },
+    "entityReviewDefinitions": { "type": "integer", "minimum": 0 },
+    "memberLevelEntityReviewDefinitions": { "type": "integer", "minimum": 0 },
+    "note": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "statusCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "auto_accepted",
+        "machine_clustered",
+        "machine_retained",
+        "needs_review",
+        "quarantined",
+        "entity_or_encyclopedic",
+        "reference_non_vi"
+      ],
+      "properties": {
+        "auto_accepted": { "type": "integer", "minimum": 0 },
+        "machine_clustered": { "type": "integer", "minimum": 0 },
+        "machine_retained": { "type": "integer", "minimum": 0 },
+        "needs_review": { "type": "integer", "minimum": 0 },
+        "quarantined": { "type": "integer", "minimum": 0 },
+        "entity_or_encyclopedic": { "type": "integer", "minimum": 0 },
+        "reference_non_vi": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

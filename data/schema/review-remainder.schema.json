@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/review-remainder.schema.json",
+  "title": "ReviewRemainder",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence_tier",
+    "word",
+    "cluster_id",
+    "member_count",
+    "reasons",
+    "canonical_definition"
+  ],
+  "properties": {
+    "status": { "type": "string", "enum": ["needs_review", "quarantined"] },
+    "confidence_tier": { "type": "string", "enum": ["low", "quarantine"] },
+    "word": { "type": "string", "minLength": 1 },
+    "cluster_id": { "type": "string", "pattern": "^cluster-" },
+    "member_count": { "type": "integer", "minimum": 1 },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "canonical_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sense_id",
+        "definition_uid",
+        "entry_id",
+        "source",
+        "source_entry_id",
+        "raw_record_hash",
+        "language",
+        "review_status",
+        "definition_index",
+        "meaning",
+        "confidence",
+        "risk_tags"
+      ],
+      "properties": {
+        "sense_id": { "type": "string", "pattern": "^sense-" },
+        "definition_uid": { "type": "string", "pattern": "^def-" },
+        "entry_id": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "source_entry_id": { "type": ["string", "null"] },
+        "raw_record_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "language": { "type": "string" },
+        "review_status": {
+          "type": "string",
+          "enum": ["unreviewed", "machine-checked", "human-reviewed"]
+        },
+        "definition_index": { "type": "integer", "minimum": 0 },
+        "meaning": { "type": "string", "minLength": 1 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "risk_tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

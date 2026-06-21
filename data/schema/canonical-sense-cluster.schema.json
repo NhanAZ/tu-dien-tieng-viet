@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/canonical-sense-cluster.schema.json",
+  "title": "CanonicalSenseCluster",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cluster_id",
+    "cluster_type",
+    "status",
+    "confidence_tier",
+    "confidence",
+    "word",
+    "normalized_definition_key",
+    "canonical_definition",
+    "source_definitions",
+    "evidence",
+    "reasons"
+  ],
+  "properties": {
+    "cluster_id": { "type": "string", "pattern": "^cluster-" },
+    "cluster_type": { "type": "string", "enum": ["exact", "singleton"] },
+    "status": {
+      "type": "string",
+      "enum": [
+        "auto_accepted",
+        "machine_clustered",
+        "machine_retained",
+        "needs_review",
+        "quarantined",
+        "entity_or_encyclopedic",
+        "reference_non_vi"
+      ]
+    },
+    "confidence_tier": {
+      "type": "string",
+      "enum": ["high", "medium", "low", "quarantine", "entity", "reference"]
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_version",
+        "source_confidence",
+        "cluster_confidence",
+        "canonical_selection_confidence"
+      ],
+      "properties": {
+        "model_version": { "const": "heuristic-v1" },
+        "source_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "cluster_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "canonical_selection_confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "word": { "type": "string", "minLength": 1 },
+    "normalized_definition_key": { "type": "string" },
+    "canonical_definition": { "$ref": "#/$defs/sourceDefinition" },
+    "source_definitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceDefinition" }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["member_count", "source_count", "trusted_source_count", "has_vi_definition"],
+      "properties": {
+        "member_count": { "type": "integer", "minimum": 1 },
+        "source_count": { "type": "integer", "minimum": 1 },
+        "trusted_source_count": { "type": "integer", "minimum": 0 },
+        "has_vi_definition": { "type": "boolean" }
+      }
+    },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "sourceDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sense_id",
+        "definition_uid",
+        "entry_id",
+        "source",
+        "source_entry_id",
+        "raw_record_hash",
+        "language",
+        "review_status",
+        "definition_index",
+        "confidence",
+        "risk_tags",
+        "meaning"
+      ],
+      "properties": {
+        "sense_id": { "type": "string", "pattern": "^sense-" },
+        "definition_uid": { "type": "string", "pattern": "^def-" },
+        "entry_id": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "source_entry_id": { "type": ["string", "null"] },
+        "raw_record_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "language": { "type": "string" },
+        "review_status": {
+          "type": "string",
+          "enum": ["unreviewed", "machine-checked", "human-reviewed"]
+        },
+        "definition_index": { "type": "integer", "minimum": 0 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "risk_tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "meaning": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

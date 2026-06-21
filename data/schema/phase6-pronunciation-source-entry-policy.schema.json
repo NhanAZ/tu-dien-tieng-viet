@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-pronunciation-source-entry-policy.schema.json",
+  "title": "Phase6PronunciationSourceEntryPolicy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "status", "policyVersion", "rules", "results", "files", "caveats"],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "PHASE6_PRONUNCIATION_SOURCE_ENTRY_POLICY_DRAFT" },
+    "policyVersion": { "const": "1.2.0" },
+    "rules": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rule_id", "classification", "criteria", "action"],
+        "properties": {
+          "rule_id": { "type": "string", "minLength": 1 },
+          "classification": {
+            "type": "string",
+            "enum": ["source_attested_variant", "unresolved", "metadata_policy", "entry_scope_policy"]
+          },
+          "criteria": { "type": "string", "minLength": 1 },
+          "action": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["conflictHeadwords", "sourceAttestedVariantHeadwords", "reviewQueueHeadwords", "reviewReasonCounts", "entryScopeReasonCounts", "reviewRouteCounts"],
+      "properties": {
+        "conflictHeadwords": { "type": "integer", "minimum": 0 },
+        "sourceAttestedVariantHeadwords": { "type": "integer", "minimum": 0 },
+        "reviewQueueHeadwords": { "type": "integer", "minimum": 0 },
+        "reviewReasonCounts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "entryScopeReasonCounts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "reviewRouteCounts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["parser_fix", "human_review"],
+          "properties": {
+            "parser_fix": { "type": "integer", "minimum": 0 },
+            "human_review": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["facts", "conflicts", "entryScopeTriage", "reviewQueue", "reviewQueueSample"],
+      "properties": {
+        "facts": { "const": "data/processed/phase6/pronunciation-facts.jsonl" },
+        "conflicts": { "const": "data/processed/phase6/pronunciation-conflicts.jsonl" },
+        "entryScopeTriage": { "const": "data/processed/phase6/pronunciation-entry-scope-triage.json" },
+        "reviewQueue": { "const": "data/processed/phase6/pronunciation-unresolved-analysis.jsonl" },
+        "reviewQueueSample": { "const": "data/processed/phase6/pronunciation-unresolved-analysis.sample.jsonl" }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  }
+}

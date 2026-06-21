@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-index.schema.json",
+  "title": "Phase6FactLayerIndex",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "status", "headwords", "pronunciationFacts", "pronunciationHeadwords", "originFacts", "originHeadwords", "pronunciationSourceCounts", "pronunciationDialectCoverage", "pronunciationDialectGapSummary", "originSourceCounts", "originValueCounts", "projectionCompatibility", "pronunciationConflictSummary", "humanReviewPacket", "aiReview", "caveats", "files"],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "PHASE6_FACT_LAYER_DRAFT" },
+    "headwords": { "type": "integer", "minimum": 0 },
+    "pronunciationFacts": { "type": "integer", "minimum": 0 },
+    "pronunciationHeadwords": { "type": "integer", "minimum": 0 },
+    "originFacts": { "type": "integer", "minimum": 0 },
+    "originHeadwords": { "type": "integer", "minimum": 0 },
+    "pronunciationSourceCounts": { "$ref": "#/$defs/countMap" },
+    "pronunciationDialectCoverage": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dialectCoverageEntry" },
+      "uniqueItems": true
+    },
+    "pronunciationDialectGapSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["facts", "reasonCounts", "routeCounts", "sourceCounts"],
+      "properties": {
+        "facts": { "type": "integer", "minimum": 0 },
+        "reasonCounts": { "$ref": "#/$defs/countMap" },
+        "routeCounts": { "$ref": "#/$defs/countMap" },
+        "sourceCounts": { "$ref": "#/$defs/countMap" }
+      }
+    },
+    "originSourceCounts": { "$ref": "#/$defs/countMap" },
+    "originValueCounts": { "$ref": "#/$defs/countMap" },
+    "projectionCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["processedIpaHeadwords", "processedIpaWithMatchingFact", "processedOriginHeadwords", "processedOriginWithMatchingFact"],
+      "properties": {
+        "processedIpaHeadwords": { "type": "integer", "minimum": 0 },
+        "processedIpaWithMatchingFact": { "type": "integer", "minimum": 0 },
+        "processedOriginHeadwords": { "type": "integer", "minimum": 0 },
+        "processedOriginWithMatchingFact": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "pronunciationConflictSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["conflictHeadwords", "bucketCounts", "metadataGaps"],
+      "properties": {
+        "conflictHeadwords": { "type": "integer", "minimum": 0 },
+        "bucketCounts": { "$ref": "#/$defs/bucketCounts" },
+        "metadataGaps": { "$ref": "#/$defs/metadataGaps" }
+      }
+    },
+    "humanReviewPacket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["totalTasks", "taskCounts", "reviewStatusCounts"],
+      "properties": {
+        "totalTasks": { "type": "integer", "minimum": 0 },
+        "taskCounts": { "$ref": "#/$defs/reviewPacketTaskCounts" },
+        "reviewStatusCounts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["unreviewed"],
+          "properties": {
+            "unreviewed": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "aiReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalDecisions",
+        "taskCounts",
+        "decisionCounts",
+        "confidenceCounts",
+        "priorityCounts",
+        "requiresHumanConfirmation",
+        "promotionAllowed"
+      ],
+      "properties": {
+        "totalDecisions": { "type": "integer", "minimum": 0 },
+        "taskCounts": { "$ref": "#/$defs/reviewPacketTaskCounts" },
+        "decisionCounts": { "$ref": "#/$defs/countMap" },
+        "confidenceCounts": { "$ref": "#/$defs/confidenceCounts" },
+        "priorityCounts": { "$ref": "#/$defs/priorityCounts" },
+        "requiresHumanConfirmation": { "type": "integer", "minimum": 0 },
+        "promotionAllowed": { "const": 0 }
+      }
+    },
+    "aiProxyReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "totalRows", "importEligible", "countsAsHumanReview", "files"],
+      "properties": {
+        "status": { "const": "PHASE6_AI_PROXY_REVIEW_NOT_HUMAN_REVIEWED" },
+        "totalRows": { "type": "integer", "minimum": 0 },
+        "importEligible": { "const": 0 },
+        "countsAsHumanReview": { "const": false },
+        "files": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["summary", "rows", "sample"],
+          "properties": {
+            "summary": { "const": "data/processed/phase6/ai-proxy-review/ai-proxy-review-summary.json" },
+            "rows": { "const": "data/processed/phase6/ai-proxy-review/ai-proxy-review-packet.jsonl" },
+            "sample": { "const": "data/processed/phase6/ai-proxy-review/ai-proxy-review-packet.sample.jsonl" }
+          }
+        }
+      }
+    },
+    "ownerAuthorizedReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "totalRows", "reviewerType", "promotionAllowed", "files"],
+      "properties": {
+        "status": { "const": "PHASE6_OWNER_AUTHORIZED_AI_REVIEW_IMPORTED" },
+        "totalRows": { "type": "integer", "minimum": 0 },
+        "reviewerType": { "const": "ai_owner_authorized_by_project_owner" },
+        "promotionAllowed": { "const": 0 },
+        "files": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["summary", "rows", "sample"],
+          "properties": {
+            "summary": { "const": "data/processed/phase6/human-reviewed/reviewed-summary.json" },
+            "rows": { "const": "data/processed/phase6/human-reviewed/reviewed-decisions.jsonl" },
+            "sample": { "const": "data/processed/phase6/human-reviewed/reviewed-decisions.sample.jsonl" }
+          }
+        }
+      }
+    },
+    "caveats": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pronunciationFacts",
+        "originFacts",
+        "pronunciationDialectCoverage",
+        "pronunciationDialectGapSummary",
+        "pronunciationDialectGapDetails",
+        "pronunciationDialectGapSample",
+        "pronunciationConflicts",
+        "pronunciationConflictSummary",
+        "pronunciationSourceEntryPolicy",
+        "pronunciationEntryScopeTriage",
+        "pronunciationUnresolvedAnalysis",
+        "pronunciationUnresolvedAnalysisDetails",
+        "pronunciationUnresolvedAnalysisSample",
+        "humanReviewPacket",
+        "humanReviewPacketTasks",
+        "humanReviewPacketSample",
+        "aiReviewSummary",
+        "aiReviewDecisions",
+        "aiReviewSample"
+      ],
+      "properties": {
+        "pronunciationFacts": { "const": "data/processed/phase6/pronunciation-facts.jsonl" },
+        "originFacts": { "const": "data/processed/phase6/origin-facts.jsonl" },
+        "pronunciationDialectCoverage": { "const": "data/processed/phase6/pronunciation-dialect-coverage.json" },
+        "pronunciationDialectGapSummary": { "const": "data/processed/phase6/pronunciation-dialect-gaps.json" },
+        "pronunciationDialectGapDetails": { "const": "data/processed/phase6/pronunciation-dialect-gaps.jsonl" },
+        "pronunciationDialectGapSample": { "const": "data/processed/phase6/pronunciation-dialect-gaps.sample.jsonl" },
+        "pronunciationConflicts": { "const": "data/processed/phase6/pronunciation-conflicts.jsonl" },
+        "pronunciationConflictSummary": { "const": "data/processed/phase6/pronunciation-conflicts.json" },
+        "pronunciationSourceEntryPolicy": { "const": "data/processed/phase6/pronunciation-source-entry-policy.json" },
+        "pronunciationEntryScopeTriage": { "const": "data/processed/phase6/pronunciation-entry-scope-triage.json" },
+        "pronunciationUnresolvedAnalysis": { "const": "data/processed/phase6/pronunciation-unresolved-analysis.json" },
+        "pronunciationUnresolvedAnalysisDetails": {
+          "const": "data/processed/phase6/pronunciation-unresolved-analysis.jsonl"
+        },
+        "pronunciationUnresolvedAnalysisSample": {
+          "const": "data/processed/phase6/pronunciation-unresolved-analysis.sample.jsonl"
+        },
+        "humanReviewPacket": {
+          "const": "data/processed/phase6/human-review-packet.json"
+        },
+        "humanReviewPacketTasks": {
+          "const": "data/processed/phase6/human-review-packet.jsonl"
+        },
+        "humanReviewPacketSample": {
+          "const": "data/processed/phase6/human-review-packet.sample.jsonl"
+        },
+        "aiReviewSummary": {
+          "const": "data/processed/phase6/ai-review/ai-review-summary.json"
+        },
+        "aiReviewDecisions": {
+          "const": "data/processed/phase6/ai-review/ai-review-decisions.jsonl"
+        },
+        "aiReviewSample": {
+          "const": "data/processed/phase6/ai-review/ai-review-decisions.sample.jsonl"
+        },
+        "aiProxyReviewSummary": {
+          "const": "data/processed/phase6/ai-proxy-review/ai-proxy-review-summary.json"
+        },
+        "aiProxyReviewRows": {
+          "const": "data/processed/phase6/ai-proxy-review/ai-proxy-review-packet.jsonl"
+        },
+        "aiProxyReviewSample": {
+          "const": "data/processed/phase6/ai-proxy-review/ai-proxy-review-packet.sample.jsonl"
+        },
+        "ownerAuthorizedReviewSummary": {
+          "const": "data/processed/phase6/human-reviewed/reviewed-summary.json"
+        },
+        "ownerAuthorizedReviewRows": {
+          "const": "data/processed/phase6/human-reviewed/reviewed-decisions.jsonl"
+        },
+        "ownerAuthorizedReviewSample": {
+          "const": "data/processed/phase6/human-reviewed/reviewed-decisions.sample.jsonl"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "countMap": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "dialectCoverageEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "method", "facts", "facts_with_dialect", "facts_without_dialect", "dialect_counts", "unrecovered_reason"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "method": { "type": "string", "minLength": 1 },
+        "facts": { "type": "integer", "minimum": 0 },
+        "facts_with_dialect": { "type": "integer", "minimum": 0 },
+        "facts_without_dialect": { "type": "integer", "minimum": 0 },
+        "dialect_counts": { "$ref": "#/$defs/countMap" },
+        "unrecovered_reason": { "type": ["string", "null"] }
+      }
+    },
+    "bucketCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formatting_only", "dialect_source_variant", "source_attested_variant", "unresolved"],
+      "properties": {
+        "formatting_only": { "type": "integer", "minimum": 0 },
+        "dialect_source_variant": { "type": "integer", "minimum": 0 },
+        "source_attested_variant": { "type": "integer", "minimum": 0 },
+        "unresolved": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "reviewPacketTaskCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pronunciation_conflict_review", "dialect_label_review"],
+      "properties": {
+        "pronunciation_conflict_review": { "type": "integer", "minimum": 0 },
+        "dialect_label_review": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "confidenceCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["high", "medium", "low"],
+      "properties": {
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "priorityCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["high", "medium", "low"],
+      "properties": {
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "metadataGaps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["factsWithoutDialect", "conflictFactsWithoutDialect", "conflictHeadwordsWithoutDialect", "transcriptionSystemCounts"],
+      "properties": {
+        "factsWithoutDialect": { "type": "integer", "minimum": 0 },
+        "conflictFactsWithoutDialect": { "type": "integer", "minimum": 0 },
+        "conflictHeadwordsWithoutDialect": { "type": "integer", "minimum": 0 },
+        "transcriptionSystemCounts": { "$ref": "#/$defs/countMap" }
+      }
+    }
+  }
+}

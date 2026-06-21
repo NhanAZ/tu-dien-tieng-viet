@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/pronunciation-fact.schema.json",
+  "title": "PronunciationFact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pronunciation_id", "word", "headword_normalized", "ipa", "transcription_system", "dialect", "source_entry_word", "source_entry_pos", "source_sound_index", "source_tags", "source_note", "source", "confidence", "review_status", "provenance"],
+  "properties": {
+    "pronunciation_id": { "type": "string", "pattern": "^pronunciation-" },
+    "word": { "type": "string", "minLength": 1 },
+    "headword_normalized": { "type": "string", "minLength": 1 },
+    "ipa": { "type": "string", "minLength": 1 },
+    "transcription_system": { "const": "IPA" },
+    "dialect": { "type": ["string", "null"] },
+    "source_entry_word": { "type": ["string", "null"], "minLength": 1 },
+    "source_entry_pos": { "type": ["string", "null"], "minLength": 1 },
+    "source_sound_index": { "type": ["integer", "null"], "minimum": 1 },
+    "source_tags": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "source_note": { "type": ["string", "null"] },
+    "source": { "type": "string", "minLength": 1 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "review_status": { "type": "string", "enum": ["unreviewed", "machine-checked", "human-reviewed"] },
+    "provenance": { "$ref": "#/$defs/sourceTrace" }
+  },
+  "$defs": {
+    "sourceTrace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "source_entry_id", "source_revision", "raw_record_hash", "confidence", "review_status"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "source_entry_id": { "type": ["string", "null"] },
+        "source_revision": { "type": ["string", "null"] },
+        "raw_record_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "review_status": { "type": "string", "enum": ["unreviewed", "machine-checked", "human-reviewed"] }
+      }
+    }
+  }
+}

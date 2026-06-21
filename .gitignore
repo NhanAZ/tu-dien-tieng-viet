@@ -1,0 +1,17 @@
+node_modules/
+web/node_modules/
+dist/
+web/dist/
+web/.next/
+web/public/api/
+web/public/sitemap.xml
+.tmp/
+.agents/
+.codex/
+.codex_tmp/
+data/raw/
+data/normalized/
+data/processed/
+data/audit/
+data/releases/**/*.tar.gz
+*.log

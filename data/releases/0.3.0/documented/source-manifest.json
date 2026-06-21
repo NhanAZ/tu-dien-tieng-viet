@@ -1,0 +1,2290 @@
+{
+  "buildId": "cade45fdf9b19c5b",
+  "generatedAt": "2026-06-19T21:54:28.845Z",
+  "datasetVersion": "0.3.0",
+  "profile": "documented",
+  "collectionFrozen": true,
+  "disabledSources": [],
+  "selectedSources": [
+    "catusf_thieu_chuu_stardict",
+    "catusf_vietviet",
+    "chunom_standard",
+    "dai_nam_quoc_am_tu_vi",
+    "duyet_vietnamese_wordlist",
+    "hunspell_vi",
+    "kaikki_enwiktionary_vi",
+    "kaikki_viwiktionary",
+    "omw_wiktionary_vi",
+    "underthesea_dictionary",
+    "underthesea_uvd",
+    "unicode_unihan",
+    "vntk_dictionary"
+  ],
+  "rawFiles": [
+    {
+      "source": "vntk_dictionary",
+      "file": "dictionary.json",
+      "url": "https://raw.githubusercontent.com/vntk/dictionary/master/data/dictionary.json",
+      "status": "skipped",
+      "bytes": 11135662,
+      "sha256": "fb41663096d6a24de8854567e5a4c5aded5bf39ce7bc2172d3cd0211c360c763"
+    },
+    {
+      "source": "vntk_dictionary",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/vntk/dictionary/master/LICENSE",
+      "status": "skipped",
+      "bytes": 1102,
+      "sha256": "e3d31da55859b766a6e877778caef2f01bb603739b1f10a5420239abfaa80642"
+    },
+    {
+      "source": "vntk_dictionary",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/vntk/dictionary/master/README.md",
+      "status": "skipped",
+      "bytes": 1840,
+      "sha256": "71a8b6d7808e4cb1c03840cbf3bc84af3b1536cc800f5f6422fbc6abf99ed747"
+    },
+    {
+      "source": "kaikki_viwiktionary",
+      "file": "raw-wiktextract-data.jsonl.gz",
+      "url": "https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz",
+      "status": "skipped",
+      "bytes": 32056229,
+      "sha256": "9c8d97b54dd0ec705b7ed5db1a1afbf3e37a8ceb561bdde4f685f433bb7b3629"
+    },
+    {
+      "source": "unicode_unihan",
+      "file": "Unihan.zip",
+      "url": "https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip",
+      "status": "skipped",
+      "bytes": 8518517,
+      "sha256": "f7a48b2b545acfaa77b2d607ae28747404ce02baefee16396c5d2d7a8ef34b5e"
+    },
+    {
+      "source": "kaikki_enwiktionary_vi",
+      "file": "kaikki.org-dictionary-Vietnamese.jsonl.gz",
+      "url": "https://kaikki.org/dictionary/Vietnamese/kaikki.org-dictionary-Vietnamese.jsonl.gz",
+      "status": "skipped",
+      "bytes": 11744285,
+      "sha256": "09ec05181c0c44513321322446dca3f56c1020aebb1819e46ec615a8a5747a02"
+    },
+    {
+      "source": "underthesea_dictionary",
+      "file": "words.txt",
+      "url": "https://raw.githubusercontent.com/undertheseanlp/dictionary/master/dictionary/words.txt",
+      "status": "skipped",
+      "bytes": 4813111,
+      "sha256": "4c3e0e6117e4bdfa97731e135c3d4a05881889909267394a8de8d88ef79f13f0"
+    },
+    {
+      "source": "underthesea_dictionary",
+      "file": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/undertheseanlp/dictionary/master/LICENSE.txt",
+      "status": "skipped",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    {
+      "source": "underthesea_uvd",
+      "file": "data.yaml",
+      "url": "https://raw.githubusercontent.com/undertheseanlp/resources/master/resources/DI_Vietnamese-UVD/corpus/data.yaml",
+      "status": "skipped",
+      "bytes": 7364369,
+      "sha256": "e25d7fc1ff078af2efc4e5eee38c59a5d4206b47d7160300ea342b6fd9088d76"
+    },
+    {
+      "source": "underthesea_uvd",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/undertheseanlp/resources/master/resources/DI_Vietnamese-UVD/README.md",
+      "status": "skipped",
+      "bytes": 793,
+      "sha256": "f6a7975e919afdc707b5a26266d5439e881dc2b6d5c488169890db706b819cb0"
+    },
+    {
+      "source": "underthesea_uvd",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/undertheseanlp/resources/master/LICENSE",
+      "status": "skipped",
+      "bytes": 35146,
+      "sha256": "c53a65c2fd561c87eaabf1072ef5dcab8653042bc15308465f52413585eb6271"
+    },
+    {
+      "source": "duyet_vietnamese_wordlist",
+      "file": "Viet74K.txt",
+      "url": "https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/Viet74K.txt",
+      "status": "skipped",
+      "bytes": 988627,
+      "sha256": "b83d49308336f12ca46d06287d8db6e2cdc7a725d9a9dac56930051775fafb90"
+    },
+    {
+      "source": "duyet_vietnamese_wordlist",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/LICENSE",
+      "status": "skipped",
+      "bytes": 18047,
+      "sha256": "c03cea027b4b40e4402fabd08557736727ec3d5bc54ad64ab6472de432198cad"
+    },
+    {
+      "source": "hunspell_vi",
+      "file": "vi-DauMoi.dic",
+      "url": "https://raw.githubusercontent.com/1ec5/hunspell-vi/main/dictionaries/vi-DauMoi.dic",
+      "status": "skipped",
+      "bytes": 39916,
+      "sha256": "a075773a27729713a1f5853404c7aafbb78e9056a12ccd729c19622953723143"
+    },
+    {
+      "source": "hunspell_vi",
+      "file": "vi-DauCu.dic",
+      "url": "https://raw.githubusercontent.com/1ec5/hunspell-vi/main/dictionaries/vi-DauCu.dic",
+      "status": "skipped",
+      "bytes": 39910,
+      "sha256": "50b23ff20ea83ad886e2ff166220d53b307784c9870fb447341e0f298f0e5588"
+    },
+    {
+      "source": "hunspell_vi",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/1ec5/hunspell-vi/main/firefox_thunderbird/LICENSE",
+      "status": "skipped",
+      "bytes": 853,
+      "sha256": "5476acdd2988c3c7bf7a5a12307c46c1cca2aa77606698cfc1694cf644bbf917"
+    },
+    {
+      "source": "omw_wiktionary_vi",
+      "file": "wn-wikt-vie.tab",
+      "url": "https://raw.githubusercontent.com/omwn/omw-data/main/wns/wikt/wn-wikt-vie.tab",
+      "status": "skipped",
+      "bytes": 176663,
+      "sha256": "2f74ee9d80a96aeb44f7639a9cf39d66af69e376f0c7cb8bfa9a7efd87ddbce7"
+    },
+    {
+      "source": "omw_wiktionary_vi",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/omwn/omw-data/main/wns/wikt/LICENSE",
+      "status": "skipped",
+      "bytes": 768,
+      "sha256": "e5477e8046e6fdfd3522ba6c2fc91ca85c86c809107b22dfea85a1cbeeaad416"
+    },
+    {
+      "source": "dai_nam_quoc_am_tu_vi",
+      "file": "pages.json",
+      "url": "https://vi.wikisource.org/w/api.php",
+      "status": "skipped",
+      "bytes": 12708684,
+      "sha256": "523265ef1262ffdce415fa2d5bdea5bb3585720f18b3a7d887d34943c7dffd71"
+    },
+    {
+      "source": "catusf_thieu_chuu_stardict",
+      "file": "TudienThienChuu.txt",
+      "url": "https://raw.githubusercontent.com/catusf/tudien/master/dict/TudienThienChuu.txt",
+      "status": "skipped",
+      "bytes": 2022177,
+      "sha256": "543123f07585ccd6f6b1f45d4a6d1be6ad64147404e76fc266cd588de924f60c"
+    },
+    {
+      "source": "catusf_thieu_chuu_stardict",
+      "file": "TudienThienChuu.toml",
+      "url": "https://raw.githubusercontent.com/catusf/tudien/master/dict/TudienThienChuu.toml",
+      "status": "skipped",
+      "bytes": 288,
+      "sha256": "bff0b466d96dae4bb11c21430115e04b462c912fbaef22c70d9b28843f2e6be1"
+    },
+    {
+      "source": "catusf_thieu_chuu_stardict",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/catusf/tudien/master/LICENSE",
+      "status": "skipped",
+      "bytes": 6556,
+      "sha256": "6a1ee543e5282cd9061881edf462e6fdab181f328da71fc2c9a6950a80e94d01"
+    },
+    {
+      "source": "chunom_standard",
+      "file": "standard.tsv",
+      "url": "https://chunom.org/pages/standard-list/?max=2000&download=1",
+      "status": "skipped",
+      "bytes": 209163,
+      "sha256": "098d9b513c83a3fb5bdc9a75b41c954243d4bf6120a45b1711000f36b564dc5e"
+    },
+    {
+      "source": "chunom_standard",
+      "file": "SOURCE.html",
+      "url": "https://chunom.org/pages/standard/",
+      "status": "skipped",
+      "bytes": 554679,
+      "sha256": "2440829109162bbe128d06ba84d3275f1dd636ec286cfb255db834515f54e36d"
+    },
+    {
+      "source": "catusf_vietviet",
+      "file": "star_vietviet.tab",
+      "url": "https://raw.githubusercontent.com/catusf/tudien/master/dict/star_vietviet.tab",
+      "status": "downloaded",
+      "bytes": 5798201,
+      "sha256": "b3db67c4cd7ac650524b116fcf4a043750ae70568eb40d58e31f6c846e199c90"
+    },
+    {
+      "source": "catusf_vietviet",
+      "file": "star_vietviet.toml",
+      "url": "https://raw.githubusercontent.com/catusf/tudien/master/dict/star_vietviet.toml",
+      "status": "downloaded",
+      "bytes": 259,
+      "sha256": "6abfbf4e4a0258fc82689a2d492083d208c5f54819b0fdb23b7cb676ba95b28c"
+    },
+    {
+      "source": "catusf_vietviet",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/catusf/tudien/master/LICENSE",
+      "status": "downloaded",
+      "bytes": 6556,
+      "sha256": "6a1ee543e5282cd9061881edf462e6fdab181f328da71fc2c9a6950a80e94d01"
+    }
+  ],
+  "normalizedFiles": [
+    {
+      "file": "catusf_thieu_chuu_stardict/han-viet.jsonl",
+      "bytes": 7645156,
+      "sha256": "20f8a73cce71690cc0691aeb8839286a160a5546428f679978e898ce8c677c45"
+    },
+    {
+      "file": "catusf_vietviet/words.jsonl",
+      "bytes": 29001502,
+      "sha256": "07deaaf631ce7f973db3865f331a01b9452c89f07303ebcd3c9b861960ef1b5d"
+    },
+    {
+      "file": "chunom_standard/nom.jsonl",
+      "bytes": 1549707,
+      "sha256": "7fda35ac49099fb99ef051cfca393a002784db2d9c6aa2789bb1cb224638f613"
+    },
+    {
+      "file": "dai_nam_quoc_am_tu_vi/words.jsonl",
+      "bytes": 40747735,
+      "sha256": "340f859efc6e33a7f0895d61c0cb283ad586176d08cdcee8af6abf198c0ee8b5"
+    },
+    {
+      "file": "duyet_vietnamese_wordlist/lexemes.jsonl",
+      "bytes": 23336594,
+      "sha256": "e5d19e1f3ea6ccd7a7ae4abfb06d449e9ca70a934d43f2400fe17e29ee648fba"
+    },
+    {
+      "file": "hunspell_vi/lexemes.jsonl",
+      "bytes": 3824120,
+      "sha256": "87d091c98bd2dac7b3f6c4f5fe51b560e79094474e9db1c1081b16ba721d6d32"
+    },
+    {
+      "file": "hunspell_vi/variants.jsonl",
+      "bytes": 39894,
+      "sha256": "be25dd2e8734c6e4e2904f7b55485ecc5e8997991708f1675ae2bc77c4eafaf6"
+    },
+    {
+      "file": "kaikki_enwiktionary_vi/han-viet.jsonl",
+      "bytes": 3640098,
+      "sha256": "5e88189ea4b0e18ae598bd173400bbef71e67e3a5e2010d43429bd9b5f4196b0"
+    },
+    {
+      "file": "kaikki_enwiktionary_vi/words.jsonl",
+      "bytes": 60720716,
+      "sha256": "3a6f4403dc961b2edcee15fa8fe938f44f1898a9fad6451963503ed1346da2ab"
+    },
+    {
+      "file": "kaikki_viwiktionary/han-viet.jsonl",
+      "bytes": 838126,
+      "sha256": "0973c522d0ec8da0e5470696abc58b69a30a63833322e73a273036a21479d2cd"
+    },
+    {
+      "file": "kaikki_viwiktionary/words.jsonl",
+      "bytes": 45002125,
+      "sha256": "8b75a5a0e64987c9704506427689ff56f099d2df7a78a4250f1c561ad2c87307"
+    },
+    {
+      "file": "normalize-manifest.json",
+      "bytes": 1445,
+      "sha256": "e47a55e57faa5a59599008a2e3ccba9ee05d4423d80bdb7b620fb45e7dc4a6f1"
+    },
+    {
+      "file": "omw_wiktionary_vi/semantics.jsonl",
+      "bytes": 1619340,
+      "sha256": "11b62726ba56fdba797dbc60356c71ca5a229179b5e3c6c52cd89e62291a74d4"
+    },
+    {
+      "file": "underthesea_dictionary/lexemes.jsonl",
+      "bytes": 24807706,
+      "sha256": "b67ffdedd3795d59c9559e7aa86887fa552f133cb4bbb18fdbb9debc39bd3c5f"
+    },
+    {
+      "file": "underthesea_uvd/words.jsonl",
+      "bytes": 30322243,
+      "sha256": "6a6c207119e41c2048975ef0d2f19ad716da8f8ebc3aba39a94783ad88c6c78f"
+    },
+    {
+      "file": "unicode_unihan/han-metadata.jsonl",
+      "bytes": 32347377,
+      "sha256": "fe9f929b88396cca40ef09a4a0cb7724aa9c1bcbfad789a4eb37b8443aa41ffc"
+    },
+    {
+      "file": "vntk_dictionary/words.jsonl",
+      "bytes": 30285008,
+      "sha256": "2ddd9e57fd0bf9206307d61a30edf04bbb0e4dcab4c433808c8cb49357b30dda"
+    }
+  ],
+  "processedFiles": [
+    {
+      "file": "evidence/a.json",
+      "bytes": 1345585,
+      "sha256": "2fd3b5af6e76a99f504c38a17a2bb5363d099f5508760c461d9ec119e04aedc0"
+    },
+    {
+      "file": "evidence/b.json",
+      "bytes": 5602242,
+      "sha256": "571e6900de07f210cb5c5e5cdbc933072b09b2e58923e2409bcbf12f2b99c3fc"
+    },
+    {
+      "file": "evidence/c.json",
+      "bytes": 9486972,
+      "sha256": "f49cc2673bf45727a7f0c879f49e088674a1fd564c8bdec6df2edf9637236d96"
+    },
+    {
+      "file": "evidence/d.json",
+      "bytes": 8058450,
+      "sha256": "b5c0bdd152435b717cdebbec7688efde15aab5d8518f305e4e7f20aeecbaf4aa"
+    },
+    {
+      "file": "evidence/e.json",
+      "bytes": 250662,
+      "sha256": "d63f464c41b7e07edf237b00bee48422f71fa0c5054ab3c5a301d35781e76d0f"
+    },
+    {
+      "file": "evidence/f.json",
+      "bytes": 13248,
+      "sha256": "294f13e65d05f0354b7afe9fcf8c44722a9ab6e72036057aa749e0627da52386"
+    },
+    {
+      "file": "evidence/g.json",
+      "bytes": 2952702,
+      "sha256": "32071ac911f58cf465143252137f4e1b6881564f02d0f3bb6d312df36118f32d"
+    },
+    {
+      "file": "evidence/h.json",
+      "bytes": 4028917,
+      "sha256": "c20eef8bcbbe5fc8c3f9c0304847c9186718a2d992fa5e0ecdf71b54cd412cfc"
+    },
+    {
+      "file": "evidence/i.json",
+      "bytes": 173882,
+      "sha256": "94664a54d67e8ac0d0f30eba02af7a3e87b12c26e04846d516a83277a9f02dcd"
+    },
+    {
+      "file": "evidence/j.json",
+      "bytes": 4267,
+      "sha256": "30f16d437bdd4b7d09699fa5899dea304e5e9b973bca0501f6770528a31386cd"
+    },
+    {
+      "file": "evidence/k.json",
+      "bytes": 3429822,
+      "sha256": "85ad3aee0ca67ae29a7578d8074448b1dfc69187776f31976ad119181594da14"
+    },
+    {
+      "file": "evidence/l.json",
+      "bytes": 5421629,
+      "sha256": "b2a79908eac8b536d799a3a36aff99e846e5f54b61279e19d9eefc31907fbc3a"
+    },
+    {
+      "file": "evidence/m.json",
+      "bytes": 3452021,
+      "sha256": "6b69c86e7625453a70899df042452e746b1dc1723c744b12ddef1508de0a0d64"
+    },
+    {
+      "file": "evidence/n.json",
+      "bytes": 7238662,
+      "sha256": "415e3e218d5f506499b98a58505eba8d0f1629071ec13f93d696df0c03d06674"
+    },
+    {
+      "file": "evidence/o.json",
+      "bytes": 701468,
+      "sha256": "e5437898bd76f8bdda3c94d5410bc0de6e8eab5382b01d8d8d84e5d180171ddd"
+    },
+    {
+      "file": "evidence/p.json",
+      "bytes": 2282097,
+      "sha256": "75b46ef723b5dfd43131401e1f69dd8c9c3125674cd4856a6b8f7ed1a39277a0"
+    },
+    {
+      "file": "evidence/q.json",
+      "bytes": 1672598,
+      "sha256": "2af5d775ffe6a723afb8c591e32346388eb606e83c9095b28bcc483451de6bdf"
+    },
+    {
+      "file": "evidence/r.json",
+      "bytes": 1912621,
+      "sha256": "dd41b7f94173f86cf651b2780499233dbe35005972abaaefdcd38ef786acaff8"
+    },
+    {
+      "file": "evidence/s.json",
+      "bytes": 2981999,
+      "sha256": "bd4e90f5738ab337c76e1e47fe37e92415e27d37a4638b0b76ed44c05b4f661e"
+    },
+    {
+      "file": "evidence/t.json",
+      "bytes": 14157944,
+      "sha256": "db58b433cc82d2fa74176bbce945e83ec9b1b6561ab062e9d045bcc8561b006e"
+    },
+    {
+      "file": "evidence/u.json",
+      "bytes": 702816,
+      "sha256": "4cb60644be601f1aaad3c44a46123f63e2c5195dea40ff58434d45c534dc7ead"
+    },
+    {
+      "file": "evidence/v.json",
+      "bytes": 3061523,
+      "sha256": "7b21187144752c21937c0f953237d250030c2b5a9079e1e870d74023bac93efc"
+    },
+    {
+      "file": "evidence/w.json",
+      "bytes": 2797,
+      "sha256": "ffe7e95937af079978991a4b59d3e00c3d9e4b1a68f96d32a64be24fff9bbf48"
+    },
+    {
+      "file": "evidence/x.json",
+      "bytes": 2059894,
+      "sha256": "c9e4e55a2e911793f72d60aabbeb664d93818527b083f859ebb56172875954ae"
+    },
+    {
+      "file": "evidence/y.json",
+      "bytes": 414092,
+      "sha256": "512c07925bbd64c5a9b18edafa9bef7b23caa5f0278c57f1ebe1126a38403b8f"
+    },
+    {
+      "file": "evidence/z.json",
+      "bytes": 1719,
+      "sha256": "513ab8c934ffcecec2bae828525c921c28c6c7e622c8a25b009d1c7deb599c04"
+    },
+    {
+      "file": "han-viet/radical-001-一.json",
+      "bytes": 127548,
+      "sha256": "2ad6f6ab8c9fc8f034f766510b67ebcdff5f840e02d3207933e76a60d127b58b"
+    },
+    {
+      "file": "han-viet/radical-002-丨.json",
+      "bytes": 29222,
+      "sha256": "905c78ca15340e1c474f91b8fcf841273e43f90159bdc9cf436eb97fe9e7c829"
+    },
+    {
+      "file": "han-viet/radical-003-丶.json",
+      "bytes": 19827,
+      "sha256": "eac377de089c1e713d216647d5c9851bd8d79c105c35647a8f1fd565ae8ee15f"
+    },
+    {
+      "file": "han-viet/radical-004-丿.json",
+      "bytes": 63055,
+      "sha256": "ec26d08c5f6437576b269ea3ecdf088bb91127942ba9340f7fb112517a69d40a"
+    },
+    {
+      "file": "han-viet/radical-005-乙.json",
+      "bytes": 46152,
+      "sha256": "f5a1d75c9800356adb61c02ccfc20abdf85ff5dd4d605d56bfd944869c92f80a"
+    },
+    {
+      "file": "han-viet/radical-006-亅.json",
+      "bytes": 17901,
+      "sha256": "b7d921827197f8640df1df108668c5afd5b0906005c433f247581807657caaa8"
+    },
+    {
+      "file": "han-viet/radical-007-二.json",
+      "bytes": 45941,
+      "sha256": "d028bdba1274965e286c183042d89fa2b87cd618b917c1ff72fdb25be0a85ea2"
+    },
+    {
+      "file": "han-viet/radical-008-亠.json",
+      "bytes": 50118,
+      "sha256": "0151345f5351d975abb7d18b00fa0bb15ebe14f86eabe6f06602fdb4790c8049"
+    },
+    {
+      "file": "han-viet/radical-009-人.json",
+      "bytes": 685827,
+      "sha256": "2e56bec03dea552d8fee29592fee827b1a273ef1a514592945cb44872d265634"
+    },
+    {
+      "file": "han-viet/radical-010-儿.json",
+      "bytes": 55285,
+      "sha256": "96671355fad302cac50419f766cfad265b67c13d0633b6b97f1132e8c6e58292"
+    },
+    {
+      "file": "han-viet/radical-011-入.json",
+      "bytes": 19521,
+      "sha256": "6be56d4b35b9bf57eb3403662db7f33c74c0e5a06aceb810977504baf1a37c01"
+    },
+    {
+      "file": "han-viet/radical-012-八.json",
+      "bytes": 54178,
+      "sha256": "f852bf4c4a2095ba9ac0892228120c74c6f61ee577d18cf13f1b974f493563c0"
+    },
+    {
+      "file": "han-viet/radical-013-冂.json",
+      "bytes": 29040,
+      "sha256": "616aa023cbb70780d6532237f248fe87c95c33721b0e381b02c336d27da701a2"
+    },
+    {
+      "file": "han-viet/radical-014-冖.json",
+      "bytes": 21125,
+      "sha256": "de09659936e7cf11528c9afb6bc1dbc4e7d260cbdd2920537dcf19b510214610"
+    },
+    {
+      "file": "han-viet/radical-015-冫.json",
+      "bytes": 69514,
+      "sha256": "5fb9fc6cdd97bf5cff5f8d10511dc9f78b9150dca141c21b7de50e07ecca5576"
+    },
+    {
+      "file": "han-viet/radical-016-几.json",
+      "bytes": 20820,
+      "sha256": "bb1d6d9263d1382a8c681582fab92eca7aaa6a1b700ec34c1b2e567c8c74d2e4"
+    },
+    {
+      "file": "han-viet/radical-017-凵.json",
+      "bytes": 21090,
+      "sha256": "41cfc7b833b6ee8d2a7a7fa93acabb0580e0eca2a798d060bbaca8a00ebc8e84"
+    },
+    {
+      "file": "han-viet/radical-018-刀.json",
+      "bytes": 199496,
+      "sha256": "9d2b4493544a4ab844403d4ab463ccb3f0feec82aaf76f35a0dad3befcff2df9"
+    },
+    {
+      "file": "han-viet/radical-019-力.json",
+      "bytes": 112888,
+      "sha256": "c67bf8561c68ee343059d47cd91e96225d6bbf71ce4de203b11bf9d77bdb4ee4"
+    },
+    {
+      "file": "han-viet/radical-020-勹.json",
+      "bytes": 29151,
+      "sha256": "719148a503aff439abeca976b690bef7386c54a9aebf15ddbc687bfae25cd367"
+    },
+    {
+      "file": "han-viet/radical-021-匕.json",
+      "bytes": 19670,
+      "sha256": "3d202478d08e2e341ea179dea734cb8b52eabed15f03bdd1cf0cc0a035e69298"
+    },
+    {
+      "file": "han-viet/radical-022-匚.json",
+      "bytes": 26464,
+      "sha256": "954cb3617924d2b20615f5de26385bd9b91789a9582b6cebec5c575b82ac8b3e"
+    },
+    {
+      "file": "han-viet/radical-023-匸.json",
+      "bytes": 13237,
+      "sha256": "74271d2a08bd8874b5bdeb4d1b03417cdfbb1d0eeb9c2d1e738ca0bccf819504"
+    },
+    {
+      "file": "han-viet/radical-024-十.json",
+      "bytes": 68263,
+      "sha256": "75aca801f376792f12742afc1cf3606a41c0cd10a38d14773909780cd57028e1"
+    },
+    {
+      "file": "han-viet/radical-025-卜.json",
+      "bytes": 32882,
+      "sha256": "d31e94376effae111c53ef3c69290438b515493896effaa35976d952034e5a1b"
+    },
+    {
+      "file": "han-viet/radical-026-卩.json",
+      "bytes": 50320,
+      "sha256": "3b3e889fee3756a70db782cd4e9268987471220e86db22082df0dcc7f6c90ea7"
+    },
+    {
+      "file": "han-viet/radical-027-厂.json",
+      "bytes": 61042,
+      "sha256": "9b9c28df5a85e88ee33bdadbe92926ce4dc5705e8be57148ebcea4cfe76485dd"
+    },
+    {
+      "file": "han-viet/radical-028-厶.json",
+      "bytes": 27490,
+      "sha256": "811f61bea7d609e0004db8e8266ff043403dded48b35d319b86b19b3e5557fc0"
+    },
+    {
+      "file": "han-viet/radical-029-又.json",
+      "bytes": 38160,
+      "sha256": "7384545c66569abf2d402f7b9880afac76ecad644eab6e0c956eae67af8fe0c1"
+    },
+    {
+      "file": "han-viet/radical-030-口.json",
+      "bytes": 847965,
+      "sha256": "d3f06515f7bae35fab454c61db38702bb754b8096a17ec0cc6ea8dae5f431c7c"
+    },
+    {
+      "file": "han-viet/radical-031-囗.json",
+      "bytes": 88134,
+      "sha256": "08b9139f0d56973749861ad4621b95a21ef6b0acaa189302f82db79206fe842d"
+    },
+    {
+      "file": "han-viet/radical-032-土.json",
+      "bytes": 352157,
+      "sha256": "3389efa9b207923ccb9039e657753b943f48e42a84d716574d5ef80399206960"
+    },
+    {
+      "file": "han-viet/radical-033-士.json",
+      "bytes": 29697,
+      "sha256": "7d8f51d371de7e5f991aed39b01630152cd0ab5b6ec1150f1dc7c7ca3529e88d"
+    },
+    {
+      "file": "han-viet/radical-034-夂.json",
+      "bytes": 4767,
+      "sha256": "4a5debb8170928e265b533b8a63a6d563d6c3ffb187b117d37475556c519807b"
+    },
+    {
+      "file": "han-viet/radical-035-夊.json",
+      "bytes": 11183,
+      "sha256": "277fbe1c9baae773bfb4ef519cd0ab105f07f5672079b1e6b560dd16e34bc2b1"
+    },
+    {
+      "file": "han-viet/radical-036-夕.json",
+      "bytes": 45036,
+      "sha256": "0f41170cb3c8ba2613b4013ae27661c622e83301f53f2656f167d1e40dbc1c1a"
+    },
+    {
+      "file": "han-viet/radical-037-大.json",
+      "bytes": 86239,
+      "sha256": "46b44511c093b641c0f6255ebcbee6e7d794a67cbec1539ab0ee4bf1380ef449"
+    },
+    {
+      "file": "han-viet/radical-038-女.json",
+      "bytes": 303015,
+      "sha256": "148b7cf8936025122f914d38c0bf20b3ef61f21e52d141334bc410d61c2e735a"
+    },
+    {
+      "file": "han-viet/radical-039-子.json",
+      "bytes": 71970,
+      "sha256": "157ee5dbcad8d4dcabb1c9117b91ea6dd3dee1f3d5f22bc1c3060bc21786fa2b"
+    },
+    {
+      "file": "han-viet/radical-040-宀.json",
+      "bytes": 171521,
+      "sha256": "28ebe2b5877ed2079a647578b4d68fc58a0689232fc38f29d68efcefe5af3afa"
+    },
+    {
+      "file": "han-viet/radical-041-寸.json",
+      "bytes": 57770,
+      "sha256": "fc4d2a6aa00800fa22046539b28bdcd8930ca737d1c33e9fc68c2bec094a1eaa"
+    },
+    {
+      "file": "han-viet/radical-042-小.json",
+      "bytes": 34469,
+      "sha256": "6620f469041deeece6615e8ef2b1b71c6b4a0b85178d0498a89017bd3ccf00f0"
+    },
+    {
+      "file": "han-viet/radical-043-尢.json",
+      "bytes": 14487,
+      "sha256": "237d21b72d79a26b75971a815c234729c205e46946d9ad6d7ca46b8e5b95c8b9"
+    },
+    {
+      "file": "han-viet/radical-044-尸.json",
+      "bytes": 87955,
+      "sha256": "fc230a44115f12a922e77aa9525425f1961390f7fb8b20ac63083a7f2cb1f474"
+    },
+    {
+      "file": "han-viet/radical-045-屮.json",
+      "bytes": 4414,
+      "sha256": "2b43bcb41ad47aa41b9cdb27156d6aaca1c64847e3d2b393248e77e8d7f8bfe4"
+    },
+    {
+      "file": "han-viet/radical-046-山.json",
+      "bytes": 179376,
+      "sha256": "90160628eaa157e8ab11b1f8b0a0ac1cb1ca4ea95190baf5b59cd23bf74d773e"
+    },
+    {
+      "file": "han-viet/radical-047-巛.json",
+      "bytes": 5680,
+      "sha256": "5e785f5afeadac4dc84490efd6d1d1c150046bb6e33c14c85f15f0f65f878c4f"
+    },
+    {
+      "file": "han-viet/radical-048-工.json",
+      "bytes": 26864,
+      "sha256": "931270e744cd127f4de54e715820509d3cb3c3dd1677e60148e85fe5dc1d93a5"
+    },
+    {
+      "file": "han-viet/radical-049-己.json",
+      "bytes": 18033,
+      "sha256": "1e711e56646cf1b30475ed353ff2ca357c134808d89ad2f6feaa21e60d59d4e7"
+    },
+    {
+      "file": "han-viet/radical-050-巾.json",
+      "bytes": 124498,
+      "sha256": "9033eb01cdd7a5261a13b444d0a3dc105ed8126c5df1b0834bd90856dca7770d"
+    },
+    {
+      "file": "han-viet/radical-051-干.json",
+      "bytes": 19615,
+      "sha256": "e3b820199258e6385f7ddcb35f8fcfa52fc0a10a20ad92d9e48d43258e129d29"
+    },
+    {
+      "file": "han-viet/radical-052-幺.json",
+      "bytes": 9556,
+      "sha256": "e45cc873a561ce758ec38dd00c652c20dd86af8ef6b475e4c52cf2da3745675c"
+    },
+    {
+      "file": "han-viet/radical-053-广.json",
+      "bytes": 134003,
+      "sha256": "e7cf40d8d0c43ad18763cb076d02a0b8ff6d2ca060f34dcbba80c91c290676c4"
+    },
+    {
+      "file": "han-viet/radical-054-廴.json",
+      "bytes": 10588,
+      "sha256": "54b06a7a739a0a246e7bdfff9e9a27002ca49f5eeb0b2032c7e35c429cffe17b"
+    },
+    {
+      "file": "han-viet/radical-055-廾.json",
+      "bytes": 27653,
+      "sha256": "0e6ade6ac3c5147360b5a09af70d8dddf53f54dc66ab8b302ce1ba21b725cb3d"
+    },
+    {
+      "file": "han-viet/radical-056-弋.json",
+      "bytes": 15621,
+      "sha256": "01f03908247bca9610354a41a240d63813829960111be2ccf3970da82fe53c4b"
+    },
+    {
+      "file": "han-viet/radical-057-弓.json",
+      "bytes": 58110,
+      "sha256": "7dfcb4fd9d9ea87e52a93790320d78e79d9c3d74c9caa34722e0ac964d729f8a"
+    },
+    {
+      "file": "han-viet/radical-058-彐.json",
+      "bytes": 22494,
+      "sha256": "56d623192c814407916be663be5a1fb0c86bd4230f06cd185b47b041ceeca603"
+    },
+    {
+      "file": "han-viet/radical-059-彡.json",
+      "bytes": 27427,
+      "sha256": "e0f442f1f09fa405bdcc858e48ff2e4acdab84a97afa2fce8eb928fd780fcb76"
+    },
+    {
+      "file": "han-viet/radical-060-彳.json",
+      "bytes": 92717,
+      "sha256": "5cdb45b549e32131adb6315e597b0f397e7288fc982787a204910ec6c3942069"
+    },
+    {
+      "file": "han-viet/radical-061-心.json",
+      "bytes": 527225,
+      "sha256": "66cea870df7cf19a0643a99a4f8b29c6efb6b1681abe5a3cee9b3ea3301c6136"
+    },
+    {
+      "file": "han-viet/radical-062-戈.json",
+      "bytes": 58642,
+      "sha256": "545a1591c48d426cf1b1fee70ce993638605c339058c5fe422405a18d8b9646f"
+    },
+    {
+      "file": "han-viet/radical-063-戶.json",
+      "bytes": 36690,
+      "sha256": "81f12f9c3254915e395e2d8a3c4ad55c69546d3488869e88a7902f63cadd89cb"
+    },
+    {
+      "file": "han-viet/radical-064-手.json",
+      "bytes": 789628,
+      "sha256": "24d2769a9168c5ebbdba2eb153294dc58a5c52ddbca0fc0b6e1553ca6643801c"
+    },
+    {
+      "file": "han-viet/radical-065-支.json",
+      "bytes": 8133,
+      "sha256": "199580947b3609cd7f4486966dec278bf35e05e233828b2e068c5203908d25c7"
+    },
+    {
+      "file": "han-viet/radical-066-攴.json",
+      "bytes": 89428,
+      "sha256": "10f47f5e9baabedb1fff374d260f4ea2a7c485d5a8d5ad1f8de03fee5eabf48f"
+    },
+    {
+      "file": "han-viet/radical-067-文.json",
+      "bytes": 26416,
+      "sha256": "e8051494ddb340fa81ab5b273ed328bc8314e855c3a9b7260afb9ac7ea0cd069"
+    },
+    {
+      "file": "han-viet/radical-068-斗.json",
+      "bytes": 15835,
+      "sha256": "87ba8a99a7ad3a38be79103156370010a88891838b3375d4ec8d00b67812b06b"
+    },
+    {
+      "file": "han-viet/radical-069-斤.json",
+      "bytes": 26999,
+      "sha256": "e1b941560dab2b300440975a668c46a7b1f6b5189bf915f616466f81b96cb6fa"
+    },
+    {
+      "file": "han-viet/radical-070-方.json",
+      "bytes": 47430,
+      "sha256": "49c801e2c02272eb3861ec691b07b26084096423d15f22eb6a08eabce4b28150"
+    },
+    {
+      "file": "han-viet/radical-071-无.json",
+      "bytes": 5657,
+      "sha256": "3a35a3ea03dc6c8ddff73aa39b7d85177fbeb7850f63c93643fbccc597e262f7"
+    },
+    {
+      "file": "han-viet/radical-072-日.json",
+      "bytes": 250587,
+      "sha256": "9bd67b58aae038ecee62a4f3ec820735d097d999046df701da406068d4b9b2d8"
+    },
+    {
+      "file": "han-viet/radical-073-曰.json",
+      "bytes": 56626,
+      "sha256": "0712e13750a3361f1b0350ff75e5e61f7b3da1d1ea9d1f8ed4faee11f01d454d"
+    },
+    {
+      "file": "han-viet/radical-074-月.json",
+      "bytes": 47072,
+      "sha256": "6c72170c43290031ccafcda22c848f5570e1a04d76a06166aa6841f7e88cfb6f"
+    },
+    {
+      "file": "han-viet/radical-075-木.json",
+      "bytes": 858217,
+      "sha256": "6182e739dbd7ccc4e4e084c72f298c16097ddaa827b28844dd853acc32d25a29"
+    },
+    {
+      "file": "han-viet/radical-076-欠.json",
+      "bytes": 59998,
+      "sha256": "64d5671a108d111a44fdc8f454ddcaac0493ad1912497edb8a6a6cf25513a825"
+    },
+    {
+      "file": "han-viet/radical-077-止.json",
+      "bytes": 46956,
+      "sha256": "19b734b7319dbeba9cf1aa0b30bd175defd992bdb654d4794b03d32aaf33f850"
+    },
+    {
+      "file": "han-viet/radical-078-歹.json",
+      "bytes": 55390,
+      "sha256": "f19d628b6ceec78c86afacfe58b40cd810f4813dd4a00ad6a2d27a3ddf64606e"
+    },
+    {
+      "file": "han-viet/radical-079-殳.json",
+      "bytes": 24885,
+      "sha256": "14b02b0ec1497adcc75ea5e86a0daeaa5f649ba978f8590238bb6db68ebadfe7"
+    },
+    {
+      "file": "han-viet/radical-080-毋.json",
+      "bytes": 16742,
+      "sha256": "236948337b225a37e2fce37454d67f52b34dc5977c37750cf0cc46f3d3f6a86b"
+    },
+    {
+      "file": "han-viet/radical-081-比.json",
+      "bytes": 12152,
+      "sha256": "fea346d21054128ddc4297123fca5ca6de4047c77f6aa4a2cdee037cfa2d0915"
+    },
+    {
+      "file": "han-viet/radical-082-毛.json",
+      "bytes": 29991,
+      "sha256": "2efb83e0ecd557a1ba13eb38d37311de16b23eebf87685d7f0735a14150a2cb1"
+    },
+    {
+      "file": "han-viet/radical-083-氏.json",
+      "bytes": 16694,
+      "sha256": "5c30d86231557d967f37d7330a798d31460bf2272261ac9be2c1da8bb8453025"
+    },
+    {
+      "file": "han-viet/radical-084-气.json",
+      "bytes": 16468,
+      "sha256": "4b82d311bb4e09a73c29c88d4ce760340100c004e1b0a889d9e30c39ed63c2c1"
+    },
+    {
+      "file": "han-viet/radical-085-水.json",
+      "bytes": 970072,
+      "sha256": "08cf192a60f30ae1c9ff6d966882ae309b731ee223658cfbc387fefc147d0683"
+    },
+    {
+      "file": "han-viet/radical-086-火.json",
+      "bytes": 325727,
+      "sha256": "5bb42723921bad8bf47cc7f49d17380171decbf57f8887b5af5e78b43c3affe2"
+    },
+    {
+      "file": "han-viet/radical-087-爪.json",
+      "bytes": 25008,
+      "sha256": "b0fccf0b5c38717aa54dc0dd6ffb886fe76e1114c52104601d32860e6c4c820c"
+    },
+    {
+      "file": "han-viet/radical-088-父.json",
+      "bytes": 10592,
+      "sha256": "0b7bdf983ad69f194d40f97100fc735528cbd7b3b8d4b87903a92d80fefc56d2"
+    },
+    {
+      "file": "han-viet/radical-089-爻.json",
+      "bytes": 6082,
+      "sha256": "0a4c7e8cbc6dbf0589145e4b21ce4e63e447f510fe3339f1a5ac04065fc465b2"
+    },
+    {
+      "file": "han-viet/radical-090-爿.json",
+      "bytes": 9270,
+      "sha256": "655cd47014612bb26a33f51ca61afd034e40feef855a0ae9c329a8d814c3dfe9"
+    },
+    {
+      "file": "han-viet/radical-091-片.json",
+      "bytes": 21340,
+      "sha256": "71824eed3383cebcbd0f05ea389b51e60b5d0a7f4f09bad5eb12ac8fe5e45313"
+    },
+    {
+      "file": "han-viet/radical-092-牙.json",
+      "bytes": 6348,
+      "sha256": "a2ca3ffd0a8befb7dfee48d5ad91abfe582c0b716e7c2a02158a46a19b572482"
+    },
+    {
+      "file": "han-viet/radical-093-牛.json",
+      "bytes": 69162,
+      "sha256": "d1911ad2148c29cc2d7f3d00b41bf3e5838170dfed501c5cd224ab6390accd57"
+    },
+    {
+      "file": "han-viet/radical-094-犬.json",
+      "bytes": 188905,
+      "sha256": "503804ba975338e9f62902aba9a6ca37a2acd1bdae7638a0de37e8bb312afb33"
+    },
+    {
+      "file": "han-viet/radical-095-玄.json",
+      "bytes": 12163,
+      "sha256": "3b9416e05cf7f35626580a814bb37286ac7cb962e80c091b3c0761519a3c69a6"
+    },
+    {
+      "file": "han-viet/radical-096-玉.json",
+      "bytes": 197770,
+      "sha256": "ec80463c14954ea0245c94c068db50106ae20b6a8c91cb0253a762fa5400385a"
+    },
+    {
+      "file": "han-viet/radical-097-瓜.json",
+      "bytes": 13858,
+      "sha256": "22c4bed03ff6ecb0aa2cca872ccdca657774283ae1d61e2b1a6af72421733555"
+    },
+    {
+      "file": "han-viet/radical-098-瓦.json",
+      "bytes": 33581,
+      "sha256": "1b2db654a6c5f231deed7a950aac1e16c3ec3514216ffccac3cd8e9fb8b890e9"
+    },
+    {
+      "file": "han-viet/radical-099-甘.json",
+      "bytes": 6675,
+      "sha256": "3ba5182dd197799c1177801ca1acd038ca54d586998b9c17242d7037f4535214"
+    },
+    {
+      "file": "han-viet/radical-100-生.json",
+      "bytes": 14283,
+      "sha256": "89de54b3251dfdf3ae316997156ae0a37f0a2e8033a249e1bc13079e33a11a36"
+    },
+    {
+      "file": "han-viet/radical-101-用.json",
+      "bytes": 14195,
+      "sha256": "f634a9f369c5677fe5be1678143bb38295e255669388effb8f30706f9d92a060"
+    },
+    {
+      "file": "han-viet/radical-102-田.json",
+      "bytes": 101025,
+      "sha256": "8499ac81f1ca3c3c7db4b931dbd71bb53f03380b3a99b3cf149fbb491210bdd9"
+    },
+    {
+      "file": "han-viet/radical-103-疋.json",
+      "bytes": 13235,
+      "sha256": "1a1524b055c8d6c7b2c68d35d95ea8d17c5b73c133edfd2b8862b48db45a5206"
+    },
+    {
+      "file": "han-viet/radical-104-疒.json",
+      "bytes": 228725,
+      "sha256": "5a4263ec17e287fa31c1e3da84055ece7608d618d64e396746e70c96edea9b27"
+    },
+    {
+      "file": "han-viet/radical-105-癶.json",
+      "bytes": 10582,
+      "sha256": "919b55180d6dfc888b05b05837ce8bb621a38786aca7b26d180f4aaa8cd0d252"
+    },
+    {
+      "file": "han-viet/radical-106-白.json",
+      "bytes": 44590,
+      "sha256": "54ea1966b4c89cdf2883103941efc19a40bbda7b00b52051f7fc12a002c8f7fb"
+    },
+    {
+      "file": "han-viet/radical-107-皮.json",
+      "bytes": 25457,
+      "sha256": "a6433b1f7705a98d1c524f10703113eedf4118e478a63502f3daaf481230fa24"
+    },
+    {
+      "file": "han-viet/radical-108-皿.json",
+      "bytes": 76020,
+      "sha256": "30da805469f17964285a3b42c5c087dcbf19b4f0eb56856afc26f6cb288d9817"
+    },
+    {
+      "file": "han-viet/radical-109-目.json",
+      "bytes": 180076,
+      "sha256": "e80cfc696e2c138acb1ad09eb464dc8c5d0874ca827eb6bd78b0fdf1c606d413"
+    },
+    {
+      "file": "han-viet/radical-110-矛.json",
+      "bytes": 7454,
+      "sha256": "25643c33bd411e53958f267f3727c7cb53f8a3ca0dd1b1820bcfb4086e9a4e31"
+    },
+    {
+      "file": "han-viet/radical-111-矢.json",
+      "bytes": 26320,
+      "sha256": "5d84ee0b716a655997bc529a75baca6abf75e4ae663582ac66c65131f42bfa82"
+    },
+    {
+      "file": "han-viet/radical-112-石.json",
+      "bytes": 199139,
+      "sha256": "dc77289fe01721b97f72e4f6060cacf2647c59070340a77c6fb58c6a072ab5bf"
+    },
+    {
+      "file": "han-viet/radical-113-示.json",
+      "bytes": 145593,
+      "sha256": "5d4676d4ef3c7c27169271934028ea3d24a1362e687383a03a72158fc5d47bbc"
+    },
+    {
+      "file": "han-viet/radical-114-禸.json",
+      "bytes": 15899,
+      "sha256": "2419067798db15c6536cd3d1d128eca95b7ca0dafb2d2ab85953f829924b5d1d"
+    },
+    {
+      "file": "han-viet/radical-115-禾.json",
+      "bytes": 150122,
+      "sha256": "8349738cb88851073ac27ce7cdeaa27fd3fe43785105d9b605eb168389e365ca"
+    },
+    {
+      "file": "han-viet/radical-116-穴.json",
+      "bytes": 106176,
+      "sha256": "1dbba3d77ca471a9565381f38286f1ea1d71b01ed0164b56428289617e8f3177"
+    },
+    {
+      "file": "han-viet/radical-117-立.json",
+      "bytes": 41989,
+      "sha256": "76196d66065b155d9f3b7314d90436384be48c62be9e53c2420e31b61ffbd890"
+    },
+    {
+      "file": "han-viet/radical-118-竹.json",
+      "bytes": 327465,
+      "sha256": "08434838fc69cb22fc684d1b96bb5946a31b9da22a65b5ed5cc5c5c6f713a1e0"
+    },
+    {
+      "file": "han-viet/radical-119-米.json",
+      "bytes": 122837,
+      "sha256": "999fa8f098ac2e5c423489c9c5c5741705cbbdae65d6f5cacdcc180b14d6d82a"
+    },
+    {
+      "file": "han-viet/radical-120-糸.json",
+      "bytes": 646994,
+      "sha256": "b03f2c5e16d3a44cfec8bb7fb609da08a6976d2efddf384f462cac65ecb2c2d2"
+    },
+    {
+      "file": "han-viet/radical-121-缶.json",
+      "bytes": 29008,
+      "sha256": "5c8b1420f41086b74f7e82c34377ab0ab3ededf68aadfdbb94fea83be9383077"
+    },
+    {
+      "file": "han-viet/radical-122-网.json",
+      "bytes": 79387,
+      "sha256": "15cf2951b41acaf02e875f9a823b046651cca86a3ef0659deccc7513792985a0"
+    },
+    {
+      "file": "han-viet/radical-123-羊.json",
+      "bytes": 54902,
+      "sha256": "1f2049be1a39179a758d10d001f80135fce7057d1754ec19facaf71040e04ce3"
+    },
+    {
+      "file": "han-viet/radical-124-羽.json",
+      "bytes": 59563,
+      "sha256": "3fa93e75dbe759c41103a2c760922f4717906244cde72b1333235b79c3386542"
+    },
+    {
+      "file": "han-viet/radical-125-老.json",
+      "bytes": 18998,
+      "sha256": "43864d70b83dcd859dc9c7deef980d9926a46a688b897c77986079a783388655"
+    },
+    {
+      "file": "han-viet/radical-126-而.json",
+      "bytes": 10596,
+      "sha256": "a79eaab8f7076e3634cac43ef8c31973dacc199e433ba819f4d67fa49e3823d8"
+    },
+    {
+      "file": "han-viet/radical-127-耒.json",
+      "bytes": 23725,
+      "sha256": "270e7cf035578413c44d07e63943d66dd037bcc15c8c4ed6bc97c7cd1a1b074a"
+    },
+    {
+      "file": "han-viet/radical-128-耳.json",
+      "bytes": 68096,
+      "sha256": "732e0cfc231ee735481c21987c17c41fc467bac9048922d72aa641ce6c69ce87"
+    },
+    {
+      "file": "han-viet/radical-129-聿.json",
+      "bytes": 13561,
+      "sha256": "321e0d59867a884695361f84754aca873bfc01b5e18451948330671e6014a079"
+    },
+    {
+      "file": "han-viet/radical-130-肉.json",
+      "bytes": 331298,
+      "sha256": "f996b6efd52002c5991d0ccb5d1ef9eddaffa32cde6f756f57df27d141c6b055"
+    },
+    {
+      "file": "han-viet/radical-131-臣.json",
+      "bytes": 11143,
+      "sha256": "b75e9448a1b224f647caf66973f1d8d31053afa064a6779c54d1e104268610cb"
+    },
+    {
+      "file": "han-viet/radical-132-自.json",
+      "bytes": 8573,
+      "sha256": "10940eb73d30a7e7fbf63df23b4b84d8bb68369006a0b738cdfdee34f7c73a7e"
+    },
+    {
+      "file": "han-viet/radical-133-至.json",
+      "bytes": 14531,
+      "sha256": "4393296e0b09911546ebc90d33ae969a501d0d7ec1ca95ec590ae30ff730755f"
+    },
+    {
+      "file": "han-viet/radical-134-臼.json",
+      "bytes": 32756,
+      "sha256": "1cf2b2f36bbc8123e05c91bf6e660fc9c4b9a354afa6c6a76c23e4b9d2584920"
+    },
+    {
+      "file": "han-viet/radical-135-舌.json",
+      "bytes": 15457,
+      "sha256": "43b61ae3632793caa1ab68d50014020c6d2719382970308cd0190aeb1f0f05ff"
+    },
+    {
+      "file": "han-viet/radical-136-舛.json",
+      "bytes": 7372,
+      "sha256": "b4f019663d64bc8af145a99e07d1056f8b5e1642b73dfcd708c827c525c863cf"
+    },
+    {
+      "file": "han-viet/radical-137-舟.json",
+      "bytes": 46842,
+      "sha256": "ad23c602e321c7cc2cb493b1336b55ffe390427898652e2ed163ea09e55a88ed"
+    },
+    {
+      "file": "han-viet/radical-138-艮.json",
+      "bytes": 10857,
+      "sha256": "e38e43f40cb6fa84ff36fefc9e4f7292929de17d06d85fb3251fe245ddffa64e"
+    },
+    {
+      "file": "han-viet/radical-139-色.json",
+      "bytes": 12374,
+      "sha256": "34644a1f7e08f45005238a95cd693cc417168e59ed1a96791da0066904ae9fc8"
+    },
+    {
+      "file": "han-viet/radical-140-艸.json",
+      "bytes": 870181,
+      "sha256": "aada1df18c3ded418f1ccb31c15c6bef64f7d5841fa333164d95b2155bf15d81"
+    },
+    {
+      "file": "han-viet/radical-141-虍.json",
+      "bytes": 43789,
+      "sha256": "857b9c13af1ccd046e88556e68870a01dafdea27f0804d764a412ca60d74d256"
+    },
+    {
+      "file": "han-viet/radical-142-虫.json",
+      "bytes": 387222,
+      "sha256": "9df3490a8bab68d2510541f5998786fc74faf26dca1584f72cd96053c98fd1c9"
+    },
+    {
+      "file": "han-viet/radical-143-血.json",
+      "bytes": 14320,
+      "sha256": "dabc6191cc8e8483ce95d276c91be97bf6f9ed12c6de336fea72acddf27d2da9"
+    },
+    {
+      "file": "han-viet/radical-144-行.json",
+      "bytes": 39387,
+      "sha256": "a4e04b9c4d37005076d9486c4611e9d93bcd002764f0f54f4b01e0fb44e7777f"
+    },
+    {
+      "file": "han-viet/radical-145-衣.json",
+      "bytes": 220077,
+      "sha256": "e3f0bb023521f928889571146b4a9e044ef324dce005a10e428426b24be6d0db"
+    },
+    {
+      "file": "han-viet/radical-146-襾.json",
+      "bytes": 20022,
+      "sha256": "712164e67cdd7eb09bec33251ee3c87ffcf493e5156a0b9be8018a0be337111b"
+    },
+    {
+      "file": "han-viet/radical-147-見.json",
+      "bytes": 68759,
+      "sha256": "de6a79fdf9380e941b6bfca927b21c4d07ff003a5a8ce30123922848407bee1c"
+    },
+    {
+      "file": "han-viet/radical-148-角.json",
+      "bytes": 41449,
+      "sha256": "b9f45ddc9a79ade3ea99d60f143f8522c50cfb8f2ab4e02976ae3dc43e6121a5"
+    },
+    {
+      "file": "han-viet/radical-149-言.json",
+      "bytes": 594192,
+      "sha256": "341628bb87f8a36c25143ad1b307caefe354ce81a718615f18ac91aaa94db380"
+    },
+    {
+      "file": "han-viet/radical-150-谷.json",
+      "bytes": 11771,
+      "sha256": "d7ecbeb8055d06e635948fe130542b031ce48994d5561283b082fb062df5e90b"
+    },
+    {
+      "file": "han-viet/radical-151-豆.json",
+      "bytes": 23572,
+      "sha256": "4e4ee825da8e99368cb9427be031b05d27208300f8b71d57dbeeb8ad446a5d58"
+    },
+    {
+      "file": "han-viet/radical-152-豕.json",
+      "bytes": 27906,
+      "sha256": "d324cd98ca286c7207164b81e1caa628cd9e0415d7fc071673f904a3c0bf0776"
+    },
+    {
+      "file": "han-viet/radical-153-豸.json",
+      "bytes": 29542,
+      "sha256": "b7c7e2879803a580086589cb555619e000bf9c85e17a785c35d548fffa7700c9"
+    },
+    {
+      "file": "han-viet/radical-154-貝.json",
+      "bytes": 271640,
+      "sha256": "1029d8e6e801851f0389eb771d9e76221cfc812b299f50bce9901cc5007ab686"
+    },
+    {
+      "file": "han-viet/radical-155-赤.json",
+      "bytes": 25563,
+      "sha256": "a98a0c257898102f66553ad87c4883a310c6c9280b2fd0df8c6845f8c7fc3c72"
+    },
+    {
+      "file": "han-viet/radical-156-走.json",
+      "bytes": 48228,
+      "sha256": "d9da08bd1c0e18666ce408ff3e90d4ba88a355d5517a223dbcc98792ad51d004"
+    },
+    {
+      "file": "han-viet/radical-157-足.json",
+      "bytes": 255376,
+      "sha256": "54aa08eb3988ebc9c585585239844c7a64595866ac55c312a2288325c769d146"
+    },
+    {
+      "file": "han-viet/radical-158-身.json",
+      "bytes": 18305,
+      "sha256": "f147d57a41a094c1f7286ca7593b4acb1778af25d8b34706c88e4b88759130e0"
+    },
+    {
+      "file": "han-viet/radical-159-車.json",
+      "bytes": 202432,
+      "sha256": "c244c3374556776aab4cdb69c1afa4842560863c90cdbed598a246906fc7e04f"
+    },
+    {
+      "file": "han-viet/radical-160-辛.json",
+      "bytes": 30992,
+      "sha256": "bf117b0ebe7aae2d8158568d08f0c635e2ad42271b6a1a2e91e04900bd792e0e"
+    },
+    {
+      "file": "han-viet/radical-161-辰.json",
+      "bytes": 14507,
+      "sha256": "02505f1431fa89996f26a920b1ae28a9a2e0f20b8d777b701bb3dbece4a6f25b"
+    },
+    {
+      "file": "han-viet/radical-162-辵.json",
+      "bytes": 321952,
+      "sha256": "a4be8868340f025d35d2442e612ac57fb8b057496741acce0933f236ab4b71d6"
+    },
+    {
+      "file": "han-viet/radical-163-邑.json",
+      "bytes": 153247,
+      "sha256": "5ad3055286514d740171282713473d7de6cf6b22cf9798b893cf247305c61c31"
+    },
+    {
+      "file": "han-viet/radical-164-酉.json",
+      "bytes": 126670,
+      "sha256": "a02c9a7f6223fb9d93e3c3ff33bfa90a27f0e2732538da07686dcd000d33907e"
+    },
+    {
+      "file": "han-viet/radical-165-釆.json",
+      "bytes": 12008,
+      "sha256": "cf4317867a74434a4812b65a4da42c71d0cc8cdb707cb4d8e056b54dfea1baf6"
+    },
+    {
+      "file": "han-viet/radical-166-里.json",
+      "bytes": 24554,
+      "sha256": "edd55b538c56e537f89108ab96c130b84b3f25af4ec032a4e7c2ff1d30b889e0"
+    },
+    {
+      "file": "han-viet/radical-167-金.json",
+      "bytes": 545817,
+      "sha256": "ca3f186a2f3fc828aae797b7c57daff3617e7eb9aec083b2f457c1679eac05ba"
+    },
+    {
+      "file": "han-viet/radical-168-長.json",
+      "bytes": 7908,
+      "sha256": "8d5b0b2042d24c0fae7e03547c480911b3bdc761feb42cc69d5246096cf5180d"
+    },
+    {
+      "file": "han-viet/radical-169-門.json",
+      "bytes": 209911,
+      "sha256": "e2ce57b9c93f6ca4e123a0368d2e23bc0461e93af11813bdd053ce41ab4e29f1"
+    },
+    {
+      "file": "han-viet/radical-170-阜.json",
+      "bytes": 191678,
+      "sha256": "f34738ff935f7d8537b3ec62dc4114832df560ee6a81c2c439c9d698fa27cc17"
+    },
+    {
+      "file": "han-viet/radical-171-隶.json",
+      "bytes": 5083,
+      "sha256": "f22cf3af4d838ce1d640c07e0c175826950bd2226ebb8e79cc0478158cfb2907"
+    },
+    {
+      "file": "han-viet/radical-172-隹.json",
+      "bytes": 71524,
+      "sha256": "009055e6c4a0c5b5302d18506ff7897f41d171bbb380b5b44648787ffddb114c"
+    },
+    {
+      "file": "han-viet/radical-173-雨.json",
+      "bytes": 101704,
+      "sha256": "2842c028cd9a72be955d58488699e046ae4ffb7f377082882c542efcd061a83a"
+    },
+    {
+      "file": "han-viet/radical-174-靑.json",
+      "bytes": 19404,
+      "sha256": "5ff41187cbef3b145a43d85f3c219b7ac687b2bf1a28373eede0fdc8b6ff0fb9"
+    },
+    {
+      "file": "han-viet/radical-175-非.json",
+      "bytes": 6413,
+      "sha256": "ef6f223565063bb40ff62cf20d8c3c7033c1be295ce95e4e1d8a74940d579c4a"
+    },
+    {
+      "file": "han-viet/radical-176-面.json",
+      "bytes": 17766,
+      "sha256": "650ab43349b59d15858b75dfd26c37ce47a8eebd4d9f24f658c25fd39dbd0a59"
+    },
+    {
+      "file": "han-viet/radical-177-革.json",
+      "bytes": 62449,
+      "sha256": "5050201c0cf33dce54b29d926a8ca18cb04ebb986da7a2203afa7942c6f2feb9"
+    },
+    {
+      "file": "han-viet/radical-178-韋.json",
+      "bytes": 35040,
+      "sha256": "eac64718cb3251cc09ba5730e24dfc234e376683960042d101192aa8802e71e4"
+    },
+    {
+      "file": "han-viet/radical-179-韭.json",
+      "bytes": 4096,
+      "sha256": "738539d123cfaf872543fea5b01086ba5a472eee8184dcf5cbf0dd804fb2131d"
+    },
+    {
+      "file": "han-viet/radical-180-音.json",
+      "bytes": 16571,
+      "sha256": "9bbf02d193bdc639ab7bf118cf17785c7219ff072b3611ff912bea6f93aa403d"
+    },
+    {
+      "file": "han-viet/radical-181-頁.json",
+      "bytes": 174830,
+      "sha256": "3f5d07618911d95699a99b669249aa5c3d46d2721e95d2367ce804ca5b1e801b"
+    },
+    {
+      "file": "han-viet/radical-182-風.json",
+      "bytes": 33311,
+      "sha256": "da3d46925f3efb324c2417b4c6cc5505c5b229eafb940f0ea3a35fe76d446a41"
+    },
+    {
+      "file": "han-viet/radical-183-飛.json",
+      "bytes": 10001,
+      "sha256": "096fc2ca2a6b319b4cba3ae7003f0a6a09d92c1db5217322e0a676279a5c2cef"
+    },
+    {
+      "file": "han-viet/radical-184-食.json",
+      "bytes": 192768,
+      "sha256": "8ba1d2d5d6ee0c01ba556c1b3c28866ed5162a2066209a6906f30fd2b3e2ac5b"
+    },
+    {
+      "file": "han-viet/radical-185-首.json",
+      "bytes": 7830,
+      "sha256": "ed53290c10f0e0d9cebb36d4de1dbe62f0a716babb0cbf685e42cbe3e5891267"
+    },
+    {
+      "file": "han-viet/radical-186-香.json",
+      "bytes": 12022,
+      "sha256": "bbc10b2a8471b1beeb5580fd8da2e4f7e4eabf4789951d8c6e0bfe6096c02a81"
+    },
+    {
+      "file": "han-viet/radical-187-馬.json",
+      "bytes": 193184,
+      "sha256": "bda8b324fff4149075d710ba1c1419a2f857925923e8b963bde402ad2ab665d5"
+    },
+    {
+      "file": "han-viet/radical-188-骨.json",
+      "bytes": 37788,
+      "sha256": "351d99db87e27f7f0cf4052a3b9424da64fd87c5b019f40fb9bd3e28af250342"
+    },
+    {
+      "file": "han-viet/radical-189-高.json",
+      "bytes": 5325,
+      "sha256": "b389165490f0de49989dd727d01648c933f7525feb8d0cf9d797c429b79ffeaa"
+    },
+    {
+      "file": "han-viet/radical-190-髟.json",
+      "bytes": 61230,
+      "sha256": "ec675baf8c625bdec7fe59c46be8ce606e2ae8207a7a680274085c12dcb309e1"
+    },
+    {
+      "file": "han-viet/radical-191-鬥.json",
+      "bytes": 13157,
+      "sha256": "8fbdd9e6070f1668e053d0bb163dc8d3cb73f71350426fbbd981c6b4c99155ec"
+    },
+    {
+      "file": "han-viet/radical-192-鬯.json",
+      "bytes": 4193,
+      "sha256": "fb1ca4f7d77c5daa6b016e4743e9f5e4aa667d5684854ca040a55a6e359e1721"
+    },
+    {
+      "file": "han-viet/radical-193-鬲.json",
+      "bytes": 7778,
+      "sha256": "04acdf9e3d827a38360b1b3815c635ab81014ea9f89fb531f6666f9570b8adc1"
+    },
+    {
+      "file": "han-viet/radical-194-鬼.json",
+      "bytes": 35925,
+      "sha256": "4f072d138c870edfbe8d14936573a78ccd1d37193481879a3f4938e314843684"
+    },
+    {
+      "file": "han-viet/radical-195-魚.json",
+      "bytes": 237246,
+      "sha256": "2e2c04068e4dde2a49f96ca5f5d03d4c524fc24f156ce1feadd9243d83d95d8b"
+    },
+    {
+      "file": "han-viet/radical-196-鳥.json",
+      "bytes": 267822,
+      "sha256": "532d3511993807198503b061cd756153d7ee0d18da285887f0ad8aab68bfad9c"
+    },
+    {
+      "file": "han-viet/radical-197-鹵.json",
+      "bytes": 17000,
+      "sha256": "db87d068e3ac6895ddd897fdd4bce050a734d8f7cc6b3a4b47fafff2caa9188f"
+    },
+    {
+      "file": "han-viet/radical-198-鹿.json",
+      "bytes": 33982,
+      "sha256": "f2dff5880e9be50bb5f4e527ba29b190a1f40f8daaae4e3c8041d70cd8a13e2d"
+    },
+    {
+      "file": "han-viet/radical-199-麥.json",
+      "bytes": 14276,
+      "sha256": "8249e32f98ab08e308dc3a9a68c3ca016ebb830bcce282968d3b1d57ef2c844d"
+    },
+    {
+      "file": "han-viet/radical-200-麻.json",
+      "bytes": 10875,
+      "sha256": "0664d3d200f8eb525567a110e6726ba4a4f8bfbc557df7b76612bc714316f5a8"
+    },
+    {
+      "file": "han-viet/radical-201-黃.json",
+      "bytes": 10850,
+      "sha256": "d4e100a687c7782fbd691ad0e36b145a29a0c94c3c8684a2594f80da9b4a6e13"
+    },
+    {
+      "file": "han-viet/radical-202-黍.json",
+      "bytes": 6696,
+      "sha256": "de5bf33bbeff55419e95c6d6c37cfc96ebbc6f9ff79a38a4c49be6a37bf2292a"
+    },
+    {
+      "file": "han-viet/radical-203-黑.json",
+      "bytes": 43850,
+      "sha256": "df3b7934c5d7a194b8585949fb676f3ba6c9931fa36210b5a613813d5160226d"
+    },
+    {
+      "file": "han-viet/radical-204-黹.json",
+      "bytes": 4380,
+      "sha256": "3e14951a3f0a06c1ab89db34d6300345c5a97b7114ffe5b8f448c256ea632f55"
+    },
+    {
+      "file": "han-viet/radical-205-黽.json",
+      "bytes": 15622,
+      "sha256": "f4e8261e2fda7e7005e934919863fda30d86034f256a315d5afd08f08e4117f6"
+    },
+    {
+      "file": "han-viet/radical-206-鼎.json",
+      "bytes": 10049,
+      "sha256": "5afabb97a1788fc2e0a873607d32fb1451a8f47c9ee06fbda33c65f0657d5c22"
+    },
+    {
+      "file": "han-viet/radical-207-鼓.json",
+      "bytes": 10350,
+      "sha256": "d9238522efa7ccffb4c3cf6f9f8fa7aba66d1a71a443078c08d96dc86004fb04"
+    },
+    {
+      "file": "han-viet/radical-208-鼠.json",
+      "bytes": 18347,
+      "sha256": "ff773448abdd580f31a94e0bf77064f30b1adaed971ab72320de0b3ce39a9afe"
+    },
+    {
+      "file": "han-viet/radical-209-鼻.json",
+      "bytes": 9100,
+      "sha256": "1baf39298ae943e322751bd75c9c2bafb38aa50cf79a6e2d7ef4d02c4a60668e"
+    },
+    {
+      "file": "han-viet/radical-210-齊.json",
+      "bytes": 16942,
+      "sha256": "f594b8b22d185faead498358ec8befe0c740a969a2ce5887fb878f13ab17026c"
+    },
+    {
+      "file": "han-viet/radical-211-齒.json",
+      "bytes": 48892,
+      "sha256": "853fbc183ac866818831a66d5dd67d2b52ddec5b0a4eb88dfc118b4038cf91d5"
+    },
+    {
+      "file": "han-viet/radical-212-龍.json",
+      "bytes": 15588,
+      "sha256": "1cc56c574619aaf9d57d0b1cdf909bb4ec2108d4338e663fa444efb497b28ecb"
+    },
+    {
+      "file": "han-viet/radical-213-龜.json",
+      "bytes": 9272,
+      "sha256": "57e15e407820e7bdf835b2970c143cf272d20afde8ad6d98e757f31ba8e50ab8"
+    },
+    {
+      "file": "han-viet/radical-214-龠.json",
+      "bytes": 7445,
+      "sha256": "a9be0931076bbb282e880d47935c5d246a4becbc2b8c326369fd3e6e5b01e453"
+    },
+    {
+      "file": "han-viet/radical-unknown.json",
+      "bytes": 12389,
+      "sha256": "51588e50389d98210b87ef097188734d23aee23744fb9d0bae79f475d4d9c2b0"
+    },
+    {
+      "file": "index.json",
+      "bytes": 10201,
+      "sha256": "c8aeab7ca3bf370a5592a9f331ef2b89427f98abf60f23ce448ba89dc175e69d"
+    },
+    {
+      "file": "lexemes/a.json",
+      "bytes": 560606,
+      "sha256": "eaaa7d7a84faae3edf25c7253092de3ca13a5e4d2bb6ca1f27f5509d813f148b"
+    },
+    {
+      "file": "lexemes/b.json",
+      "bytes": 1408600,
+      "sha256": "13efde472765520d7485c16d78af84bf22cf587a1b741228a9b2aad4b9c58f8c"
+    },
+    {
+      "file": "lexemes/c.json",
+      "bytes": 2828703,
+      "sha256": "9409d15a79ca3add8649e72ea6516c2c8c66b555fb35465f4e77d0642b0407df"
+    },
+    {
+      "file": "lexemes/d.json",
+      "bytes": 1930711,
+      "sha256": "544f585f7911181dc03478b36458920889e46df1eb535b188fc5d91a8610430e"
+    },
+    {
+      "file": "lexemes/e.json",
+      "bytes": 75138,
+      "sha256": "6c0a0c82815cabb36e13e206500ed0d7647db1f0a9789d2e04a8b2cbf8267058"
+    },
+    {
+      "file": "lexemes/f.json",
+      "bytes": 21085,
+      "sha256": "083e39d6fc40e487d90a2adf8993b8f369be68199aa06d468e1d5c7023a51725"
+    },
+    {
+      "file": "lexemes/g.json",
+      "bytes": 605882,
+      "sha256": "b59fa81dd5c79190bc477f8e30dc985bc78c8ee05af2159139218f603b9d3bee"
+    },
+    {
+      "file": "lexemes/h.json",
+      "bytes": 772667,
+      "sha256": "2f2498feefb27a423c867d705f4e89aa01b74da65fbe5f0081462204d25a6ae4"
+    },
+    {
+      "file": "lexemes/i.json",
+      "bytes": 55314,
+      "sha256": "d5e5b4f616ce4ae70f68fd6d1b497018edc07aa0c080e206d893e85a6ee28603"
+    },
+    {
+      "file": "lexemes/j.json",
+      "bytes": 5723,
+      "sha256": "01d6d5f1f93f065db711e09f3bba2fdd2160d290803b3d8f69b7433d2ce73174"
+    },
+    {
+      "file": "lexemes/k.json",
+      "bytes": 645798,
+      "sha256": "28a4d2ac1ba070ea7427ab17099a4f065031f4d45bc700c91d5d19c4a3bc70ad"
+    },
+    {
+      "file": "lexemes/l.json",
+      "bytes": 615697,
+      "sha256": "08071f50d13da6f12edb3bad6aa206ad72cb9c00bb66ed2fc9e3f5f09fd1ed8a"
+    },
+    {
+      "file": "lexemes/m.json",
+      "bytes": 905558,
+      "sha256": "41431070d0688f2e7148de1f6cd17ad012f654899e0579d4e1fd21c924b6a177"
+    },
+    {
+      "file": "lexemes/n.json",
+      "bytes": 1417445,
+      "sha256": "889f47089d5f4c14d199496bc5712ca518dadfa1143e6dfaeda5ca1e4a137f1a"
+    },
+    {
+      "file": "lexemes/o.json",
+      "bytes": 184421,
+      "sha256": "54db2db36d28e85b4584973a841c938bd37b07c6f33ba3e0cc4e305b4c05a4d8"
+    },
+    {
+      "file": "lexemes/other.json",
+      "bytes": 10330,
+      "sha256": "a5501e474fb6868173c31a2706e73086963817dfd0b950d73baef05cd09559ad"
+    },
+    {
+      "file": "lexemes/p.json",
+      "bytes": 444526,
+      "sha256": "59c2c14faa5f8366a6bcc0b1148b505ca19e8d2731eaa63bda36ab4b2d22a27c"
+    },
+    {
+      "file": "lexemes/q.json",
+      "bytes": 305392,
+      "sha256": "9789787c8e34e0119e8213f21e928e0120ea01333e8b13a85784065ad9795566"
+    },
+    {
+      "file": "lexemes/r.json",
+      "bytes": 355891,
+      "sha256": "0faa98a6fdd2d7f0d857e38d73744d1ade0a24e453ec6401d6d02d6152d1edc5"
+    },
+    {
+      "file": "lexemes/s.json",
+      "bytes": 507334,
+      "sha256": "2bb503205bd41cbe506da14f9877efa71b978a1e1066e0859d619648d4bebfa6"
+    },
+    {
+      "file": "lexemes/t.json",
+      "bytes": 1629955,
+      "sha256": "0788076c8892795c5bf4beb3546941fe9520f2a1f514c12f4c7bee8148d41caa"
+    },
+    {
+      "file": "lexemes/u.json",
+      "bytes": 93309,
+      "sha256": "e6e3f2c61121592a45bd9577fee907e3e3b6ae16d24686a37786c0f95783b7a0"
+    },
+    {
+      "file": "lexemes/v.json",
+      "bytes": 584381,
+      "sha256": "877fcc1a793c23bae4498f7462cac1e7a5efe8061e8b0043a75e063bbe14e420"
+    },
+    {
+      "file": "lexemes/w.json",
+      "bytes": 2070,
+      "sha256": "e2f79924952b92c110c29f896d8e57af33e3b518df82137bcd3caca9faa30cca"
+    },
+    {
+      "file": "lexemes/x.json",
+      "bytes": 443824,
+      "sha256": "9011f2e9cbd84a8a81d66bec93a6cbe9294d8e71e2efa7eb7ba3273ddff51418"
+    },
+    {
+      "file": "lexemes/y.json",
+      "bytes": 45026,
+      "sha256": "9e16d9ebf982020b5cd18c2e0addea24c8be2dd0a75b6fc4fa1c4fb7c8074f2e"
+    },
+    {
+      "file": "lexemes/z.json",
+      "bytes": 3582,
+      "sha256": "544999d20423f2c6c59bf374d0432298872563bdc07e98733b23edd114bc87f5"
+    },
+    {
+      "file": "merge-report.json",
+      "bytes": 10772516,
+      "sha256": "86fa39443ca1ca88ebafeb0584358904d53d6f1d5f0ca1fc7f90c08b478065d4"
+    },
+    {
+      "file": "nom/entries.json",
+      "bytes": 1193011,
+      "sha256": "8de1090173a26452d01578bdd8c5b0eb229238402249402774b769b917bdf32e"
+    },
+    {
+      "file": "semantics/synsets.json",
+      "bytes": 2061039,
+      "sha256": "b81180455054d4f7b7dbd169b8bafbc65daa210a032288e6a026b6211ebcc074"
+    },
+    {
+      "file": "variants/orthography.json",
+      "bytes": 54605,
+      "sha256": "c7308e9554bfc02126384a6d3e76b5acb2d42ed614477eede1b9be68d02a3a43"
+    },
+    {
+      "file": "words/a.json",
+      "bytes": 4957206,
+      "sha256": "b19f42f3877bfc797ea862fcfaa714c64f5da7e382e771c86650d841658fc182"
+    },
+    {
+      "file": "words/b.json",
+      "bytes": 16666052,
+      "sha256": "e9f3f6ff04f3a247bb250a546816783d2275ee9fca7302116876a4420866b0aa"
+    },
+    {
+      "file": "words/c.json",
+      "bytes": 28681900,
+      "sha256": "e716e0d5240fcb6e170b7fa389178e472ba6b0c1deecbf639d4ec6c86d011a6e"
+    },
+    {
+      "file": "words/d.json",
+      "bytes": 23070225,
+      "sha256": "b79d0d95464b4a2a7aada1e008f9f51ade5017cc05888349b25ba76239ec402c"
+    },
+    {
+      "file": "words/e.json",
+      "bytes": 753388,
+      "sha256": "7380d5c76828f8e25a8ac61f6659901d095af0906910c564f8c97fa31fe5f49c"
+    },
+    {
+      "file": "words/f.json",
+      "bytes": 98399,
+      "sha256": "d6645ab1f51aaf433e1fb4b8d6786fcb141d008964f15cc529d5168cb4ee079f"
+    },
+    {
+      "file": "words/g.json",
+      "bytes": 9694744,
+      "sha256": "1c5178893273da75287f026c9637feed58fe1c4bfe5bff217f0ffc324155516a"
+    },
+    {
+      "file": "words/h.json",
+      "bytes": 13060224,
+      "sha256": "87f6e5a1170b172d048f5792d7dd3aaefe620415e312ba75df556d1c34163cda"
+    },
+    {
+      "file": "words/i.json",
+      "bytes": 544027,
+      "sha256": "db7347d0b7d8afc0f9d6ad98fa615dd371e2660f8615cf45cefb3e639f333998"
+    },
+    {
+      "file": "words/j.json",
+      "bytes": 36628,
+      "sha256": "5b5dca9a1d80395225f7b2e4e389862958ff06759a8437adc66777521d7cd6ec"
+    },
+    {
+      "file": "words/k.json",
+      "bytes": 10844606,
+      "sha256": "755e3263ac4236ebae38e1f30d412d7aefe0d8c5a58fde60b7cdbe602b2fc9a8"
+    },
+    {
+      "file": "words/l.json",
+      "bytes": 14535229,
+      "sha256": "8e63b5a3dccb07a9a9707e91776eb3506b76ac541c854417dacab5017be109fe"
+    },
+    {
+      "file": "words/m.json",
+      "bytes": 10884906,
+      "sha256": "afacfa2f86d0e20fdf93135b08655940f3f87e9bc6e512e18416410bf3a6fa8d"
+    },
+    {
+      "file": "words/n.json",
+      "bytes": 21919165,
+      "sha256": "dee9e80078a85ad069d31314659b2c19586e1d6c6da9ad86274964d20da9f190"
+    },
+    {
+      "file": "words/o.json",
+      "bytes": 2286616,
+      "sha256": "4367117bd917b60411f204af5bc2f640a27765e01c0641612618e13e749c1fb6"
+    },
+    {
+      "file": "words/p.json",
+      "bytes": 7330511,
+      "sha256": "f574e3474eb76d18ff9db340a869faa0ccd2bb4cf4fa0f3160f08884d0aa25f5"
+    },
+    {
+      "file": "words/q.json",
+      "bytes": 5076811,
+      "sha256": "d6ec50f681093d9a6389908d9e63f025ffe5807875a8a45e75260414d287d62a"
+    },
+    {
+      "file": "words/r.json",
+      "bytes": 4979414,
+      "sha256": "86b0dea10ad066373a6cb19a836bf2345d65bf9ffa09c8235620bf376fcc7dc4"
+    },
+    {
+      "file": "words/s.json",
+      "bytes": 8819404,
+      "sha256": "c8cab4d486a0fcd29687e0c05053feaaf043d2347e57b78d73ae9384b6634982"
+    },
+    {
+      "file": "words/t.json",
+      "bytes": 43932154,
+      "sha256": "1bc0dfb68e1234d5e2af3c69b3f673ad7954887efe06c8b3946a8059f8a59d7f"
+    },
+    {
+      "file": "words/u.json",
+      "bytes": 1601803,
+      "sha256": "7e947cefe7baacf73ab9777851e61e9a825bd767881d13e10f756e0d12bcef36"
+    },
+    {
+      "file": "words/v.json",
+      "bytes": 8201834,
+      "sha256": "034bdb4760328b7d246c234c55f7bf38a63c61984aac4bcc18aceecd491f25a4"
+    },
+    {
+      "file": "words/w.json",
+      "bytes": 46415,
+      "sha256": "3195600895c4b8b3329e846e9fcfeee7237f8eb4f788b783e7b5df5308e14e73"
+    },
+    {
+      "file": "words/x.json",
+      "bytes": 5309957,
+      "sha256": "e67c7d03ae63041a97f5d0d5c0f61169174fc23b5c173997316bc0b2e4577616"
+    },
+    {
+      "file": "words/y.json",
+      "bytes": 1256968,
+      "sha256": "ed5a0221f2632990266644231bce423c2afc07834a5afcb3e95528c93a0fcb9c"
+    },
+    {
+      "file": "words/z.json",
+      "bytes": 17457,
+      "sha256": "4c5ae95aeef453ccee16302a8bcbf2b83d327f22119b05b1772f202ae75685e5"
+    }
+  ],
+  "pipelineFiles": [
+    {
+      "file": "audit-samples.ts",
+      "bytes": 4737,
+      "sha256": "4f25d3a35a2fdf40e45acad6dc9201468b3300a5429c6186cf81ec7600d73038"
+    },
+    {
+      "file": "check-id-stability.ts",
+      "bytes": 3077,
+      "sha256": "bc8a22616b6c63fb86c7e0eb2dc503f7943b2effae974863ec2657629a70b138"
+    },
+    {
+      "file": "check-provenance.ts",
+      "bytes": 4865,
+      "sha256": "c1b1c8e7eca5889e3b182470b6bfb85fd34c7afbe9a265b27539e7f15caa2b28"
+    },
+    {
+      "file": "check-source-removal.ts",
+      "bytes": 6405,
+      "sha256": "559b6f12a1af3531c37233594892fe06da56af5971a2ba6119f94e3f5def30eb"
+    },
+    {
+      "file": "check-website-brief.ts",
+      "bytes": 1240,
+      "sha256": "7189be13de6d40b9e07e93b6f6974efa335b653a048fd7a97a14c901aab11f8a"
+    },
+    {
+      "file": "fetch.ts",
+      "bytes": 8263,
+      "sha256": "a2a8c6f9e27f8cca0143b88160fd1e0e9d89ac0ef3751ad2bdba052d9a354701"
+    },
+    {
+      "file": "lib/kangxi.ts",
+      "bytes": 2404,
+      "sha256": "c1cd4bef9cae7cf54a806b18bcc39e36a394b70ebf47dcf2989c2205c53ac763"
+    },
+    {
+      "file": "lib/paths.ts",
+      "bytes": 1538,
+      "sha256": "797e22891aaea32369b3decaf7ebe9a1ad69c59dec9049ad89d75a55fc69e686"
+    },
+    {
+      "file": "lib/provenance.ts",
+      "bytes": 758,
+      "sha256": "06f7167a9cb1a270d9f066529f64160301498085a8dcbe23516c5696d7339ed7"
+    },
+    {
+      "file": "lib/source-policy.ts",
+      "bytes": 1255,
+      "sha256": "08955b70bc2a2fac9459facd5f6ffca53a36cd57bab428286ce6ba88a2eed414"
+    },
+    {
+      "file": "lib/sources.ts",
+      "bytes": 22511,
+      "sha256": "9d2dcbcd257619b06e7bdd87bb717da9cf87a67043e70e91a7c0cb54b7816ece"
+    },
+    {
+      "file": "lib/text.ts",
+      "bytes": 5385,
+      "sha256": "b5a850aecbb6b657adb66b68c41879232fa14050b3a4777ef12acbb1819a9c2a"
+    },
+    {
+      "file": "lib/types.ts",
+      "bytes": 2839,
+      "sha256": "cec18cba5f70d8e7d6a05b26e64babe313e7c4a0feb908510c3d6da718a028e7"
+    },
+    {
+      "file": "manifest.ts",
+      "bytes": 3993,
+      "sha256": "88fb4d649af24b379084a4e84a0242d6d32e3f7fb780c1a08ea63e01cce75ba0"
+    },
+    {
+      "file": "merge.ts",
+      "bytes": 19971,
+      "sha256": "1b1179e3ca72559ab1a2b6d1778492d2a02ccbcd9752fd99334c6c175cc78283"
+    },
+    {
+      "file": "normalize.ts",
+      "bytes": 38531,
+      "sha256": "576e868de00e5ab2476fb3c16e5d3d0b981e769f6d902616b9eca99e91ef3cba"
+    },
+    {
+      "file": "quality.ts",
+      "bytes": 11396,
+      "sha256": "281afc3e22bcc36937bb6a0d4a2bdd56f261cdd907e6ede7735c4be38f297435"
+    },
+    {
+      "file": "report.ts",
+      "bytes": 17931,
+      "sha256": "d4e4e8755d81d535a621254cfb8cf64d4421c3fb84afbe4c923adb3fd208c89e"
+    },
+    {
+      "file": "snapshot-release.ts",
+      "bytes": 2520,
+      "sha256": "17a3a0025ec81e949c9561c87b1668bd0bea0f4962fc6ebcf053e08138cc54b2"
+    },
+    {
+      "file": "source-policy.ts",
+      "bytes": 1711,
+      "sha256": "eaebc1a82e551bee496b125daf29b4c2325dd1e64b3f890a9732195b3cc5b082"
+    },
+    {
+      "file": "validate.ts",
+      "bytes": 5109,
+      "sha256": "b48f812f21920e3ba0ab35e85152756bf091323a4e15e7abe165ef847f50979e"
+    },
+    {
+      "file": "write-sources.ts",
+      "bytes": 2348,
+      "sha256": "8973932344aa077e9de22c5760ea8ceb822f7b21341bedd49e6e2f85f93329f7"
+    }
+  ],
+  "projectConfigFiles": [
+    {
+      "file": "package.json",
+      "bytes": 2298,
+      "sha256": "d09417ac5021c358031dcf4c65dcffd7d6767cde3562cda398a364135fc06031"
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 31199,
+      "sha256": "c3293bc1f60b07d9f876c654bbd08dc105d6bd29bd8a4261396555a1fdff676b"
+    },
+    {
+      "file": "tsconfig.json",
+      "bytes": 325,
+      "sha256": "cd20a3bd24134c3126f85e0bec7592954e83e72577d6ba0d8df4739c482641bc"
+    },
+    {
+      "file": "data/source-policy.json",
+      "bytes": 85,
+      "sha256": "0ba77fed2234b436d6ede99a60f3b5a58f09c3175af996cfab1ea6304527a042"
+    }
+  ],
+  "schemaHashes": {
+    "evidence-entry.schema.json": "73dbbd534c842d9d560ec6ca021a39e53a169f452d278b553177f7b8d5cccffa",
+    "han-character.schema.json": "f7d18721c99910aec58b7aafb0ed83126d31b3e0da4651255fcb4f37c01dfb92",
+    "lexeme-entry.schema.json": "f1595bfae84a04235622fe7a06939c5e7815c69615e2d05f34bbad9c4d91b1ea",
+    "nom-entry.schema.json": "2870b41c7a65755126d7bb665250d87d1ca60d37d1fb2ca9f05ceab63921abc2",
+    "semantic-entry.schema.json": "335741adaa0b56842e814c93f82162699b1f735b623fb71c9403d34b40e870cc",
+    "variant-entry.schema.json": "9998779b1b00163648f92f773135e203042eaa8cf8659499f404bdd8b6d04001",
+    "word-entry.schema.json": "5650dd450cf7cdaa0a9c72cdbd4f95e452b46c66f39da530730b44f79c76a5f4"
+  },
+  "index": {
+    "generatedAt": "2026-06-19T21:51:29.440Z",
+    "wordCount": 89569,
+    "hanCharacterCount": 11936,
+    "lexemeOnlyCount": 26581,
+    "nomEntryCount": 2390,
+    "semanticSynsetCount": 3627,
+    "orthographicVariantGroupCount": 70,
+    "evidenceCount": 173094,
+    "wordFiles": [
+      "words/a.json",
+      "words/b.json",
+      "words/c.json",
+      "words/d.json",
+      "words/e.json",
+      "words/f.json",
+      "words/g.json",
+      "words/h.json",
+      "words/i.json",
+      "words/j.json",
+      "words/k.json",
+      "words/l.json",
+      "words/m.json",
+      "words/n.json",
+      "words/o.json",
+      "words/p.json",
+      "words/q.json",
+      "words/r.json",
+      "words/s.json",
+      "words/t.json",
+      "words/u.json",
+      "words/v.json",
+      "words/w.json",
+      "words/x.json",
+      "words/y.json",
+      "words/z.json"
+    ],
+    "hanVietFiles": [
+      "han-viet/radical-001-一.json",
+      "han-viet/radical-002-丨.json",
+      "han-viet/radical-003-丶.json",
+      "han-viet/radical-004-丿.json",
+      "han-viet/radical-005-乙.json",
+      "han-viet/radical-006-亅.json",
+      "han-viet/radical-007-二.json",
+      "han-viet/radical-008-亠.json",
+      "han-viet/radical-009-人.json",
+      "han-viet/radical-010-儿.json",
+      "han-viet/radical-011-入.json",
+      "han-viet/radical-012-八.json",
+      "han-viet/radical-013-冂.json",
+      "han-viet/radical-014-冖.json",
+      "han-viet/radical-015-冫.json",
+      "han-viet/radical-016-几.json",
+      "han-viet/radical-017-凵.json",
+      "han-viet/radical-018-刀.json",
+      "han-viet/radical-019-力.json",
+      "han-viet/radical-020-勹.json",
+      "han-viet/radical-021-匕.json",
+      "han-viet/radical-022-匚.json",
+      "han-viet/radical-023-匸.json",
+      "han-viet/radical-024-十.json",
+      "han-viet/radical-025-卜.json",
+      "han-viet/radical-026-卩.json",
+      "han-viet/radical-027-厂.json",
+      "han-viet/radical-028-厶.json",
+      "han-viet/radical-029-又.json",
+      "han-viet/radical-030-口.json",
+      "han-viet/radical-031-囗.json",
+      "han-viet/radical-032-土.json",
+      "han-viet/radical-033-士.json",
+      "han-viet/radical-034-夂.json",
+      "han-viet/radical-035-夊.json",
+      "han-viet/radical-036-夕.json",
+      "han-viet/radical-037-大.json",
+      "han-viet/radical-038-女.json",
+      "han-viet/radical-039-子.json",
+      "han-viet/radical-040-宀.json",
+      "han-viet/radical-041-寸.json",
+      "han-viet/radical-042-小.json",
+      "han-viet/radical-043-尢.json",
+      "han-viet/radical-044-尸.json",
+      "han-viet/radical-045-屮.json",
+      "han-viet/radical-046-山.json",
+      "han-viet/radical-047-巛.json",
+      "han-viet/radical-048-工.json",
+      "han-viet/radical-049-己.json",
+      "han-viet/radical-050-巾.json",
+      "han-viet/radical-051-干.json",
+      "han-viet/radical-052-幺.json",
+      "han-viet/radical-053-广.json",
+      "han-viet/radical-054-廴.json",
+      "han-viet/radical-055-廾.json",
+      "han-viet/radical-056-弋.json",
+      "han-viet/radical-057-弓.json",
+      "han-viet/radical-058-彐.json",
+      "han-viet/radical-059-彡.json",
+      "han-viet/radical-060-彳.json",
+      "han-viet/radical-061-心.json",
+      "han-viet/radical-062-戈.json",
+      "han-viet/radical-063-戶.json",
+      "han-viet/radical-064-手.json",
+      "han-viet/radical-065-支.json",
+      "han-viet/radical-066-攴.json",
+      "han-viet/radical-067-文.json",
+      "han-viet/radical-068-斗.json",
+      "han-viet/radical-069-斤.json",
+      "han-viet/radical-070-方.json",
+      "han-viet/radical-071-无.json",
+      "han-viet/radical-072-日.json",
+      "han-viet/radical-073-曰.json",
+      "han-viet/radical-074-月.json",
+      "han-viet/radical-075-木.json",
+      "han-viet/radical-076-欠.json",
+      "han-viet/radical-077-止.json",
+      "han-viet/radical-078-歹.json",
+      "han-viet/radical-079-殳.json",
+      "han-viet/radical-080-毋.json",
+      "han-viet/radical-081-比.json",
+      "han-viet/radical-082-毛.json",
+      "han-viet/radical-083-氏.json",
+      "han-viet/radical-084-气.json",
+      "han-viet/radical-085-水.json",
+      "han-viet/radical-086-火.json",
+      "han-viet/radical-087-爪.json",
+      "han-viet/radical-088-父.json",
+      "han-viet/radical-089-爻.json",
+      "han-viet/radical-090-爿.json",
+      "han-viet/radical-091-片.json",
+      "han-viet/radical-092-牙.json",
+      "han-viet/radical-093-牛.json",
+      "han-viet/radical-094-犬.json",
+      "han-viet/radical-095-玄.json",
+      "han-viet/radical-096-玉.json",
+      "han-viet/radical-097-瓜.json",
+      "han-viet/radical-098-瓦.json",
+      "han-viet/radical-099-甘.json",
+      "han-viet/radical-100-生.json",
+      "han-viet/radical-101-用.json",
+      "han-viet/radical-102-田.json",
+      "han-viet/radical-103-疋.json",
+      "han-viet/radical-104-疒.json",
+      "han-viet/radical-105-癶.json",
+      "han-viet/radical-106-白.json",
+      "han-viet/radical-107-皮.json",
+      "han-viet/radical-108-皿.json",
+      "han-viet/radical-109-目.json",
+      "han-viet/radical-110-矛.json",
+      "han-viet/radical-111-矢.json",
+      "han-viet/radical-112-石.json",
+      "han-viet/radical-113-示.json",
+      "han-viet/radical-114-禸.json",
+      "han-viet/radical-115-禾.json",
+      "han-viet/radical-116-穴.json",
+      "han-viet/radical-117-立.json",
+      "han-viet/radical-118-竹.json",
+      "han-viet/radical-119-米.json",
+      "han-viet/radical-120-糸.json",
+      "han-viet/radical-121-缶.json",
+      "han-viet/radical-122-网.json",
+      "han-viet/radical-123-羊.json",
+      "han-viet/radical-124-羽.json",
+      "han-viet/radical-125-老.json",
+      "han-viet/radical-126-而.json",
+      "han-viet/radical-127-耒.json",
+      "han-viet/radical-128-耳.json",
+      "han-viet/radical-129-聿.json",
+      "han-viet/radical-130-肉.json",
+      "han-viet/radical-131-臣.json",
+      "han-viet/radical-132-自.json",
+      "han-viet/radical-133-至.json",
+      "han-viet/radical-134-臼.json",
+      "han-viet/radical-135-舌.json",
+      "han-viet/radical-136-舛.json",
+      "han-viet/radical-137-舟.json",
+      "han-viet/radical-138-艮.json",
+      "han-viet/radical-139-色.json",
+      "han-viet/radical-140-艸.json",
+      "han-viet/radical-141-虍.json",
+      "han-viet/radical-142-虫.json",
+      "han-viet/radical-143-血.json",
+      "han-viet/radical-144-行.json",
+      "han-viet/radical-145-衣.json",
+      "han-viet/radical-146-襾.json",
+      "han-viet/radical-147-見.json",
+      "han-viet/radical-148-角.json",
+      "han-viet/radical-149-言.json",
+      "han-viet/radical-150-谷.json",
+      "han-viet/radical-151-豆.json",
+      "han-viet/radical-152-豕.json",
+      "han-viet/radical-153-豸.json",
+      "han-viet/radical-154-貝.json",
+      "han-viet/radical-155-赤.json",
+      "han-viet/radical-156-走.json",
+      "han-viet/radical-157-足.json",
+      "han-viet/radical-158-身.json",
+      "han-viet/radical-159-車.json",
+      "han-viet/radical-160-辛.json",
+      "han-viet/radical-161-辰.json",
+      "han-viet/radical-162-辵.json",
+      "han-viet/radical-163-邑.json",
+      "han-viet/radical-164-酉.json",
+      "han-viet/radical-165-釆.json",
+      "han-viet/radical-166-里.json",
+      "han-viet/radical-167-金.json",
+      "han-viet/radical-168-長.json",
+      "han-viet/radical-169-門.json",
+      "han-viet/radical-170-阜.json",
+      "han-viet/radical-171-隶.json",
+      "han-viet/radical-172-隹.json",
+      "han-viet/radical-173-雨.json",
+      "han-viet/radical-174-靑.json",
+      "han-viet/radical-175-非.json",
+      "han-viet/radical-176-面.json",
+      "han-viet/radical-177-革.json",
+      "han-viet/radical-178-韋.json",
+      "han-viet/radical-179-韭.json",
+      "han-viet/radical-180-音.json",
+      "han-viet/radical-181-頁.json",
+      "han-viet/radical-182-風.json",
+      "han-viet/radical-183-飛.json",
+      "han-viet/radical-184-食.json",
+      "han-viet/radical-185-首.json",
+      "han-viet/radical-186-香.json",
+      "han-viet/radical-187-馬.json",
+      "han-viet/radical-188-骨.json",
+      "han-viet/radical-189-高.json",
+      "han-viet/radical-190-髟.json",
+      "han-viet/radical-191-鬥.json",
+      "han-viet/radical-192-鬯.json",
+      "han-viet/radical-193-鬲.json",
+      "han-viet/radical-194-鬼.json",
+      "han-viet/radical-195-魚.json",
+      "han-viet/radical-196-鳥.json",
+      "han-viet/radical-197-鹵.json",
+      "han-viet/radical-198-鹿.json",
+      "han-viet/radical-199-麥.json",
+      "han-viet/radical-200-麻.json",
+      "han-viet/radical-201-黃.json",
+      "han-viet/radical-202-黍.json",
+      "han-viet/radical-203-黑.json",
+      "han-viet/radical-204-黹.json",
+      "han-viet/radical-205-黽.json",
+      "han-viet/radical-206-鼎.json",
+      "han-viet/radical-207-鼓.json",
+      "han-viet/radical-208-鼠.json",
+      "han-viet/radical-209-鼻.json",
+      "han-viet/radical-210-齊.json",
+      "han-viet/radical-211-齒.json",
+      "han-viet/radical-212-龍.json",
+      "han-viet/radical-213-龜.json",
+      "han-viet/radical-214-龠.json",
+      "han-viet/radical-unknown.json"
+    ],
+    "lexemeFiles": [
+      "lexemes/a.json",
+      "lexemes/b.json",
+      "lexemes/c.json",
+      "lexemes/d.json",
+      "lexemes/e.json",
+      "lexemes/f.json",
+      "lexemes/g.json",
+      "lexemes/h.json",
+      "lexemes/i.json",
+      "lexemes/j.json",
+      "lexemes/k.json",
+      "lexemes/l.json",
+      "lexemes/m.json",
+      "lexemes/n.json",
+      "lexemes/o.json",
+      "lexemes/other.json",
+      "lexemes/p.json",
+      "lexemes/q.json",
+      "lexemes/r.json",
+      "lexemes/s.json",
+      "lexemes/t.json",
+      "lexemes/u.json",
+      "lexemes/v.json",
+      "lexemes/w.json",
+      "lexemes/x.json",
+      "lexemes/y.json",
+      "lexemes/z.json"
+    ],
+    "evidenceFiles": [
+      "evidence/a.json",
+      "evidence/b.json",
+      "evidence/c.json",
+      "evidence/d.json",
+      "evidence/e.json",
+      "evidence/f.json",
+      "evidence/g.json",
+      "evidence/h.json",
+      "evidence/i.json",
+      "evidence/j.json",
+      "evidence/k.json",
+      "evidence/l.json",
+      "evidence/m.json",
+      "evidence/n.json",
+      "evidence/o.json",
+      "evidence/p.json",
+      "evidence/q.json",
+      "evidence/r.json",
+      "evidence/s.json",
+      "evidence/t.json",
+      "evidence/u.json",
+      "evidence/v.json",
+      "evidence/w.json",
+      "evidence/x.json",
+      "evidence/y.json",
+      "evidence/z.json"
+    ],
+    "nomFiles": [
+      "nom/entries.json"
+    ],
+    "semanticFiles": [
+      "semantics/synsets.json"
+    ],
+    "variantFiles": [
+      "variants/orthography.json"
+    ],
+    "radicalCoverageCount": 214
+  }
+}

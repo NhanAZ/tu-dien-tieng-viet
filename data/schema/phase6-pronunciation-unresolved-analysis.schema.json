@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-pronunciation-unresolved-analysis.schema.json",
+  "title": "Phase6PronunciationUnresolvedAnalysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "unresolvedHeadwords",
+    "internalConflictGroups",
+    "rawRecordInternalConflictGroups",
+    "reasonCounts",
+    "entryScopeReasonCounts",
+    "reviewRouteCounts",
+    "files",
+    "caveats"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "PHASE6_PRONUNCIATION_UNRESOLVED_ANALYSIS_DRAFT" },
+    "unresolvedHeadwords": { "type": "integer", "minimum": 0 },
+    "internalConflictGroups": { "type": "integer", "minimum": 0 },
+    "rawRecordInternalConflictGroups": { "type": "integer", "minimum": 0 },
+    "reasonCounts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "entryScopeReasonCounts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "reviewRouteCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parser_fix", "human_review"],
+      "properties": {
+        "parser_fix": { "type": "integer", "minimum": 0 },
+        "human_review": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["details", "sample"],
+      "properties": {
+        "details": { "const": "data/processed/phase6/pronunciation-unresolved-analysis.jsonl" },
+        "sample": { "const": "data/processed/phase6/pronunciation-unresolved-analysis.sample.jsonl" }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  }
+}

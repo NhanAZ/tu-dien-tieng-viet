@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/evidence-entry.schema.json",
+  "title": "CorpusEvidenceEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "headword", "text", "translation", "language", "provenance"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "headword": { "type": "string", "minLength": 1 },
+    "text": { "type": "string", "minLength": 1 },
+    "translation": { "type": ["string", "null"] },
+    "language": { "type": "string", "minLength": 1 },
+    "provenance": { "$ref": "word-entry.schema.json#/$defs/sourceTrace" }
+  }
+}

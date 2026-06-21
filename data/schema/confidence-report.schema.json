@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/confidence-report.schema.json",
+  "title": "ConfidenceReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "status", "modelVersion", "definitions", "weights", "byStatus", "byCanonicalSource", "caveat"],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "HEURISTIC_NOT_CALIBRATED" },
+    "modelVersion": { "const": "heuristic-v1" },
+    "definitions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceConfidence", "clusterConfidence", "canonicalSelectionConfidence"],
+      "properties": {
+        "sourceConfidence": { "type": "string", "minLength": 1 },
+        "clusterConfidence": { "type": "string", "minLength": 1 },
+        "canonicalSelectionConfidence": { "type": "string", "minLength": 1 }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceRights", "sourceQuality"],
+      "properties": {
+        "sourceRights": { "$ref": "#/$defs/numberMap" },
+        "sourceQuality": { "$ref": "#/$defs/numberMap" }
+      }
+    },
+    "byStatus": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/aggregate" }
+    },
+    "byCanonicalSource": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/aggregate" },
+          {
+            "type": "object",
+            "required": ["source", "rightsStatus", "quality"],
+            "properties": {
+              "source": { "type": "string", "minLength": 1 },
+              "rightsStatus": { "type": "string", "minLength": 1 },
+              "quality": { "type": "string", "minLength": 1 }
+            }
+          }
+        ]
+      }
+    },
+    "caveat": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "numberMap": { "type": "object", "additionalProperties": { "type": "number" } },
+    "aggregate": {
+      "type": "object",
+      "required": ["clusters", "averageSourceConfidence", "averageClusterConfidence", "averageCanonicalSelectionConfidence"],
+      "properties": {
+        "clusters": { "type": "integer", "minimum": 0 },
+        "averageSourceConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "averageClusterConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "averageCanonicalSelectionConfidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

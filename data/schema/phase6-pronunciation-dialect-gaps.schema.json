@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-pronunciation-dialect-gaps.schema.json",
+  "title": "Phase6PronunciationDialectGapSummary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "factsWithoutDialect",
+    "reasonCounts",
+    "routeCounts",
+    "sourceCounts",
+    "sourceReasonCounts",
+    "files",
+    "caveats"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "PHASE6_PRONUNCIATION_DIALECT_GAPS_DRAFT" },
+    "factsWithoutDialect": { "type": "integer", "minimum": 0 },
+    "reasonCounts": { "$ref": "#/$defs/countMap" },
+    "routeCounts": { "$ref": "#/$defs/countMap" },
+    "sourceCounts": { "$ref": "#/$defs/countMap" },
+    "sourceReasonCounts": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/countMap" }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["details", "sample"],
+      "properties": {
+        "details": { "const": "data/processed/phase6/pronunciation-dialect-gaps.jsonl" },
+        "sample": { "const": "data/processed/phase6/pronunciation-dialect-gaps.sample.jsonl" }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "countMap": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } }
+  }
+}

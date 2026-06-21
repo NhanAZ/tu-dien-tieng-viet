@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.tu-dien-tieng-viet/schema/phase6-human-review-packet.schema.json",
+  "title": "Phase6HumanReviewPacket",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "status",
+    "packetVersion",
+    "totalTasks",
+    "taskCounts",
+    "reviewStatusCounts",
+    "allowedDecisions",
+    "sourceFiles",
+    "files",
+    "caveats"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "status": { "const": "PHASE6_HUMAN_REVIEW_PACKET_DRAFT" },
+    "packetVersion": { "const": "1.0.0" },
+    "totalTasks": { "type": "integer", "minimum": 0 },
+    "taskCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pronunciation_conflict_review", "dialect_label_review"],
+      "properties": {
+        "pronunciation_conflict_review": { "type": "integer", "minimum": 0 },
+        "dialect_label_review": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "reviewStatusCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unreviewed"],
+      "properties": {
+        "unreviewed": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "allowedDecisions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pronunciation_conflict_review", "dialect_label_review"],
+      "properties": {
+        "pronunciation_conflict_review": {
+          "const": [
+            "keep_all_source_attested_variants",
+            "select_one_display_ipa",
+            "split_by_source_entry_or_pos",
+            "requires_parser_followup",
+            "insufficient_evidence"
+          ]
+        },
+        "dialect_label_review": {
+          "const": [
+            "assign_recognized_dialect",
+            "split_label_and_qualifier",
+            "not_a_dialect_label",
+            "leave_dialect_null",
+            "insufficient_evidence"
+          ]
+        }
+      }
+    },
+    "sourceFiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pronunciationConflicts", "dialectGaps"],
+      "properties": {
+        "pronunciationConflicts": {
+          "const": "data/processed/phase6/pronunciation-unresolved-analysis.jsonl"
+        },
+        "dialectGaps": {
+          "const": "data/processed/phase6/pronunciation-dialect-gaps.jsonl"
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tasks", "sample"],
+      "properties": {
+        "tasks": { "const": "data/processed/phase6/human-review-packet.jsonl" },
+        "sample": { "const": "data/processed/phase6/human-review-packet.sample.jsonl" }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  }
+}
