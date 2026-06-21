@@ -1,22 +1,19 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useDeferredValue, useEffect, useMemo, useState, type ReactNode } from "react";
 
+// Compact wire keys keep the 89k-row static search payload small.
 type SearchEntry = {
-  id: string;
-  word: string;
-  noTone: string;
-  bucket: string;
-  syllables: number;
-  ipa: string | null;
-  pos: string[];
-  origin: string | null;
-  definition: string;
-  definitionSearch: string;
-  sources: string[];
-  hasViDefinition: boolean;
-  hasHanNom: boolean;
+  i: string;
+  w: string;
+  n: string;
+  t: string;
+  b: string;
+  d: string;
+  f: number;
 };
+
+type SearchFilter = "all" | "ipa" | "han" | "vi";
 
 type Definition = {
   meaning: string;
@@ -72,6 +69,10 @@ type DictionaryAppProps = {
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 const glyphs = ["a", "ă", "â", "đ", "ê", "ô", "ơ", "ư", "語", "字", "學", "𡨸", "喃"];
+const SEARCH_FLAG_IPA = 1;
+const SEARCH_FLAG_VI_DEFINITION = 2;
+const SEARCH_FLAG_HAN_NOM = 4;
+const SEARCH_SCORES = [210, 200, 140, 130, 120, 90] as const;
 
 function noTone(value: string) {
   return value
@@ -125,14 +126,58 @@ function routeInitialId() {
   return encodedId ? decodeURIComponent(encodedId) : undefined;
 }
 
-function scoreEntry(entry: SearchEntry, query: string, normalized: string) {
-  const word = entry.word.toLowerCase();
-  if (word === query.toLowerCase() || entry.noTone === normalized) return 200;
-  if (word.startsWith(query.toLowerCase()) || entry.noTone.startsWith(normalized)) return 140;
-  if (word.includes(query.toLowerCase()) || entry.noTone.includes(normalized)) return 90;
-  if (entry.definitionSearch.includes(normalized)) return 45;
-  if (entry.sources.some((source) => source.includes(normalized))) return 20;
+function hasSearchFlag(entry: SearchEntry, flag: number) {
+  return (entry.f & flag) !== 0;
+}
+
+function matchesSearchFilters(entry: SearchEntry, filter: SearchFilter, letter: string | null) {
+  if (letter && entry.b !== letter) return false;
+  if (filter === "ipa" && !hasSearchFlag(entry, SEARCH_FLAG_IPA)) return false;
+  if (filter === "han" && !hasSearchFlag(entry, SEARCH_FLAG_HAN_NOM)) return false;
+  if (filter === "vi" && !hasSearchFlag(entry, SEARCH_FLAG_VI_DEFINITION)) return false;
+  return true;
+}
+
+function scoreEntry(entry: SearchEntry, queryLower: string, normalized: string) {
+  if (entry.n === normalized) {
+    return entry.w.toLocaleLowerCase("vi") === queryLower ? 210 : 200;
+  }
+  if (entry.n.startsWith(normalized)) return 140;
+
+  const tokenNeedle = `|${normalized}`;
+  if (entry.t.includes(`${tokenNeedle}|`)) return 130;
+  if (entry.t.includes(tokenNeedle)) return 120;
+  if (entry.n.includes(normalized)) return 90;
   return 0;
+}
+
+function topSearchResults(
+  index: SearchEntry[],
+  query: string,
+  normalized: string,
+  filter: SearchFilter,
+  letter: string | null
+) {
+  if (!query) {
+    const rows: SearchEntry[] = [];
+    for (const entry of index) {
+      if (!matchesSearchFilters(entry, filter, letter)) continue;
+      rows.push(entry);
+      if (rows.length === 80) break;
+    }
+    return rows;
+  }
+
+  const groups = new Map<number, SearchEntry[]>(SEARCH_SCORES.map((score) => [score, []]));
+  const queryLower = query.toLocaleLowerCase("vi");
+  for (const entry of index) {
+    if (!matchesSearchFilters(entry, filter, letter)) continue;
+    const score = scoreEntry(entry, queryLower, normalized);
+    const group = groups.get(score);
+    if (group && group.length < 80) group.push(entry);
+  }
+
+  return SEARCH_SCORES.flatMap((score) => groups.get(score) ?? []).slice(0, 80);
 }
 
 export default function DictionaryApp({ initialId }: DictionaryAppProps) {
@@ -141,7 +186,8 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
   const [stats, setStats] = useState<Stats | null>(null);
   const [hanIndex, setHanIndex] = useState<HanEntry[]>([]);
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<"all" | "ipa" | "han" | "vi">("all");
+  const deferredQuery = useDeferredValue(query);
+  const [filter, setFilter] = useState<SearchFilter>("all");
   const [selected, setSelected] = useState<WordEntry | null>(null);
   const [selectedHan, setSelectedHan] = useState<HanEntry | null>(null);
   const [loadingDetail, setLoadingDetail] = useState(false);
@@ -177,17 +223,17 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
   const loadWord = useCallback(
     async (entryOrId: SearchEntry | string, pushUrl = true) => {
       const entry =
-        typeof entryOrId === "string" ? index.find((row) => row.id === entryOrId) : entryOrId;
+        typeof entryOrId === "string" ? index.find((row) => row.i === entryOrId) : entryOrId;
       if (!entry) return;
       setLoadingDetail(true);
-      const rows: WordEntry[] = await fetch(apiUrl(`api/words/${entry.bucket}.json`)).then((response) =>
+      const rows: WordEntry[] = await fetch(apiUrl(`api/words/${entry.b}.json`)).then((response) =>
         response.json()
       );
-      const detail = rows.find((row) => row.id === entry.id) ?? null;
+      const detail = rows.find((row) => row.id === entry.i) ?? null;
       setSelected(detail);
       setSelectedHan(null);
-      setHistory((current) => [entry.id, ...current.filter((id) => id !== entry.id)].slice(0, 10));
-      if (pushUrl) window.history.replaceState(null, "", appUrl(`tu/${encodeURIComponent(entry.id)}`));
+      setHistory((current) => [entry.i, ...current.filter((id) => id !== entry.i)].slice(0, 10));
+      if (pushUrl) window.history.replaceState(null, "", appUrl(`tu/${encodeURIComponent(entry.i)}`));
       setLoadingDetail(false);
     },
     [index]
@@ -201,37 +247,26 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
   }, [routeId, index, selected, loadWord]);
 
   const results = useMemo(() => {
-    const q = query.trim();
+    const q = deferredQuery.trim();
     const normalized = noTone(q);
-    const rows = index.filter((entry) => {
-      if (letter && entry.bucket !== letter) return false;
-      if (filter === "ipa" && !entry.ipa) return false;
-      if (filter === "han" && !entry.hasHanNom) return false;
-      if (filter === "vi" && !entry.hasViDefinition) return false;
-      if (!q) return true;
-      return scoreEntry(entry, q, normalized) > 0;
-    });
-    return rows
-      .map((entry) => ({ entry, score: q ? scoreEntry(entry, q, normalized) : 1 }))
-      .sort((a, b) => b.score - a.score || a.entry.noTone.localeCompare(b.entry.noTone, "vi"))
-      .slice(0, 80)
-      .map((row) => row.entry);
-  }, [index, query, filter, letter]);
+    return topSearchResults(index, q, normalized, filter, letter);
+  }, [index, deferredQuery, filter, letter]);
 
   const hanResults = useMemo(() => {
-    const normalized = noTone(query.trim());
+    const q = deferredQuery.trim();
+    const normalized = noTone(q);
     return hanIndex
       .filter((entry) => {
         if (!normalized) return entry.strokes <= 4;
         return (
-          entry.char.includes(query.trim()) ||
+          entry.char.includes(q) ||
           noTone(entry.readings.join(" ")).includes(normalized) ||
           noTone(entry.meaning).includes(normalized) ||
-          entry.radical.includes(query.trim())
+          entry.radical.includes(q)
         );
       })
       .slice(0, 80);
-  }, [hanIndex, query]);
+  }, [hanIndex, deferredQuery]);
 
   const randomWord = () => {
     if (index.length === 0) return;
@@ -259,11 +294,11 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
   };
 
   const favoriteEntries = favorites
-    .map((id) => index.find((entry) => entry.id === id))
+    .map((id) => index.find((entry) => entry.i === id))
     .filter((entry): entry is SearchEntry => Boolean(entry))
     .slice(0, 6);
   const historyEntries = history
-    .map((id) => index.find((entry) => entry.id === id))
+    .map((id) => index.find((entry) => entry.i === id))
     .filter((entry): entry is SearchEntry => Boolean(entry))
     .slice(0, 6);
 
@@ -372,21 +407,24 @@ export default function DictionaryApp({ initialId }: DictionaryAppProps) {
             </section>
 
             <section className="rounded-lg border border-[#d9dfd9] bg-white">
-              <div className="border-b border-[#e3e8e3] px-3 py-2">
+              <div className="flex items-center justify-between border-b border-[#e3e8e3] px-3 py-2">
                 <h2 className="text-sm font-semibold text-[#273a35]">Kết quả</h2>
+                <span className="text-xs text-[#64726d]" aria-live="polite">
+                  {query !== deferredQuery ? "Đang tìm..." : `${results.length} kết quả`}
+                </span>
               </div>
               <div className="max-h-[460px] overflow-auto">
                 {results.map((entry) => (
                   <button
-                    key={entry.id}
+                    key={entry.i}
                     type="button"
                     onClick={() => loadWord(entry)}
                     className={`block w-full border-b border-[#eef1ee] px-3 py-3 text-left hover:bg-[#f5faf7] ${
-                      selected?.id === entry.id ? "bg-[#edf4f0]" : ""
+                      selected?.id === entry.i ? "bg-[#edf4f0]" : ""
                     }`}
                   >
-                    <span className="block text-base font-semibold text-[#18211f]">{entry.word}</span>
-                    <span className="mt-1 line-clamp-2 block text-sm leading-6 text-[#5a6662]">{entry.definition}</span>
+                    <span className="block text-base font-semibold text-[#18211f]">{entry.w}</span>
+                    <span className="mt-1 line-clamp-2 block text-sm leading-6 text-[#5a6662]">{entry.d}</span>
                   </button>
                 ))}
               </div>
@@ -497,12 +535,12 @@ function QuickList({
         ) : (
           rows.map((row) => (
             <button
-              key={row.id}
+              key={row.i}
               type="button"
               onClick={() => loadWord(row)}
               className="block w-full border-b border-[#eef1ee] px-3 py-2 text-left text-sm hover:bg-[#f5faf7]"
             >
-              {row.word}
+              {row.w}
             </button>
           ))
         )}

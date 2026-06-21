@@ -31,6 +31,10 @@ function compactDefinition(definition) {
   };
 }
 
+const SEARCH_FLAG_IPA = 1;
+const SEARCH_FLAG_VI_DEFINITION = 2;
+const SEARCH_FLAG_HAN_NOM = 4;
+
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
@@ -66,21 +70,22 @@ async function buildWords() {
       const sources = Array.from(new Set(entry.definitions.map((definition) => definition.source))).sort();
       for (const source of sources) sourceCounts[source] = (sourceCounts[source] ?? 0) + 1;
       const bucket = bucketFor(entry.word);
+      const normalizedHeadword = entry.headword_no_tone ?? noTone(entry.word);
+      const searchTokens = normalizedHeadword.match(/[a-z]+/g) ?? [];
       letterCounts[bucket] = (letterCounts[bucket] ?? 0) + 1;
       searchIndex.push({
-        id: entry.id,
-        word: entry.word,
-        noTone: entry.headword_no_tone ?? noTone(entry.word),
-        bucket,
-        syllables: entry.syllable_count,
-        ipa: entry.pronunciation_ipa,
-        pos: entry.part_of_speech ?? [],
-        origin: entry.origin,
-        definition: definitions[0]?.meaning ?? "",
-        definitionSearch: noTone(definitions.map((definition) => definition.meaning).join(" ")).slice(0, 700),
-        sources,
-        hasViDefinition: viDefinitions.length > 0,
-        hasHanNom: (entry.han_viet_ref?.length ?? 0) > 0 || (entry.han_nom_forms?.length ?? 0) > 0,
+        i: entry.id,
+        w: entry.word,
+        n: normalizedHeadword,
+        t: `|${searchTokens.join("|")}|`,
+        b: bucket,
+        d: definitions[0]?.meaning ?? "",
+        f:
+          (entry.pronunciation_ipa ? SEARCH_FLAG_IPA : 0) |
+          (viDefinitions.length > 0 ? SEARCH_FLAG_VI_DEFINITION : 0) |
+          ((entry.han_viet_ref?.length ?? 0) > 0 || (entry.han_nom_forms?.length ?? 0) > 0
+            ? SEARCH_FLAG_HAN_NOM
+            : 0),
       });
       return {
         ...entry,
@@ -90,7 +95,7 @@ async function buildWords() {
     await writeJson(path.join(wordBucketsDir, file), normalizedWords);
   }
 
-  searchIndex.sort((a, b) => a.noTone.localeCompare(b.noTone, "vi") || a.word.localeCompare(b.word, "vi"));
+  searchIndex.sort((a, b) => a.n.localeCompare(b.n, "vi") || a.w.localeCompare(b.w, "vi"));
   await writeJson(path.join(apiDir, "search-index.json"), searchIndex);
   return { searchIndex, letterCounts, sourceCounts };
 }
@@ -197,7 +202,7 @@ await writeFile(
   path.join(webRoot, "public", "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${searchIndex
     .slice(0, 5000)
-    .map((entry) => `  <url><loc>/tu/${encodeURIComponent(entry.id)}</loc></url>`)
+    .map((entry) => `  <url><loc>/tu/${encodeURIComponent(entry.i)}</loc></url>`)
     .join("\n")}\n</urlset>\n`,
   "utf8"
 );

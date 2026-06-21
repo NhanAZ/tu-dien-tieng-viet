@@ -19,7 +19,7 @@ server để cập nhật API tĩnh.
 
 ## Dữ liệu web sinh ra
 
-- `public/api/search-index.json`: chỉ mục tra cứu không dấu, IPA, nguồn, nghĩa.
+- `public/api/search-index.json`: chỉ mục gọn cho tra không dấu, snippet nghĩa và các cờ lọc.
 - `public/api/words/*.json`: chi tiết mục từ theo bucket chữ cái.
 - `public/api/han-index.json`: chỉ mục Hán-Việt/bộ thủ.
 - `public/api/han-viet/*.json`: chi tiết Hán-Việt theo bộ thủ.
